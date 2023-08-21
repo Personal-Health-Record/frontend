@@ -3,7 +3,7 @@ import LoginForm from "./components/LoginForm";
 
 const Authentication = () => {
   return (
-    <div>
+    <div className="flex flex-col align-middle h-screen">
       <IconPHR />
       <LoginForm />
     </div>
