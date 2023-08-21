@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const LoginForm = () => {
   return (
-    <div>
+    <div className="mt-8">
       <div className="relative mt-4 px-8">
         <label
           htmlFor="input"
