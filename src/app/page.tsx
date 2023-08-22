@@ -1,5 +1,6 @@
 import Dashboard from "./components/Dashboard";
 import Header from "./components/Header";
+import MainMenu from "./components/MainMenu";
 import Pengingat from "./components/Pengingat";
 
 export default function Home() {
@@ -8,7 +9,7 @@ export default function Home() {
       <Header />
       <Dashboard />
       <Pengingat />
-      <div>Menu Utama</div>
+      <MainMenu />
     </main>
   );
 }
