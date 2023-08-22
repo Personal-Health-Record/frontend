@@ -1,3 +1,4 @@
+import BottomNavbar from "./components/BottomNavbar";
 import Dashboard from "./components/Dashboard";
 import Header from "./components/Header";
 import MainMenu from "./components/MainMenu";
@@ -10,6 +11,7 @@ export default function Home() {
       <Dashboard />
       <Pengingat />
       <MainMenu />
+      <BottomNavbar />
     </main>
   );
 }
