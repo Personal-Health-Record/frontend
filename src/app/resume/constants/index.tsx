@@ -60,3 +60,34 @@ export const resumeData = [
     location: "Rumah Sakit Sentosa Husada",
   },
 ];
+
+export const detailResume = [
+  {
+    title: "Tanggal Kunjungan",
+    value: "7 Maret 2023",
+  },
+  {
+    title: "Nomor Rekam Medis",
+    value: "827819929",
+  },
+  {
+    title: "Tanggal Kunjungan",
+    value: "7 Maret 2023",
+  },
+  {
+    title: "NIK Pasien",
+    value: "1375892029483833",
+  },
+  {
+    title: "Jenis Pasien",
+    value: "Pasien BPJS",
+  },
+  {
+    title: "Nama Pasien",
+    value: "Hans Michael",
+  },
+  {
+    title: "Nama Poli",
+    value: "Poli Ortopedi",
+  },
+];
