@@ -7,7 +7,7 @@ const RujukanDetails = () => {
     <div className="flex flex-col">
       <Header title="Rujukan" />
 
-      <div className="flex flex-col w-screen px-4 py-4 gap-3">
+      <div className="flex flex-col w-full px-4 py-4 gap-3">
         <h3 className="font-semibold">Informasi Umum</h3>
         {detailRujukan?.map((rujukan, idx) => (
           <CardRujukanDetail

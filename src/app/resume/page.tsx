@@ -9,7 +9,7 @@ const ResumePage = () => {
     <div className="flex flex-col">
       <Header title="Resume Medis" />
 
-      <div className="flex flex-col w-screen px-4 py-4 gap-3">
+      <div className="flex flex-col w-full px-4 py-4 gap-3">
         <SearchBar />
         <TopCard />
         {resumeData?.map((resume) => (

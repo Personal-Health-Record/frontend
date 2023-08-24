@@ -8,7 +8,7 @@ const RujukanPage = () => {
     <div className="flex flex-col">
       <Header title="Rujukan" />
 
-      <div className="flex flex-col w-screen px-4 py-4 gap-3">
+      <div className="flex flex-col w-full px-4 py-4 gap-3">
         <SearchBar />
         <JadwalRujukan />
         <RiwayatRujukan />
