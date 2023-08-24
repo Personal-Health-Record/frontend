@@ -1,0 +1,17 @@
+export const vaksinasiData = [
+  { title: "Influenza (Flu)", isComplete: true },
+  { title: "COVID-19", isComplete: false },
+  { title: "Tetanus", isComplete: true },
+  { title: "Hepatitis B", isComplete: false },
+  { title: "Measles", isComplete: true },
+  { title: "Polio", isComplete: true },
+  { title: "Mumps", isComplete: false },
+  { title: "Rubella", isComplete: false },
+  { title: "Diphtheria", isComplete: true },
+  { title: "Pertussis (Whooping Cough)", isComplete: false },
+  { title: "Yellow Fever", isComplete: true },
+  { title: "Meningitis", isComplete: false },
+  { title: "Pneumococcal", isComplete: true },
+  { title: "Typhoid", isComplete: false },
+  { title: "Rabies", isComplete: false },
+];
