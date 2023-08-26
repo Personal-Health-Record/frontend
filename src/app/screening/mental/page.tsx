@@ -16,6 +16,10 @@ const ScreeningMental = () => {
         {mentalQuestion.map((question) => (
           <FormMental title={question} />
         ))}
+
+        <button className="bg-mainBlue rounded-3xl text-white font-semibold py-3">
+          Submit
+        </button>
       </div>
     </div>
   );

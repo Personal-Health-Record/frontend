@@ -23,6 +23,10 @@ const ScreeningCovid = () => {
         </h3>
 
         <FormGejala />
+
+        <button className="bg-mainBlue rounded-3xl text-white font-semibold py-3">
+          Submit
+        </button>
       </div>
     </div>
   );
