@@ -39,3 +39,10 @@ export const dataHistory = [
     data: "Puskesmas Serpong",
   },
 ];
+
+export const mentalQuestion = [
+  "Kurang berminat atau bergairah dalam melakukan apapun",
+  "Merasa murung, sedih, atau putus asa",
+  "Sulit tidur/mudah terbangun, atau terlalu banyak tidur",
+  "Merasa lelah atau kurang bertenaga",
+];
