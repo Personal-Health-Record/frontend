@@ -14,7 +14,10 @@ const NewsCard = (props: NewsCardProps) => {
                 }}>{props.title}</h1>
                 <p style={{
                     fontWeight: 400,
-                    fontSize: "12px"
+                    fontSize: "12px",
+                    textOverflow: "ellipsis",
+                    overflow: "hidden",
+                    whiteSpace: "nowrap",
                 }}>{props.description}</p>
             </div>
             <div className="w-1/4 flex justify-center items-center ">
