@@ -39,14 +39,15 @@ const LoginForm = () => {
         </button>
       </div>
 
-      <p className="w-full text-center mt-4 text-lightGrey">atau</p>
+      {/* Disabled login with google */}
+      {/* <p className="w-full text-center mt-4 text-lightGrey">atau</p>
 
       <div className="px-8 mt-4">
         <button className="flex justify-center items-center gap-2 rounded-2xl bg-transparent w-full h-10 text-mainBlue border border-mainBlue py-5">
           <Image src="/images/google.png" alt="" width={25} height={25} />
           Login dengan Google
         </button>
-      </div>
+      </div> */}
 
       <p className="w-full text-center mt-6 text-lightGrey">
         Belum punya akun? <span className="text-mainBlue">Register</span>
