@@ -1,11 +1,22 @@
+"use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Pengingat = () => {
+  const router = useRouter();
+
+  const handleRedirectObat = () => {
+    router.push("/obat");
+  };
+
   return (
     <div className="flex flex-col px-4 py-4 gap-2">
       <h3>Pengingat</h3>
 
-      <div className="flex shadow-md rounded-md px-3 py-4 gap-3 items-center justify-between">
+      <div
+        className="flex shadow-md rounded-md px-3 py-4 gap-3 items-center justify-between"
+        onClick={handleRedirectObat}
+      >
         <div>
           <Image
             src="/images/pengingat-icon.png"
