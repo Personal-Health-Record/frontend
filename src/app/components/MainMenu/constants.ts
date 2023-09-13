@@ -57,6 +57,6 @@ export const menuList = [
   {
     icon: "/images/menu/menu-12.png",
     title: "Kalkulator Kesehatan",
-    url: "/",
+    url: "/monitoring/kalkulator",
   },
 ];
