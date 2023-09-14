@@ -13,10 +13,7 @@ const KalulatorKesehatan = () => {
         </h3>
 
         {lsitKalkulator.map((kalkulator) => (
-          <KalkulatorKesehatanCard
-            image={kalkulator.image}
-            title={kalkulator.title}
-          />
+          <KalkulatorKesehatanCard dataCard={kalkulator} />
         ))}
       </div>
     </div>

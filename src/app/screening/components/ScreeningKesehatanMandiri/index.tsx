@@ -10,10 +10,7 @@ const ScreeningKesehatanMandiri = () => {
 
       <div className="flex flex-col gap-4 ">
         {screeningData.map((screening) => (
-          <ScreeningKesehatanMandiriCard
-            image={screening.image}
-            title={screening.title}
-          />
+          <ScreeningKesehatanMandiriCard dataCard={screening} />
         ))}
       </div>
     </div>

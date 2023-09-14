@@ -2,14 +2,17 @@ export const screeningData = [
   {
     title: "Skrining Mandiri Penyakit Tidak Menular",
     image: "/images/screening/screening-0.png",
+    path: "/",
   },
   {
     title: "Skrining COVID-19",
     image: "/images/screening/screening-2.png",
+    path: "/screening/covid",
   },
   {
     title: "Skrining Kesehatan Mental",
     image: "/images/screening/screening-3.png",
+    path: "/screening/mental",
   },
 ];
 

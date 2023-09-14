@@ -1,7 +1,16 @@
+"use client";
+
+import { useRouter } from "next/navigation";
 import FormTextField from "../FormTextField";
 import Notifikasi from "../Notifikasi";
 
 const FormTambahPengingat = () => {
+  const router = useRouter();
+
+  const handleOnSubmit = () => {
+    router.back();
+  };
+
   return (
     <div className="flex flex-col gap-8">
       <FormTextField title="Nama Obat" />
@@ -23,8 +32,11 @@ const FormTambahPengingat = () => {
 
       <Notifikasi />
 
-      <button className="bg-mainBlue rounded-3xl text-white font-semibold py-3 mb-6">
-        Submit
+      <button
+        className="bg-mainBlue rounded-3xl text-white font-semibold py-3 mb-6"
+        onClick={handleOnSubmit}
+      >
+        Simpan
       </button>
     </div>
   );

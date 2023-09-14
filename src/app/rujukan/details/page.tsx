@@ -1,6 +1,7 @@
 import Header from "@/app/components/Header";
 import CardRujukanDetail from "../components/CardRujukanDetail";
 import { detailRujukan } from "../constants";
+import BottomNavbarMedis from "@/app/components/BottomNavbarMedis";
 
 const RujukanDetails = () => {
   return (
@@ -16,6 +17,8 @@ const RujukanDetails = () => {
             key={`rujukan-${rujukan.value}-${idx}`}
           />
         ))}
+
+        <BottomNavbarMedis />
       </div>
     </div>
   );

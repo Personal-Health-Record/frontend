@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 interface Props {
   name: string;
@@ -8,8 +11,17 @@ interface Props {
 }
 
 const CardTenagaKesehatan = ({ location, name, specialist, image }: Props) => {
+  const router = useRouter();
+
+  const handleOnClick = () => {
+    router.push("/tenaga/profile");
+  };
+
   return (
-    <div className="flex shadow-md py-4 px-3 gap-3 rounded-lg justify-center">
+    <div
+      className="flex shadow-md py-4 px-3 gap-3 rounded-lg justify-center"
+      onClick={handleOnClick}
+    >
       <div>
         <Image src={image} alt="" width={50} height={50} />
       </div>
