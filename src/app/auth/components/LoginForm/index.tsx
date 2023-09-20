@@ -1,6 +1,14 @@
-import Image from "next/image";
+"use client";
+
+import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
+  const router = useRouter();
+
+  const handleClickLogin = () => {
+    router.push("/");
+  };
+
   return (
     <div className="mt-8">
       <div className="relative mt-4 px-8">
@@ -34,7 +42,10 @@ const LoginForm = () => {
       </div>
 
       <div className="px-8 mt-8">
-        <button className="rounded-2xl bg-mainBlue w-full h-10 text-white">
+        <button
+          className="rounded-2xl bg-mainBlue w-full h-10 text-white"
+          onClick={handleClickLogin}
+        >
           Login
         </button>
       </div>
