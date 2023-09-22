@@ -1,12 +1,31 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { dummyUserData } from "./dummyData";
 
 const LoginForm = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [userData, setUserData] = useState(dummyUserData);
+
+  useEffect(() => {
+    const userDataStorage = localStorage.getItem('userDataStorage');
+    if (userDataStorage) {
+      setUserData(JSON.parse(userDataStorage));
+    }
+  }, [])
+
   const router = useRouter();
 
   const handleClickLogin = () => {
-    router.push("/");
+    const user = userData.find((user) => user.email === email && user.password === password);
+    if (user) {
+      localStorage.setItem('authUserEmail', user.email);
+      router.push("/");
+    } else {
+      alert('Login gagal');
+    }
   };
 
   return (
@@ -23,6 +42,7 @@ const LoginForm = () => {
           id="input"
           className="w-full px-4 py-2 border border-gray-400 rounded-2xl bg-transparent focus:outline-none focus:border-gray-900"
           placeholder="mail@mail.com"
+          onChange={(e) => setEmail(e.target.value)}
         />
       </div>
 
@@ -38,6 +58,7 @@ const LoginForm = () => {
           id="input"
           className="w-full px-4 py-2 border border-gray-400 rounded-2xl bg-transparent focus:outline-none focus:border-gray-900"
           placeholder="****"
+          onChange={(e) => setPassword(e.target.value)}
         />
       </div>
 
