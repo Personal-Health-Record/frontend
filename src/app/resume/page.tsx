@@ -1,10 +1,21 @@
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import CardResume from "./components/CardResume";
 import SearchBar from "./components/SearchBar";
 import TopCard from "./components/TopCard";
-import { resumeData } from "./constants";
+import { dummyResumeData } from "./dummyData";
+import { formatDate } from "../common/dateHelper";
 
 const ResumePage = () => {
+  const [resumeData, setResumeData] = useState(dummyResumeData);
+  
+  useEffect(() => {
+    const resumeDataStorage = localStorage.getItem('resumeDataStorage');
+    if (resumeDataStorage) {
+      setResumeData(JSON.parse(resumeDataStorage));
+    }
+  }, [])
+
   return (
     <div className="flex flex-col">
       <Header title="Resume Medis" />
@@ -14,8 +25,7 @@ const ResumePage = () => {
         <TopCard />
         {resumeData?.map((resume) => (
           <CardResume
-            resumeDate={resume.date}
-            resumeLocation={resume.location}
+            resume={resume}
           />
         ))}
       </div>

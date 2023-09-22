@@ -2,17 +2,18 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { Resume } from "../../models";
+import { formatDate } from "@/app/common/dateHelper";
 
-interface Props {
-  resumeDate: string;
-  resumeLocation: string;
+export type CardResumeProps = {
+  resume: Resume;
 }
 
-const CardResume = ({ resumeDate, resumeLocation }: Props) => {
+const CardResume = ({resume}: CardResumeProps) => {
   const router = useRouter();
 
   const handleOnClick = () => {
-    router.push("/resume/details");
+    router.push(`/resume/details/${resume.id}`);
   };
 
   return (
@@ -21,8 +22,8 @@ const CardResume = ({ resumeDate, resumeLocation }: Props) => {
       onClick={handleOnClick}
     >
       <div className="flex flex-col gap-1">
-        <p className="text-sm">{resumeDate}</p>
-        <p className="text-sm text-mainGrey">{resumeLocation}</p>
+        <p className="text-sm">{formatDate(resume.date)}</p>
+        <p className="text-sm text-mainGrey">{resume.location}</p>
       </div>
 
       <Image src="/images/arrow-right.png" alt="" width={30} height={30} />
