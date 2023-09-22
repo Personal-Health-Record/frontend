@@ -1,12 +1,12 @@
 export const dummyUserData = [
     {
-        email: "pasien@gmail.com",
-        password: "pasien123",
-        role: "pasien",
+        email: "patient@gmail.com",
+        password: "pass",
+        role: "patient",
     },
     {
-        email: "tenagamedis@gmail.com",
-        password: "tenagamedis123",
-        role: "tenagamedis",
+        email: "doctor@gmail.com",
+        password: "pass",
+        role: "doctor",
     }
 ]
