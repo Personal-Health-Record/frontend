@@ -1,9 +1,20 @@
+"use client"
+
 import Header from "@/app/components/Header";
 import Timeline from "../components/Timeline";
 import Pagination from "../components/Pagination";
 import BottomNavbarMedis from "@/app/components/BottomNavbarMedis";
+import { useState } from "react";
+import { dummyResumeData } from "../dummyData";
 
 const RiwayatResume = () => {
+  const [pageNumber, setPageNumber] = useState(1)
+  
+  const riwayatData = () => {
+    const pageSize = 5;
+    return dummyResumeData.slice((pageNumber - 1) * pageSize, pageNumber * pageSize);
+  }
+
   return (
     <div className="flex flex-col">
       <Header title="Riwayat Medis" />
@@ -17,7 +28,7 @@ const RiwayatResume = () => {
           </p>
         </div>
 
-        <Timeline />
+        <Timeline dataRiwayat={riwayatData()}/>
 
         <div className="border-b-2 mt-6" />
 

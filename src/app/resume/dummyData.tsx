@@ -1,7 +1,7 @@
 export const dummyResumeData = [
     {
         id: 1,
-        date: "18/04/2022",
+        date: "04/18/2022",
         location: "Rumah Sakit Maju Jaya",
         diagnose: "E11.9 - Diabetes mellitus",
         recordNumber: "12345",
@@ -41,7 +41,7 @@ export const dummyResumeData = [
     },
     {
         id: 3,
-        date: "21/03/2022",
+        date: "03/21/2022",
         location: "Klinik Makmur Jaya",
         diagnose: "E11.9 - Diabetes mellitus",
         recordNumber: "98765",
@@ -61,7 +61,7 @@ export const dummyResumeData = [
     },
     {
         id: 4,
-        date: "07/03/2022",
+        date: "03/07/2022",
         location: "Rumah Sakit Medika",
         diagnose: "E11.9 - Diabetes mellitus",
         recordNumber: "56789",
@@ -81,7 +81,7 @@ export const dummyResumeData = [
     },
     {
         id: 5,
-        date: "22/02/2022",
+        date: "02/22/2022",
         location: "Puskesmas Serpong",
         diagnose: "E11.9 - Diabetes mellitus",
         recordNumber: "23456",
@@ -101,7 +101,7 @@ export const dummyResumeData = [
     },
     {
         id: 6,
-        date: "7/02/2022",
+        date: "02/07/2022",
         location: "Rumah Sakit Maju Jaya",
         diagnose: "A75 - Demam tifus",
         recordNumber: "67890",
@@ -121,7 +121,7 @@ export const dummyResumeData = [
     },
     {
         id: 7,
-        date: "24/01/2022",
+        date: "01/24/2022",
         location: "Puskesmas Serpong",
         diagnose: "A75 - Demam tifus",
         recordNumber: "78901",
@@ -141,7 +141,7 @@ export const dummyResumeData = [
     },
     {
         id: 8,
-        date: "07/01/2022",
+        date: "01/07/2022",
         location: "Klinik Makmur Jaya",
         diagnose: "Z23.2 - Imunisasi BCG",
         recordNumber: "34567",

@@ -21,3 +21,10 @@ export const formatDate = (inputDate: string): string => {
   // If the input date is not in the correct format, return an error message or the original input.
   return 'Invalid Date';
 }
+
+export const getDiffDate = (dateBefore: Date, dateAfter: Date): number => {
+  const diffTime = Math.abs(dateAfter.getTime() - dateBefore.getTime());
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+
+  return diffDays;
+}
