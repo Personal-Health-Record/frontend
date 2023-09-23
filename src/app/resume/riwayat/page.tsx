@@ -5,7 +5,7 @@ import Timeline from "../components/Timeline";
 import Pagination from "../components/Pagination";
 import BottomNavbarMedis from "@/app/components/BottomNavbarMedis";
 import { useState } from "react";
-import { dummyResumeData } from "../dummyData";
+import { dummyResumeData } from "../constants";
 
 const PAGE_SIZE = 3;
 

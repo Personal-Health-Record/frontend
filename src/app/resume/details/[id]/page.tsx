@@ -4,8 +4,8 @@ import Header from "@/app/components/Header";
 import CardResumeDetail from "../../components/CardResumeDetail";
 import BottomNavbarMedis from "@/app/components/BottomNavbarMedis";
 import { useParams } from 'next/navigation'
-import { dummyResumeData } from "../../dummyData";
 import { formatDate } from "@/app/common/dateHelper";
+import { dummyResumeData } from "../../constants";
 
 const ResumeDetail = () => {
   const params = useParams()

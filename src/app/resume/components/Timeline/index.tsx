@@ -1,7 +1,6 @@
 import { getDiffDate } from "@/app/common/dateHelper";
-import { dataRiwayat } from "../../constants";
 import { Resume } from "../../models";
-import { dummyResumeData } from "../../dummyData";
+import { dummyResumeData } from "../../constants";
 
 type TimelineProps = {
   dataRiwayat: Resume[];

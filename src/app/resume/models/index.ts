@@ -11,4 +11,5 @@ export type Resume = {
     polyName: string;
     anamnesis: string;
     medicine: string;
+    checkUpImages: string[];
 }
