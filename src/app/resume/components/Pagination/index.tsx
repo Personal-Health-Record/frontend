@@ -20,7 +20,6 @@ const Pagination = (props: PaginationProps) => {
     }
   }
 
-  // TODO: kalo disini banyak banget page numnya gimana?
   const renderPageNumber = () => {
     const pageNumbers = [];
     for (let i = 1; i <= totalPage; i++) {
