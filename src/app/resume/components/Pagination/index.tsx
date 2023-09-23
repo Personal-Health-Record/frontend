@@ -1,6 +1,6 @@
 const Pagination = () => {
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center mb-32">
       <button className="bg-superLightGrey py-1 px-2 rounded-xl text-xs text-mainGrey">
         Sebelumnya
       </button>

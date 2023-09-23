@@ -33,9 +33,7 @@ const Timeline = (props: TimelineProps) => {
 
           <div className="relative flex">
             <div className="bg-blue-400 w-5 h-5 rounded-xl z-0" />
-            {index !== dataRiwayat.length - 1 && (
-              <div className="bg-slate-300 w-1 h-32 absolute left-1/2 transform -translate-x-1/2 z-[-1]" />
-            )}
+            <div className="bg-slate-300 w-1 h-16 absolute left-1/2 transform -translate-x-1/2 z-[-1]" />
           </div>
 
           <div className="flex flex-col gap-3 flex-1">
