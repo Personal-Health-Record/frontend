@@ -7,9 +7,9 @@ export const formatDate = (inputDate: string): string => {
     
     if (!isNaN(day) && !isNaN(monthIndex) && !isNaN(year)) {
       const months = [
-        'January', 'February', 'March', 'April',
-        'May', 'June', 'July', 'August',
-        'September', 'October', 'November', 'December'
+        'Januari', 'Februari', 'Maret', 'April',
+        'Mei', 'Juni', 'Juli', 'Agustus',
+        'September', 'Oktober', 'November', 'Desember'
       ];
       
       const monthName = months[monthIndex];

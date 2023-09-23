@@ -1,10 +1,11 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import CardResume from "./components/CardResume";
 import SearchBar from "./components/SearchBar";
 import TopCard from "./components/TopCard";
 import { dummyResumeData } from "./dummyData";
-import { formatDate } from "../common/dateHelper";
 
 const ResumePage = () => {
   const [resumeData, setResumeData] = useState(dummyResumeData);
