@@ -1,4 +1,8 @@
+import { dummyRujukanData } from "../../constants";
+
 const JadwalRujukan = () => {
+  const latestRujukan = dummyRujukanData[dummyRujukanData.length - 1];
+
   return (
     <div className="flex flex-col gap-2 mt-3">
       <h3 className="font-semibold text-mainGrey pl-2">
@@ -19,11 +23,9 @@ const JadwalRujukan = () => {
             <p className="text-sm text-lightGrey">Diagnosis</p>
           </div>
           <div className="flex flex-col gap-1">
-            <p className="text-sm text-lightGrey">: Rumah Sakit Medika</p>
-            <p className="text-sm text-lightGrey">: Klinik Makmur Jaya</p>
-            <p className="text-sm text-lightGrey">
-              : E11.9 - Diabetes mellitus
-            </p>
+            <p className="text-sm text-lightGrey">: {latestRujukan.location}</p>
+            <p className="text-sm text-lightGrey">: {latestRujukan.referenceLocation}</p>
+            <p className="text-sm text-lightGrey">: {latestRujukan.diagnose}</p>
           </div>
         </div>
       </div>

@@ -7,11 +7,12 @@ const Dashboard = () => {
       <h3>Dashboard Kesehatan</h3>
 
       <div className="flex justify-between gap-2">
-        {dashboardKesehatan.map((dashboard) => (
+        {dashboardKesehatan.map((dashboard, index) => (
           <DashboardCard
             title={dashboard.title}
             unit={dashboard.unit}
             value={dashboard.value}
+            key={index}
           />
         ))}
       </div>

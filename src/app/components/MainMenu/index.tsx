@@ -7,8 +7,8 @@ const MainMenu = () => {
       <h3>Menu Utama</h3>
 
       <div className="flex justify-between flex-wrap">
-        {menuList.map((menu) => (
-          <MainMenuIcon menu={menu} />
+        {menuList.map((menu, index) => (
+          <MainMenuIcon menu={menu} key={index} />
         ))}
       </div>
     </div>
