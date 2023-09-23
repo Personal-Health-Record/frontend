@@ -1,15 +1,23 @@
 import { getDiffDate } from "@/app/common/dateHelper";
 import { dataRiwayat } from "../../constants";
 import { Resume } from "../../models";
+import { dummyResumeData } from "../../dummyData";
 
 type TimelineProps = {
   dataRiwayat: Resume[];
+  pageNumber: number;
+  pageSize: number;
 };
 
 const Timeline = (props: TimelineProps) => {
   const getRangeTime = (index: number) => {
     const currentResume = props.dataRiwayat[index];
-    const nextResume = props.dataRiwayat[index + 1];
+    let nextResume = props.dataRiwayat[index + 1];
+    if (!nextResume) {
+      // get from dummy data to get the next date on the next page
+      nextResume = dummyResumeData[(props.pageNumber * props.pageSize)];
+    }
+
     if (nextResume) {
       const dateBefore = new Date(currentResume.date);
       const dateAfter = new Date(nextResume.date);
@@ -25,7 +33,7 @@ const Timeline = (props: TimelineProps) => {
   return (
     <div className="flex flex-col gap-3">
       {props.dataRiwayat.map((riwayat, index) => (
-        <div className="flex justify-center gap-3 relative">
+        <div className="flex justify-center gap-3 relative" key={index}>
           <div className="flex flex-col gap-3 flex-1">
             <p className="text-xs flex-1 text-end ">{riwayat.date}</p>
             {renderRangeTime(index)}

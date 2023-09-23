@@ -7,13 +7,16 @@ import BottomNavbarMedis from "@/app/components/BottomNavbarMedis";
 import { useState } from "react";
 import { dummyResumeData } from "../dummyData";
 
+const PAGE_SIZE = 3;
+
 const RiwayatResume = () => {
   const [pageNumber, setPageNumber] = useState(1)
 
   const riwayatData = () => {
-    const pageSize = 5;
-    return dummyResumeData.slice((pageNumber - 1) * pageSize, pageNumber * pageSize);
+    return dummyResumeData.slice((pageNumber - 1) * PAGE_SIZE, pageNumber * PAGE_SIZE);
   }
+
+  const totalData = dummyResumeData.length;
 
   return (
     <div className="flex flex-col">
@@ -28,12 +31,15 @@ const RiwayatResume = () => {
           </p>
         </div>
 
-        <Timeline dataRiwayat={riwayatData()} />
+        <Timeline dataRiwayat={riwayatData()} pageNumber={pageNumber} pageSize={PAGE_SIZE}/>
 
       </div>
       <div className="border-b-2 mt-6 mb-4" />
 
-      <Pagination />
+      <Pagination setPageNumber={setPageNumber} 
+        pageNumber={pageNumber} 
+        pageSize={PAGE_SIZE} 
+        totalData={totalData}/>
       <BottomNavbarMedis />
     </div>
   );
