@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { Rujukan } from "../../models";
+import { formatDate } from "@/app/common/dateHelper";
 
 type RiwayatRujukanCardProps = {
   rujukanData: Rujukan;
@@ -17,7 +18,7 @@ const RiwayatRujukanCard = ({ rujukanData }: RiwayatRujukanCardProps) => {
   return (
     <div className="flex flex-col gap-2 p-4 border-b-2" onClick={handleOnClick}>
       <div className="flex justify-between items-center">
-        <p className="text-sm">29 April 2023</p>
+        <p className="text-sm">{formatDate(rujukanData.date)}</p>
         <p className="text-sm bg-superLightGrey px-4 py-1 rounded-2xl text-mainGrey">
           Rujukan
         </p>

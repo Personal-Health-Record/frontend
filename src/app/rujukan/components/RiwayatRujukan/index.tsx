@@ -2,17 +2,19 @@ import { dummyRujukanData } from "../../constants";
 import RiwayatRujukanCard from "../RiwayatRujukanCard";
 
 const RiwayatRujukan = () => {
+  const rujukanData = dummyRujukanData.reverse();
+
   return (
     <div className="flex flex-col gap-2 mt-3">
       <h3 className="font-semibold text-mainGrey pl-2">Riwayat Rujukan</h3>
       {
-        dummyRujukanData.map((rujukanData, index) => {
-          if (index === dummyRujukanData.length - 1) {
+        rujukanData.map((dat, index) => {
+          if (index === 0) {
             return;
           }
 
           return (
-            <RiwayatRujukanCard rujukanData={rujukanData} key={index} />
+            <RiwayatRujukanCard rujukanData={dat} key={index} />
         )})
       }
     </div>
