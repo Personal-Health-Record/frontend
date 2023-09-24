@@ -1,15 +1,24 @@
+"use client";
+
 import { formatDate } from "@/app/common/dateHelper";
 import { dummyRujukanData } from "../../constants";
+import { useRouter } from "next/navigation";
 
 const JadwalRujukan = () => {
+  const router = useRouter();
   const latestRujukan = dummyRujukanData[dummyRujukanData.length - 1];
+
+  const handleClick = () => {
+    router.push(`/rujukan/details/${latestRujukan.id}`);
+  }
+
   return (
     <div className="flex flex-col gap-2 mt-3">
       <h3 className="font-semibold text-mainGrey pl-2">
         Jadwal Rujukan Akan Datang
       </h3>
 
-      <div className="flex flex-col gap-2 shadow-md p-4 rounded-xl">
+      <div className="flex flex-col gap-2 shadow-md p-4 rounded-xl" onClick={handleClick}>
         <div className="flex justify-between items-center">
           <p className="text-sm">{formatDate(latestRujukan.date)}</p>
           <p className="text-sm bg-superLightGrey px-4 py-1 rounded-2xl text-mainGrey">
