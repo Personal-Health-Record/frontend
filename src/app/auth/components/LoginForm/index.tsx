@@ -1,20 +1,20 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { dummyUserData } from "./dummyData";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [userData, setUserData] = useState(dummyUserData);
 
-  useEffect(() => {
+  let userData = dummyUserData
+  if (typeof window !== 'undefined') {
     const userDataStorage = localStorage.getItem('userDataStorage');
     if (userDataStorage) {
-      setUserData(JSON.parse(userDataStorage));
+      userData = JSON.parse(userDataStorage);
     }
-  }, [])
+  }
 
   const router = useRouter();
 

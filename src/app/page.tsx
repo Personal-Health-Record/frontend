@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import BottomNavbar from "./components/BottomNavbar";
 import Dashboard from "./components/Dashboard";
 import HeaderHome from "./components/HeaderHome";
@@ -11,12 +10,12 @@ import { useRouter } from "next/navigation";
 export default function Home() {
   const router = useRouter();
 
-  useEffect(() => {
+  if (typeof window !== 'undefined') {
     const authUserEmail = localStorage.getItem("authUserEmail");
     if (!authUserEmail) {
       router.push("/auth");
     }
-  }, []);
+  }
 
   return (
     <main className="flex flex-col min-h-screen ">
