@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { dummyUserData } from "./dummyData";
+import { dummyUserData } from "../../../common/constants";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
