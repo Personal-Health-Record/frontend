@@ -20,7 +20,7 @@ const LoginForm = () => {
 
   const handleClickLogin = () => {
     const user = userData.find((user) => user.email === email && user.password === password);
-    if (user) {
+    if (user && user.email) {
       localStorage.setItem('authUserEmail', user.email);
       router.push("/");
     } else {
