@@ -1,5 +1,5 @@
 import { User } from "@/app/common/constants";
-import { TIPE_VAKSINASI_DEWASA, dummyVaksinasiData } from "../../constants";
+import { TIPE_VAKSINASI_ANAK, TIPE_VAKSINASI_DEWASA, dummyVaksinasiData } from "../../constants";
 import VaksinasiCard from "../VaksinasiCard";
 
 type VaksinasiProps = {
@@ -7,7 +7,7 @@ type VaksinasiProps = {
 }
 
 const VaksinasiList = ({ user }: VaksinasiProps) => {
-  const tipeVaksin = user.relation === "Anak" ? TIPE_VAKSINASI_DEWASA : TIPE_VAKSINASI_DEWASA;
+  const tipeVaksin = user.relation === "Anak" ? TIPE_VAKSINASI_ANAK : TIPE_VAKSINASI_DEWASA;
   
   const userVaksinasi = dummyVaksinasiData.find((item) => item.userId === user.id);
   return (
