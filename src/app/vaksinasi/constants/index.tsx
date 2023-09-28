@@ -4,9 +4,9 @@ export const TIPE_VAKSINASI_DEWASA = {
   VARISELA: "Varisela",
   HPV: "Human Papilloma Virus (HPV)",
   ZOSTER: "Zoster",
-  MEASLES: "Measles/Campak",
-  PNEUMOKOKAL_KONJUGAT: "Pneumokokal Konjugat 13-valent(PCV-13)",
-  PNEUMOKOKAL_POLISAKARIDA: "Pneumokokal Polisakarida(PPSV23)",
+  MEASLES: "Measles / Campak",
+  PNEUMOKOKAL_KONJUGAT: "Pneumokokal Konjugat 13-valent (PCV-13)",
+  PNEUMOKOKAL_POLISAKARIDA: "Pneumokokal Polisakarida (PPSV23)",
   MENINGITIS_MENINGOKOKAL: "Meningitis meningokokal",
   HEPATITIS_A: "Hepatitis A",
   HEPATITIS_B: "Hepatitis B",
@@ -15,6 +15,7 @@ export const TIPE_VAKSINASI_DEWASA = {
   DEMAM_TIFOID: "Demam Tifoid",
   DEMAM_KUNING: "Demam Kuning",
   JAPANESE_ENCEPHALITIS: "Japanese Encephalitis (JE)",
+  RABIES: "Rabies",
   COVID_19: "COVID-19",
 }
 

@@ -5,7 +5,9 @@ const Keterangan = () => {
 
       <div className="flex gap-4">
         <div className="flex items-center gap-2">
-          <div className="bg-mainBlue w-6 h-6 rounded-md shadow-md" />
+          <div className="bg-mainBlue w-6 h-6 rounded-md shadow-md" style={{
+            backgroundColor: "#9FDBFD"
+          }} />
           <p className="text-xs text-mainGrey">Sudah lengkap</p>
         </div>
 
