@@ -7,10 +7,11 @@ const VaksinasiList = () => {
       <h3 className="font-semibold">Jenis Vaksinasi</h3>
 
       <div className="flex flex-wrap justify-between">
-        {vaksinasiData?.map((vaksinasi) => (
+        {vaksinasiData?.map((vaksinasi, index) => (
           <VaksinasiCard
             isComplete={vaksinasi.isComplete}
             title={vaksinasi.title}
+            key={index}
           />
         ))}
       </div>

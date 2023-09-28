@@ -1,8 +1,9 @@
-type User = {
+export type User = {
     id: number;
     name: string;
     age: number;
     role: string;
+    gender: string;
     parentId?: number;
     relation?: string;
     email?: string;
@@ -16,7 +17,8 @@ export const dummyUserData: User[] = [
         password: "pass",
         role: "patient",
         age: 29,
-        name: 'Jimmy'
+        name: 'Jimmy',
+        gender: 'laki-laki'
     },
     {
         id: 2,
@@ -24,20 +26,25 @@ export const dummyUserData: User[] = [
         password: "pass",
         role: "doctor",
         age: 35,
-        name: 'dr. Ali Abdul'
+        name: 'dr. Ali Abdul',
+        gender: 'laki-laki'
     },
     {
         id: 3,
         parentId: 1,
         name: 'Mawar Indah',
-        role: 'Istri',
+        gender: 'perempuan',
+        role: 'patient',
+        relation: 'Istri',
         age: 29,
     },
     {
         id: 4,
         parentId: 1,
         name: 'Milo Cornelius',
-        role: 'Anak',
+        gender: 'laki-laki',
+        role: 'patient',
+        relation: 'Anak',
         age: 5,
     }
 ]
