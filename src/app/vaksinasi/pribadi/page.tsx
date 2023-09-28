@@ -16,7 +16,6 @@ const VaksinasiPribadi = () => {
 
       <div className="flex flex-col w-full px-4 py-4 gap-6">
         <CardPengguna
-          title="Pilih Pengguna"
           user={user}
           setUser={setUser}
         />

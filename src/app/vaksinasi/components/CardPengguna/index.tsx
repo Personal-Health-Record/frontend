@@ -5,12 +5,11 @@ import Image from "next/image";
 import { useState } from "react";
 
 interface Props {
-  title: string;
   user: User;
-  setUser?: (user: User) => void;
+  setUser: (user: User) => void;
 }
 
-const CardPengguna = ({ title, user }: Props) => {
+const CardPengguna = ({ user, setUser }: Props) => {
   const [showSelectUser, setShowSelectUser] = useState(false);
   const getValue = (renderUser?: User) => {
     if (!renderUser) {
@@ -26,9 +25,17 @@ const CardPengguna = ({ title, user }: Props) => {
 
   const renderRelation = () => {
     const userRelations = dummyUserData.filter((item) => item.parentId === user.id);
+    const parentUser = dummyUserData.find((item) => item.id === user.parentId);
+    if (parentUser) {
+      userRelations.push(parentUser);
+    }
+
     return userRelations.map((item, index) => (
       <div className="group/item flex p-2 items-center justify-between hover:bg-slate-100"
-        key={index}>
+        key={index} onClick={() => {
+          setUser(item)
+          setShowSelectUser(false)
+        }}>
         <div className="flex flex-col gap-1" >
           <p className="text-sm">{item.name}</p>
           <p className="text-sm text-mainGrey">{getValue(item)}</p>
@@ -48,7 +55,7 @@ const CardPengguna = ({ title, user }: Props) => {
         setShowSelectUser(!showSelectUser)
       }}>
         <div className="flex flex-col gap-1">
-          <p className="text-sm">{title}</p>
+          <p className="text-sm">{user.name}</p>
           <p className="text-sm text-mainGrey">{getValue()}</p>
         </div>
 
