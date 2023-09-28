@@ -20,7 +20,7 @@ const VaksinasiPribadi = () => {
           setUser={setUser}
         />
 
-        <VaksinasiList />
+        <VaksinasiList user={user}/>
         <Keterangan />
       </div>
     </div>
