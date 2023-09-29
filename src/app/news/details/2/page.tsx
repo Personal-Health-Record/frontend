@@ -28,6 +28,20 @@ const NewsDetail = () => {
     );
   }
 
+  const subTitleText = (title: string) => {
+    return (
+      <h1 style={{
+        color: "#5F5F5F",
+        fontSize: 16,
+        fontWeight: 700,
+        marginTop: 10
+      }}>
+        {title}
+      </h1>
+    );
+  }
+
+
   const referenceText = (reference: string) => {
     return (
       <h2 style={{
@@ -58,26 +72,31 @@ const NewsDetail = () => {
     <div className="flex flex-col h-screen">
       <Header title="Artikel Kesehatan" />
       <div className="mt-4">
-        {dateText("23 April 2021")}
+        {dateText("31 Maret 2023")}
       </div>
 
       <div className="mt-1">
-        {titleText("Berat Badan Ideal Bantu Cegah Timbulnya Diabetes")}
+        {titleText("Adakah Manfaat Yoga saat Puasa? Ini Berbagai Faktanya")}
       </div>
 
       <div className="mt-1">
-        {referenceText("Sumber: P2PTM Kemenkes RI")}
+        {referenceText("Sumber: Halodoc")}
+        {/* https://www.halodoc.com/artikel/adakah-manfaat-yoga-saat-puasa-ini-berbagai-faktanya */}
       </div>
 
       <div className="flex justify-center items-center">
-        <Image src={"https://down-id.img.susercontent.com/file/9430b6db08b5ff5b343f91112f1716b6"} alt="" width={300} height={200} />
+        <Image src={"https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2023/03/31083057/Adakah-Manfaat-Yoga-saat-Puasa_-Ini-Faktanya.jpg"} alt="" width={300} height={200} />
       </div>
 
       <div className="mt-4 pb-20">
-        {renderDescriptionText("Diabetes Mellitus (DM) merupakan salah satu penyakit kronis penyebab kematian tertinggi di Indonesia. Bahkan jumlah angka kesakitannya terus meningkat. Data Riskesdas 2018 menunjukkan prevalensi diabetes yakni sebesar 8,5%, meningkat dibandingkan Riskesdas 2013 yaitu sebesar 6,9%.")}
-        {renderDescriptionText("Ketua Endokrinologi Indonesia (PERKENI), Prof. DR. dr. Ketut Suastika, SpPD-KEMD mengatakan salah satu penyebab timbulnya penyakit diabetes adalah obesitas yang tidak segera ditangani. Pada pasien prediabetes, ditandai dengan gula darah yang naik, Gula Darah Puasa berkisar 100-125 sementara Gula Darah Setelah Makan yakni 140<200.")}
-        {renderDescriptionText("Ketua Endokrinologi Indonesia (PERKENI), Prof. DR. dr. Ketut Suastika, SpPD-KEMD mengatakan salah satu penyebab timbulnya penyakit diabetes adalah obesitas yang tidak segera ditangani. Pada pasien prediabetes, ditandai dengan gula darah yang naik, Gula Darah Puasa berkisar 100-125 sementara Gula Darah Setelah Makan yakni 140<200.")}
-        {renderDescriptionText("Ketua Endokrinologi Indonesia (PERKENI), Prof. DR. dr. Ketut Suastika, SpPD-KEMD mengatakan salah satu penyebab timbulnya penyakit diabetes adalah obesitas yang tidak segera ditangani. Pada pasien prediabetes, ditandai dengan gula darah yang naik, Gula Darah Puasa berkisar 100-125 sementara Gula Darah Setelah Makan yakni 140<200.")}
+        {renderDescriptionText("Selama berpuasa di bulan Ramadan, menjaga kebugaran tubuh adalah sebuah keharusan. Tidak hanya melalui pola makan dan waktu tidur, kamu juga bisa berolahraga secara rutin agar tubuh tetap sehat. Agar tidak menguras banyak energi, kamu bisa coba olahraga seperti yoga saat puasa.")}
+        {renderDescriptionText("Yoga merupakan olahraga yang sesuai untuk kamu lakukan ketika berpuasa karena memiliki cukup banyak manfaat. Adapun dampak yang bisa tubuhmu rasakan antara lain:")}
+        {subTitleText("1. Menjaga tubuh tetap aktif tanpa kelelahan")}
+        {renderDescriptionText("Selain membangun kekuatan tubuh, aspek utama yoga adalah peregangan tubuh dan fleksibilitas. Dua aspek ini sangat cocok untuk kamu lakukan ketika puasa karena tidak mengeluarkan energi yang terlalu banyak hingga kamu merasa sangat kehausan atau kelaparan. Yoga juga terfokus pada ritme dan pergerakan konstan pada tubuh, jadi tujuannya utamanya bukan untuk membakar kalori.")}
+        {subTitleText("2. Membantu tidur dan menghindari insomnia")}
+        {renderDescriptionText("Penelitian menunjukkan bahwa yoga bisa meningkatkan kualitas tidur seseorang. Hal ini bisa terjadi karena energi yang seseorang keluarkan saat berolahraga bisa meningkatkan rasa lelah di malam hari dan membuatnya jadi lebih mudah tertidur. Selain itu, karena yoga bisa membuat lebih rileks, kamu pun akan mendapat ketenangan emosional dan terhindar dari stres setelah melakukannya sehingga membuat kamu lebih cepat tertidur.")}
+        {subTitleText("3. Mendorong energi tubuh")}
+        {renderDescriptionText("Melalui pose, pergerakan, dan tekanan pada bagian tubuh tertentu yang kamu lakukan selama yoga, kamu bisa membantu melancarkan peredaran tubuh dan membawa oksigen ke sistem kardiovaskular. Karena itu, kamu bisa menstimulasi perasaan tubuh yang lebih segar. Selain itu, segala jenis olahraga juga bisa mengeluarkan endorfin, serotonin, dan dopamine. Ketiga hormon ini bertugas untuk meningkatkan suasana hati yang kemudian bisa memicu tubuh untuk merasa lebih produktif.")}
       </div>
 
       <BottomNavbar />
