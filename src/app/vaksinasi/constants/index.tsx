@@ -43,7 +43,6 @@ export type Vaksinasi = {
   date: string;
   location: string;
   type: string;
-  certificateUrl: string;
 }
 
 export const dummyVaksinasiData: Vaksinasi[] = [
@@ -53,7 +52,6 @@ export const dummyVaksinasiData: Vaksinasi[] = [
     date: "24-03-2022",
     location: "Klinik Makmur Jaya",
     type: TIPE_VAKSINASI_DEWASA.COVID_19,
-    certificateUrl: "https://sendangsari.bantulkab.go.id/assets/files/artikel/sedang_163349145460e250f122139.jpg"
   },
   {
     id: "2",
@@ -61,7 +59,6 @@ export const dummyVaksinasiData: Vaksinasi[] = [
     date: "21-03-2022",
     location: "Klinik Bio Farma",
     type: TIPE_VAKSINASI_DEWASA.INFLUENZA_FLU,
-    certificateUrl: "https://awsimages.detik.net.id/community/media/visual/2022/01/31/sertikat-vaksin-internasional_169.jpeg?w=1200"
   },
   {
     id: "3",
@@ -69,7 +66,6 @@ export const dummyVaksinasiData: Vaksinasi[] = [
     date: "19-03-2022",
     location: "Siloam Hospital",
     type: TIPE_VAKSINASI_DEWASA.DEMAM_TIFOID,
-    certificateUrl: "https://sendangsari.bantulkab.go.id/assets/files/artikel/sedang_163349145460e250f122139.jpg"
   },
   {
     id: "4",
@@ -77,7 +73,6 @@ export const dummyVaksinasiData: Vaksinasi[] = [
     date: "17-03-2022",
     location: "Premier Hospital",
     type: TIPE_VAKSINASI_DEWASA.MEASLES,
-    certificateUrl: "https://www.biofarma.co.id/media/image/originals/post/2022/12/21/sertifikat-cpob.png"
   },
   {
     id: "5",
@@ -85,7 +80,6 @@ export const dummyVaksinasiData: Vaksinasi[] = [
     date: "14-03-2022",
     location: "Klinik Makmur Jaya",
     type: TIPE_VAKSINASI_DEWASA.COVID_19,
-    certificateUrl: "https://awsimages.detik.net.id/community/media/visual/2022/01/31/sertikat-vaksin-internasional_169.jpeg?w=1200"
   },
   {
     id: "6",
@@ -93,7 +87,6 @@ export const dummyVaksinasiData: Vaksinasi[] = [
     date: "12-03-2022",
     location: "Klinik Bio Farma",
     type: TIPE_VAKSINASI_DEWASA.MEASLES,
-    certificateUrl: "https://sendangsari.bantulkab.go.id/assets/files/artikel/sedang_163349145460e250f122139.jpg"
   },
   {
     id: "7",
@@ -101,7 +94,6 @@ export const dummyVaksinasiData: Vaksinasi[] = [
     date: "11-03-2022",
     location: "Siloam Hospital",
     type: TIPE_VAKSINASI_DEWASA.HEPATITIS_B,
-    certificateUrl: "https://awsimages.detik.net.id/community/media/visual/2022/01/31/sertikat-vaksin-internasional_169.jpeg?w=1200"
   },
   {
     id: "8",
@@ -109,7 +101,6 @@ export const dummyVaksinasiData: Vaksinasi[] = [
     date: "9-03-2022",
     location: "Premier Hospital",
     type: TIPE_VAKSINASI_DEWASA.HPV,
-    certificateUrl: "https://www.biofarma.co.id/media/image/originals/post/2022/12/21/sertifikat-cpob.png"
   },
   {
     id: "9",
@@ -117,7 +108,6 @@ export const dummyVaksinasiData: Vaksinasi[] = [
     date: "4-03-2022",
     location: "Premier Hospital",
     type: TIPE_VAKSINASI_ANAK.DENGUE,
-    certificateUrl: "https://sendangsari.bantulkab.go.id/assets/files/artikel/sedang_163349145460e250f122139.jpg"
   },
   {
     id: "10",
@@ -125,6 +115,5 @@ export const dummyVaksinasiData: Vaksinasi[] = [
     date: "15-06-2022",
     location: "Klinik Makmur Jaya",
     type: TIPE_VAKSINASI_DEWASA.COVID_19,
-    certificateUrl: "https://sendangsari.bantulkab.go.id/assets/files/artikel/sedang_163349145460e250f122139.jpg"
   },
 ]
