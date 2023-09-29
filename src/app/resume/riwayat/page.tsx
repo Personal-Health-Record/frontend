@@ -7,7 +7,7 @@ import BottomNavbarMedis from "@/app/components/BottomNavbarMedis";
 import { useState } from "react";
 import { dummyResumeData } from "../constants";
 
-const PAGE_SIZE = 3;
+const PAGE_SIZE = 5;
 
 const RiwayatResume = () => {
   const [pageNumber, setPageNumber] = useState(1)

@@ -1,4 +1,4 @@
-import { getDiffDate } from "@/app/common/dateHelper";
+import { formatDate, getDiffDate } from "@/app/common/dateHelper";
 import { Resume } from "../../models";
 import { dummyResumeData } from "../../constants";
 
@@ -34,7 +34,7 @@ const Timeline = (props: TimelineProps) => {
       {props.dataRiwayat.map((riwayat, index) => (
         <div className="flex justify-center gap-3 relative" key={index}>
           <div className="flex flex-col gap-3 flex-1">
-            <p className="text-xs flex-1 text-end ">{riwayat.date}</p>
+            <p className="text-xs flex-1 text-end ">{formatDate(riwayat.date)}</p>
             {renderRangeTime(index)}
           </div>
 

@@ -4,7 +4,7 @@ export const dummyRujukanData: Rujukan[] = [
   {
     id: 1,
     referenceNumber: "REF1",
-    date: "10-09-2023",
+    date: "09-10-2023",
     nik: "NIK1",
     patientType: "PatientType1",
     patientName: "PatientName1",
@@ -20,7 +20,7 @@ export const dummyRujukanData: Rujukan[] = [
   {
     id: 2,
     referenceNumber: "REF2",
-    date: "12-09-2023",
+    date: "09-12-2023",
     nik: "NIK2",
     patientType: "PatientType2",
     patientName: "PatientName2",
@@ -36,7 +36,7 @@ export const dummyRujukanData: Rujukan[] = [
   {
     id: 3,
     referenceNumber: "REF3",
-    date: "14-09-2023",
+    date: "09-14-2023",
     nik: "NIK3",
     patientType: "PatientType3",
     patientName: "PatientName3",
@@ -52,7 +52,7 @@ export const dummyRujukanData: Rujukan[] = [
   {
     id: 4,
     referenceNumber: "REF4",
-    date: "16-09-2023",
+    date: "09-16-2023",
     nik: "NIK4",
     patientType: "PatientType4",
     patientName: "PatientName4",
@@ -68,7 +68,7 @@ export const dummyRujukanData: Rujukan[] = [
   {
     id: 5,
     referenceNumber: "REF5",
-    date: "18-09-2023",
+    date: "09-18-2023",
     nik: "NIK5",
     patientType: "PatientType5",
     patientName: "PatientName5",
@@ -84,7 +84,7 @@ export const dummyRujukanData: Rujukan[] = [
   {
     id: 6,
     referenceNumber: "REF6",
-    date: "20-09-2023",
+    date: "09-20-2023",
     nik: "NIK6",
     patientType: "PatientType6",
     patientName: "PatientName6",
@@ -100,7 +100,7 @@ export const dummyRujukanData: Rujukan[] = [
   {
     id: 7,
     referenceNumber: "REF7",
-    date: "22-09-2023",
+    date: "09-22-2023",
     nik: "NIK7",
     patientType: "PatientType7",
     patientName: "PatientName7",
@@ -116,7 +116,7 @@ export const dummyRujukanData: Rujukan[] = [
   {
     id: 8,
     referenceNumber: "REF8",
-    date: "24-09-2023",
+    date: "09-24-2023",
     nik: "NIK8",
     patientType: "PatientType8",
     patientName: "PatientName8",
@@ -132,7 +132,7 @@ export const dummyRujukanData: Rujukan[] = [
   {
     id: 9,
     referenceNumber: "REF9",
-    date: "26-09-2023",
+    date: "09-26-2023",
     nik: "NIK9",
     patientType: "PatientType9",
     patientName: "PatientName9",
@@ -148,7 +148,7 @@ export const dummyRujukanData: Rujukan[] = [
   {
     id: 10,
     referenceNumber: "REF10",
-    date: "28-09-2023",
+    date: "09-28-2023",
     nik: "NIK10",
     patientType: "PatientType10",
     patientName: "PatientName10",
