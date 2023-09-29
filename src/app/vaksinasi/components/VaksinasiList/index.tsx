@@ -17,8 +17,7 @@ const VaksinasiList = ({ user }: VaksinasiProps) => {
       return
     }
     
-    const vaksinData: Vaksinasi = userVaksinasi.find((vaksinasi) => vaksinasi.type.includes(vaksinasiType))!;
-    router.push(`/vaksinasi/details/${vaksinData.id}`);
+    router.push(`/vaksinasi/history?userId=${user.id}&type=${vaksinasiType}`);
   }
 
   const isComplete = (vaksinasiType: string) => {

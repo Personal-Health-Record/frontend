@@ -1,10 +1,10 @@
 export type User = {
-    id: number;
+    id: string;
     name: string;
     age: number;
     role: string;
     gender: string;
-    parentId?: number;
+    parentId?: string;
     relation?: string;
     email?: string;
     password?: string;
@@ -12,7 +12,7 @@ export type User = {
 
 export const dummyUserData: User[] = [
     {
-        id: 1,
+        id: "1",
         email: "patient@gmail.com",
         password: "pass",
         role: "patient",
@@ -21,7 +21,7 @@ export const dummyUserData: User[] = [
         gender: 'laki-laki'
     },
     {
-        id: 2,
+        id: "2",
         email: "doctor@gmail.com",
         password: "pass",
         role: "doctor",
@@ -30,8 +30,8 @@ export const dummyUserData: User[] = [
         gender: 'laki-laki'
     },
     {
-        id: 3,
-        parentId: 1,
+        id: "3",
+        parentId: "1",
         name: 'Mawar Indah',
         gender: 'perempuan',
         role: 'patient',
@@ -39,8 +39,8 @@ export const dummyUserData: User[] = [
         age: 29,
     },
     {
-        id: 4,
-        parentId: 1,
+        id: "4",
+        parentId: "1",
         name: 'Milo Cornelius',
         gender: 'laki-laki',
         role: 'patient',
