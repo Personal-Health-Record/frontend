@@ -40,7 +40,6 @@ export const TIPE_VAKSINASI_ANAK = {
 }
 
 
-
 export const dummyVaksinasiData: Vaksinasi[] = [
   {
     id: "1",
@@ -48,6 +47,7 @@ export const dummyVaksinasiData: Vaksinasi[] = [
     date: "24-03-2022",
     location: "Klinik Makmur Jaya",
     type: TIPE_VAKSINASI_DEWASA.COVID_19,
+    detailType: "AstraZeneca"
   },
   {
     id: "2",
@@ -76,6 +76,7 @@ export const dummyVaksinasiData: Vaksinasi[] = [
     date: "14-03-2022",
     location: "Klinik Makmur Jaya",
     type: TIPE_VAKSINASI_DEWASA.COVID_19,
+    detailType: "Coronavac (Sinovac)"
   },
   {
     id: "6",
@@ -111,5 +112,6 @@ export const dummyVaksinasiData: Vaksinasi[] = [
     date: "15-06-2022",
     location: "Klinik Makmur Jaya",
     type: TIPE_VAKSINASI_DEWASA.COVID_19,
+    detailType: "Coronavac (Sinovac)"
   },
 ]

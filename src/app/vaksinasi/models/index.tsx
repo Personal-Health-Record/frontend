@@ -4,4 +4,5 @@ export type Vaksinasi = {
     date: string;
     location: string;
     type: string;
+    detailType?: string;
 }
