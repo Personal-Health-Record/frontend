@@ -1,7 +1,7 @@
 import Header from "@/app/components/Header";
-import CardDetails from "./components/CardDetails";
-import { dataDetailVaksin } from "./constants";
-import CardVaksin from "./components/CardVaksin";
+import CardDetails from "../components/CardDetails";
+import { dataDetailVaksin } from "../constants";
+import CardVaksin from "../components/CardVaksin";
 import BottomNavbarMedis from "@/app/components/BottomNavbarMedis";
 
 const VaksinasiDetails = () => {
