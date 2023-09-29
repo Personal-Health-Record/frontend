@@ -1,5 +1,5 @@
 export const formatDate = (inputDate: string): string => {
-  const dateParts = inputDate.split('/');
+  const dateParts = inputDate.split('-');
   if (dateParts.length === 3) {
     const day = parseInt(dateParts[0], 10);
     const monthIndex = parseInt(dateParts[1], 10) - 1;
