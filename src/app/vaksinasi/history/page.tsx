@@ -2,10 +2,9 @@
 import Header from "@/app/components/Header";
 import CardNextVaksinasi from "../components/CardNextVaksinasi";
 import CardVaksinHistory from "../components/CardVaksinHistory";
-import { dummyVaksinasiData } from "../constants";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
-
+import { dummyVaksinasiData } from "../constants";
 
 const VaksinasiHistory = () => {
   const searchParams = useSearchParams()

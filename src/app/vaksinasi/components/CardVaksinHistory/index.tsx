@@ -1,5 +1,5 @@
 import { formatDate } from "@/app/common/dateHelper";
-import { Vaksinasi } from "../../constants";
+import { Vaksinasi } from "../../models";
 
 type HistoryProps = {
   vaksinData: Vaksinasi;

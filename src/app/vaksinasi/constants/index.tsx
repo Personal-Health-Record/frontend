@@ -1,3 +1,5 @@
+import { Vaksinasi } from "../models"
+
 export const TIPE_VAKSINASI_DEWASA = {
   INFLUENZA_FLU: "Influenza (Flu)",
   TD_TDAP: "Tetanus, diphteria, pertusis (Td/Tdap)",
@@ -37,13 +39,7 @@ export const TIPE_VAKSINASI_ANAK = {
   DENGUE: "Dengue",
 }
 
-export type Vaksinasi = {
-  id: string;
-  userId: string;
-  date: string;
-  location: string;
-  type: string;
-}
+
 
 export const dummyVaksinasiData: Vaksinasi[] = [
   {
