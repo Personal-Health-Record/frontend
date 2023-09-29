@@ -1,11 +1,13 @@
 export type NewsTagProps = {
   tagName?: string;
   isActive?: boolean;
+  handleClick: () => void;
 };
 
 const NewsTag = (props: NewsTagProps) => {
   return (
     <div className="py-1 px-3"
+      onClick={props.handleClick}
       style={{
         display: "inline-flex",
         flexDirection: "column",

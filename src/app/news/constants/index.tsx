@@ -14,7 +14,7 @@ export const dummyNewsData: News[] = [
         descriptionPlaceholder: "Hipertensi atau tekanan darah tinggi, sering disebut sebagai “the...",
         route: "/news/details/1",
         imageUrl: "https://down-id.img.susercontent.com/file/9430b6db08b5ff5b343f91112f1716b6",
-        tags: ["tips kesehatan", "penyakit kronis"]
+        tags: ["penyakit kronis"]
     },
     {
         id: "2",

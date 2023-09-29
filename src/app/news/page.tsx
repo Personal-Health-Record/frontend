@@ -1,9 +1,21 @@
+"use client";
+
+import { useState } from "react";
 import BottomNavbar from "../components/BottomNavbar";
 import NewsCard from "./components/NewsCard";
 import NewsTag from "./components/NewsTag"
 import { dummyNewsData } from "./constants";
 
 const News = () => {
+  const [tag, setTag] = useState("semua")
+
+  let newsData = dummyNewsData;
+  if (tag !== "semua") {
+    newsData = newsData.filter((news) => {
+      return news.tags.includes(tag)
+    })
+  }
+
   return (
     <div className="flex flex-col h-screen" >
       <div className="mt-8">
@@ -16,17 +28,30 @@ const News = () => {
         </div>
       </div>
 
-
-      {/* TODO: add logic tentang ini */}
       <div className="flex flex-wrap mt-8 px-8 gap-3">
-        <NewsTag tagName="semua" isActive />
-        <NewsTag tagName="tips kesehatan" />
-        <NewsTag tagName="penyakit kronis" />
+        <NewsTag
+          tagName="semua"
+          isActive={tag === 'semua' ? true : false}
+          handleClick={() => {
+            setTag("semua")
+          }} />
+        <NewsTag
+          tagName="tips kesehatan"
+          isActive={tag === 'tips kesehatan' ? true : false}
+          handleClick={() => {
+            setTag("tips kesehatan")
+          }} />
+        <NewsTag
+          tagName="penyakit kronis"
+          isActive={tag === 'penyakit kronis' ? true : false}
+          handleClick={() => {
+            setTag("penyakit kronis")
+          }} />
       </div>
 
       <div className="mt-4">
         {
-          dummyNewsData.map((news) => (
+          newsData.map((news) => (
             <NewsCard
               key={news.id}
               title={news.title}
