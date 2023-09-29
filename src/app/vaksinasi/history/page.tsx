@@ -22,7 +22,7 @@ const VaksinasiHistory = () => {
 
   return (
     <div className="flex flex-col">
-      <Header title="COVID -19" />
+      <Header title="Vaksinasi" />
 
       <div className="flex flex-col w-full px-4 py-4 gap-5">
         <div className="flex flex-col gap-1">

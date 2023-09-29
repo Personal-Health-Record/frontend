@@ -24,10 +24,15 @@ const CardPengguna = ({ user, setUser }: Props) => {
   }
 
   const renderRelation = () => {
-    const userRelations = dummyUserData.filter((item) => item.parentId === user.id);
-    const parentUser = dummyUserData.find((item) => item.id === user.parentId);
-    if (parentUser) {
-      userRelations.push(parentUser);
+    let userRelations = dummyUserData.filter((item) => item.parentId === user.id);
+
+    // have parent
+    if (user.parentId) {
+      const parentUser = dummyUserData.find((item) => item.id === user.parentId)!;
+      const otherChild = dummyUserData
+        .filter((item) => item.parentId === parentUser.id)
+        .filter((item) => item.id !== user.id);
+      userRelations.push(...[parentUser, ...otherChild]);
     }
 
     return userRelations.map((item, index) => (
