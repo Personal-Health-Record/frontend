@@ -2,7 +2,7 @@ import Header from "@/app/components/Header";
 import CardNextVaksinasi from "../components/CardNextVaksinasi";
 import CardVaksinHistory from "../components/CardVaksinHistory";
 import { User } from "@/app/common/constants";
-import { dummyRiwayatVaksinasi } from "../constants";
+import { dummyVaksinasiData } from "../constants";
 
 type VaksinasiHistoryProps = {
   user: User;
@@ -10,7 +10,7 @@ type VaksinasiHistoryProps = {
 }
 
 const VaksinasiHistory = ({ user, type }: VaksinasiHistoryProps) => {
-  const userVaksinData = dummyRiwayatVaksinasi.filter((item) => item.userId === user.id);
+  const userVaksinData = dummyVaksinasiData.filter((item) => item.userId === user.id);
   return (
     <div className="flex flex-col">
       <Header title="COVID -19" />

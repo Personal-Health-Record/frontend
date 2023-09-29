@@ -37,32 +37,32 @@ export const TIPE_VAKSINASI_ANAK = {
   DENGUE: "Dengue",
 }
 
-export const dummyVaksinasiData = [
-  {
-    userId: 1,
-    vaksinasi: [
-      TIPE_VAKSINASI_DEWASA.COVID_19,
-      TIPE_VAKSINASI_DEWASA.INFLUENZA_FLU,
-      TIPE_VAKSINASI_DEWASA.DEMAM_TIFOID,
-      TIPE_VAKSINASI_DEWASA.MEASLES,
-    ]
-  },
-  {
-    userId: 3,
-    vaksinasi: [
-      TIPE_VAKSINASI_DEWASA.COVID_19,
-      TIPE_VAKSINASI_DEWASA.MEASLES,
-      TIPE_VAKSINASI_DEWASA.HEPATITIS_B,
-      TIPE_VAKSINASI_DEWASA.HPV,
-    ]
-  },
-  {
-    userId: 4,
-    vaksinasi: [
-      TIPE_VAKSINASI_ANAK.DENGUE,
-    ]
-  },
-]
+// export const dummyVaksinasiData = [
+//   {
+//     userId: 1,
+//     vaksinasi: [
+//       TIPE_VAKSINASI_DEWASA.COVID_19,
+//       TIPE_VAKSINASI_DEWASA.INFLUENZA_FLU,
+//       TIPE_VAKSINASI_DEWASA.DEMAM_TIFOID,
+//       TIPE_VAKSINASI_DEWASA.MEASLES,
+//     ]
+//   },
+//   {
+//     userId: 3,
+//     vaksinasi: [
+//       TIPE_VAKSINASI_DEWASA.COVID_19,
+//       TIPE_VAKSINASI_DEWASA.MEASLES,
+//       TIPE_VAKSINASI_DEWASA.HEPATITIS_B,
+//       TIPE_VAKSINASI_DEWASA.HPV,
+//     ]
+//   },
+//   {
+//     userId: 4,
+//     vaksinasi: [
+//       TIPE_VAKSINASI_ANAK.DENGUE,
+//     ]
+//   },
+// ]
 
 export type Vaksinasi = {
   id: number;
@@ -78,7 +78,7 @@ export type Vaksinasi = {
 // https://awsimages.detik.net.id/community/media/visual/2022/01/31/sertikat-vaksin-internasional_169.jpeg?w=1200
 // https://sendangsari.bantulkab.go.id/assets/files/artikel/sedang_163349145460e250f122139.jpg
 
-export const dummyRiwayatVaksinasi: Vaksinasi[] = [
+export const dummyVaksinasiData: Vaksinasi[] = [
   {
     id: 1,
     userId: 1,

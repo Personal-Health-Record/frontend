@@ -1,5 +1,5 @@
 import { User } from "@/app/common/constants";
-import { TIPE_VAKSINASI_ANAK, TIPE_VAKSINASI_DEWASA, dummyVaksinasiData } from "../../constants";
+import { TIPE_VAKSINASI_ANAK, TIPE_VAKSINASI_DEWASA, Vaksinasi, dummyVaksinasiData } from "../../constants";
 import VaksinasiCard from "../VaksinasiCard";
 import { useRouter } from "next/navigation";
 
@@ -9,18 +9,28 @@ type VaksinasiProps = {
 
 const VaksinasiList = ({ user }: VaksinasiProps) => {
   const tipeVaksin = user.relation === "Anak" ? TIPE_VAKSINASI_ANAK : TIPE_VAKSINASI_DEWASA;
-  const userVaksinasi = dummyVaksinasiData.find((item) => item.userId === user.id);
-
+  const userVaksinasi = dummyVaksinasiData.filter((item) => item.userId === user.id);
   const router = useRouter();
 
-  const handleClick = (vaksinasiType: string, isComplete: boolean) => {
-    if (!isComplete) {
+  const handleClick = (vaksinasiType: string) => {
+    if (!isComplete(vaksinasiType)) {
       return
     }
-    // const vaksinData = userVaksinasi
-
-    // router.push(`/vaksinasi/details/${resume.id}`);
+    
+    const vaksinData: Vaksinasi = userVaksinasi.find((vaksinasi) => vaksinasi.type.includes(vaksinasiType))!;
+    router.push(`/vaksinasi/details/${vaksinData.id}`);
   }
+
+  const isComplete = (vaksinasiType: string) => {
+    for (let i = 0; i < userVaksinasi.length; i++) {
+      const vaksinasi = userVaksinasi[i];
+      if (vaksinasi.type.includes(vaksinasiType)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   return (
     <div className="flex flex-col gap-4 border-b-2 pb-4">
       <h3 className="font-semibold">Jenis Vaksinasi</h3>
@@ -29,9 +39,10 @@ const VaksinasiList = ({ user }: VaksinasiProps) => {
         {
           Object.values(tipeVaksin).map((vaksinasi, index) => (
             <VaksinasiCard
-              isComplete={userVaksinasi!.vaksinasi.includes(vaksinasi)}
+              isComplete={isComplete(vaksinasi)}
               title={vaksinasi}
               key={index}
+              handleClick={() => handleClick(vaksinasi)}
             />
           ))
         }

@@ -1,9 +1,9 @@
 "use client"
 
 import Header from "@/app/components/Header";
-import CardPengguna from "../components/CardPengguna";
-import VaksinasiList from "../components/VaksinasiList";
-import Keterangan from "../components/Keterangan";
+import CardPengguna from "./components/CardPengguna";
+import VaksinasiList from "./components/VaksinasiList";
+import Keterangan from "./components/Keterangan";
 import { dummyUserData } from "@/app/common/constants";
 import { useState } from "react";
 

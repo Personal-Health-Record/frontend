@@ -12,7 +12,7 @@ export const menuList = [
   {
     icon: "/images/menu/menu-3.png",
     title: "Vaksinasi",
-    url: "/vaksinasi/pribadi",
+    url: "/vaksinasi",
   },
   {
     icon: "/images/menu/menu-4.png",
