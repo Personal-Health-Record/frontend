@@ -1,5 +1,5 @@
 import { User } from "@/app/common/constants";
-import { TIPE_VAKSINASI_ANAK, TIPE_VAKSINASI_DEWASA, Vaksinasi, dummyVaksinasiData } from "../../constants";
+import { TIPE_VAKSINASI_ANAK, TIPE_VAKSINASI_DEWASA, dummyVaksinasiData } from "../../constants";
 import VaksinasiCard from "../VaksinasiCard";
 import { useRouter } from "next/navigation";
 
