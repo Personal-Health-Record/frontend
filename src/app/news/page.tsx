@@ -1,5 +1,7 @@
+import BottomNavbar from "../components/BottomNavbar";
 import NewsCard from "./components/NewsCard";
 import NewsTag from "./components/NewsTag"
+import { dummyNewsData } from "./constants";
 
 const News = () => {
   return (
@@ -14,33 +16,27 @@ const News = () => {
         </div>
       </div>
 
-      <div className="flex flex-row mt-8 px-8 gap-3 overflow-auto">
+
+      {/* TODO: add logic tentang ini */}
+      <div className="flex flex-wrap mt-8 px-8 gap-3">
         <NewsTag tagName="semua" isActive />
         <NewsTag tagName="tips kesehatan" />
-        <NewsTag tagName="penyakit kronis" />
-        <NewsTag tagName="penyakit kronis" />
-        <NewsTag tagName="penyakit kronis" />
-        <NewsTag tagName="penyakit kronis" />
-        <NewsTag tagName="penyakit kronis" />
-        <NewsTag tagName="penyakit kronis" />
-        <NewsTag tagName="penyakit kronis" />
         <NewsTag tagName="penyakit kronis" />
       </div>
 
       <div className="mt-4">
-        <NewsCard
-          title="Hipertensi Penyebab Utama Penyakit Jantung, Gagal Ginjal, dan Stroke"
-          description="Hipertensi atau tekanan darah tinggi, sering disebut sebagai “the silent killer” atau pembunuh diam-diam. Pasalnya, hipertensi tidak menimbulkan gejala yang khas sehingga sering tidak disadari oleh penderitanya. Padahal, hipertensi dapat menyebabkan berbagai komplikasi serius, seperti penyakit jantung, gagal ginjal, dan stroke."
-          imageUrl="https://down-id.img.susercontent.com/file/9430b6db08b5ff5b343f91112f1716b6" />
-        <NewsCard
-          title="Hipertensi Penyebab Utama Penyakit Jantung, Gagal Ginjal, dan Stroke"
-          description="Hipertensi atau tekanan darah tinggi, sering disebut sebagai “the silent killer” atau pembunuh diam-diam. Pasalnya, hipertensi tidak menimbulkan gejala yang khas sehingga sering tidak disadari oleh penderitanya. Padahal, hipertensi dapat menyebabkan berbagai komplikasi serius, seperti penyakit jantung, gagal ginjal, dan stroke."
-          imageUrl="https://down-id.img.susercontent.com/file/9430b6db08b5ff5b343f91112f1716b6" />
-        <NewsCard
-          title="Hipertensi Penyebab Utama Penyakit Jantung, Gagal Ginjal, dan Stroke"
-          description="Hipertensi atau tekanan darah tinggi, sering disebut sebagai “the silent killer” atau pembunuh diam-diam. Pasalnya, hipertensi tidak menimbulkan gejala yang khas sehingga sering tidak disadari oleh penderitanya. Padahal, hipertensi dapat menyebabkan berbagai komplikasi serius, seperti penyakit jantung, gagal ginjal, dan stroke."
-          imageUrl="https://down-id.img.susercontent.com/file/9430b6db08b5ff5b343f91112f1716b6" />
+        {
+          dummyNewsData.map((news) => (
+            <NewsCard
+              key={news.id}
+              title={news.title}
+              description={news.descriptionPlaceholder}
+              imageUrl={news.imageUrl}
+              route={news.route} />
+          ))
+        }
       </div>
+      <BottomNavbar />
     </div >
   );
 };
