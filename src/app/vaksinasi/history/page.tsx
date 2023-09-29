@@ -4,15 +4,22 @@ import CardNextVaksinasi from "../components/CardNextVaksinasi";
 import CardVaksinHistory from "../components/CardVaksinHistory";
 import { dummyVaksinasiData } from "../constants";
 import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
+
 
 const VaksinasiHistory = () => {
   const searchParams = useSearchParams()
   const type = searchParams.get('type')
   const userId = searchParams.get('userId')
+  const router = useRouter()
 
   const userVaksinData = dummyVaksinasiData
     .filter((item) => item.userId === userId)
     .filter((item) => item.type.includes(type!));
+
+  const handleClick = (id: string) => {
+    router.push(`/vaksinasi/details/${id}`);
+  }
 
   return (
     <div className="flex flex-col">
@@ -29,7 +36,7 @@ const VaksinasiHistory = () => {
 
           <div className="flex flex-col gap-3">
             {userVaksinData.map((item, index) => (
-              <CardVaksinHistory key={index} vaksinData={item} />
+              <CardVaksinHistory key={index} vaksinData={item} handleClick={handleClick}/>
             ))
             }
           </div>

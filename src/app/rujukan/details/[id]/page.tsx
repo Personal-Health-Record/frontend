@@ -9,12 +9,7 @@ import { formatDate } from "@/app/common/dateHelper";
 
 const RujukanDetails = () => {
   const params = useParams();
-
-  const rujukan = dummyRujukanData.find((data) => data.id === parseInt(params.id as string))
-  if (!rujukan) {
-    // TODO: adjust component
-    return <div>Not Found</div>
-  }
+  const rujukan = dummyRujukanData.find((data) => data.id === parseInt(params.id as string))!
 
   return (
     <div className="flex flex-col">

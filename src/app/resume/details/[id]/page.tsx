@@ -9,12 +9,7 @@ import { dummyResumeData } from "../../constants";
 
 const ResumeDetail = () => {
   const params = useParams()
-  const resume = dummyResumeData.find((resume) => resume.id === parseInt(params.id as string))
-
-  if (!resume) {
-    // TODO: adjust component
-    return <div>Not Found</div>
-  }
+  const resume = dummyResumeData.find((resume) => resume.id === parseInt(params.id as string))!
 
   const renderImage = () => {
     return (

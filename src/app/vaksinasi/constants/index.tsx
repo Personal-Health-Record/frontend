@@ -154,7 +154,7 @@ export const dummyVaksinasiData: Vaksinasi[] = [
   {
     id: "10",
     userId: "1",
-    date: "24-06-2022",
+    date: "15-06-2022",
     location: "Klinik Makmur Jaya",
     type: TIPE_VAKSINASI_DEWASA.COVID_19,
     certificateUrl: "https://sendangsari.bantulkab.go.id/assets/files/artikel/sedang_163349145460e250f122139.jpg"

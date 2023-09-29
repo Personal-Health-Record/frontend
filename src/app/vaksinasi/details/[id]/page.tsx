@@ -1,10 +1,17 @@
+"use client";
+
 import Header from "@/app/components/Header";
 import CardDetails from "../components/CardDetails";
 import { dataDetailVaksin } from "../constants";
 import CardVaksin from "../components/CardVaksin";
 import BottomNavbarMedis from "@/app/components/BottomNavbarMedis";
+import { useParams } from "next/navigation";
+import { dummyVaksinasiData } from "../../constants";
 
 const VaksinasiDetails = () => {
+  const params = useParams();
+  const vaksin = dummyVaksinasiData.find((data) => data.id === params.id as string)!
+
   return (
     <div className="flex flex-col">
       <Header title="Vaksinasi" />
