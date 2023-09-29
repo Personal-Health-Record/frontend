@@ -5,6 +5,8 @@ import BottomNavbar from "../components/BottomNavbar";
 import NewsCard from "./components/NewsCard";
 import NewsTag from "./components/NewsTag"
 import { dummyNewsData } from "./constants";
+import Header from "../components/Header";
+import SearchBar from "./components/SearchBar";
 
 const News = () => {
   const [tag, setTag] = useState("semua")
@@ -18,17 +20,10 @@ const News = () => {
 
   return (
     <div className="flex flex-col h-screen" >
-      <div className="mt-8">
-        <div className="relative mt-4 px-8">
-          <input
-            type="text"
-            className="w-full px-4 py-2 border border-gray-400 rounded-2xl bg-transparent focus:outline-none focus:border-gray-900"
-            placeholder="Cari artikel kesehatan"
-          />
-        </div>
-      </div>
+      <Header title="Artikel Kesehatan" />
+      <SearchBar />
 
-      <div className="flex flex-wrap mt-8 px-8 gap-3">
+      <div className="flex flex-wrap mt-4 px-2 gap-2">
         <NewsTag
           tagName="semua"
           isActive={tag === 'semua' ? true : false}
