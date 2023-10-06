@@ -34,7 +34,7 @@ const VaksinasiList = ({ user }: VaksinasiProps) => {
     <div className="flex flex-col gap-4 border-b-2 pb-4">
       <h3 className="font-semibold">Jenis Vaksinasi</h3>
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-3 gap-3">
         {
           Object.values(tipeVaksin).map((vaksinasi, index) => (
             <VaksinasiCard
