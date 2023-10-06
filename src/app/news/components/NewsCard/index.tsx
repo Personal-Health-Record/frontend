@@ -18,11 +18,11 @@ const NewsCard = (props: NewsCardProps) => {
             <div className="w-3/4">
                 <h1 style={{
                     fontWeight: 700,
-                    fontSize: "14px"
+                    fontSize: "12px"
                 }}>{props.title}</h1>
                 <p style={{
                     fontWeight: 400,
-                    fontSize: "12px",
+                    fontSize: "10px",
                 }}>{props.description}</p>
             </div>
             <div className="w-1/4 flex justify-center items-center ">

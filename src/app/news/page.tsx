@@ -21,41 +21,44 @@ const News = () => {
   return (
     <div className="flex flex-col h-screen" >
       <Header title="Artikel Kesehatan" />
-      <SearchBar />
+      <div className="px-4">
+        <SearchBar />
 
-      <div className="flex flex-wrap mt-4 px-2 gap-2">
-        <NewsTag
-          tagName="semua"
-          isActive={tag === 'semua' ? true : false}
-          handleClick={() => {
-            setTag("semua")
-          }} />
-        <NewsTag
-          tagName="tips kesehatan"
-          isActive={tag === 'tips kesehatan' ? true : false}
-          handleClick={() => {
-            setTag("tips kesehatan")
-          }} />
-        <NewsTag
-          tagName="penyakit kronis"
-          isActive={tag === 'penyakit kronis' ? true : false}
-          handleClick={() => {
-            setTag("penyakit kronis")
-          }} />
+        <div className="flex flex-wrap mt-4 px-2 gap-2">
+          <NewsTag
+            tagName="semua"
+            isActive={tag === 'semua' ? true : false}
+            handleClick={() => {
+              setTag("semua")
+            }} />
+          <NewsTag
+            tagName="tips kesehatan"
+            isActive={tag === 'tips kesehatan' ? true : false}
+            handleClick={() => {
+              setTag("tips kesehatan")
+            }} />
+          <NewsTag
+            tagName="penyakit kronis"
+            isActive={tag === 'penyakit kronis' ? true : false}
+            handleClick={() => {
+              setTag("penyakit kronis")
+            }} />
+        </div>
+
+        <div className="mt-4">
+          {
+            newsData.map((news) => (
+              <NewsCard
+                key={news.id}
+                title={news.title}
+                description={news.descriptionPlaceholder}
+                imageUrl={news.imageUrl}
+                route={news.route} />
+            ))
+          }
+        </div>
       </div>
 
-      <div className="mt-4">
-        {
-          newsData.map((news) => (
-            <NewsCard
-              key={news.id}
-              title={news.title}
-              description={news.descriptionPlaceholder}
-              imageUrl={news.imageUrl}
-              route={news.route} />
-          ))
-        }
-      </div>
       <BottomNavbar />
     </div >
   );
