@@ -1,21 +1,24 @@
-import { dummyRujukanData } from "../../constants";
+import { Rujukan } from "../../models";
 import RiwayatRujukanCard from "../RiwayatRujukanCard";
 
-const RiwayatRujukan = () => {
-  const rujukanData = dummyRujukanData.reverse();
+type RiwayatRujukanProps = {
+  rujukanData: Rujukan[]
+}
 
+const RiwayatRujukan = ({ rujukanData }: RiwayatRujukanProps) => {
   return (
     <div className="flex flex-col gap-2 mt-3">
       <h3 className="font-semibold text-mainGrey pl-2">Riwayat Rujukan</h3>
       {
-        rujukanData.map((dat, index) => {
-          if (index === 0) {
+        rujukanData.map((_, index) => {
+          if (rujukanData[index].id == 1) {
             return;
           }
 
           return (
-            <RiwayatRujukanCard rujukanData={dat} key={index} />
-        )})
+            <RiwayatRujukanCard rujukanData={rujukanData[index]} key={index} />
+          )
+        })
       }
     </div>
   );

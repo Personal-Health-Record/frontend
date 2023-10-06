@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 
 const JadwalRujukan = () => {
   const router = useRouter();
-  const latestRujukan = dummyRujukanData[dummyRujukanData.length - 1];
+  const latestRujukan = dummyRujukanData[0];
 
   const handleClick = () => {
     router.push(`/rujukan/details/${latestRujukan.id}`);
