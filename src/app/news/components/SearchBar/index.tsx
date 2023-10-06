@@ -1,6 +1,10 @@
 import Image from "next/image";
 
-const SearchBar = () => {
+type SearchProps = {
+  onSearch: (keyword: string) => void
+};
+
+const SearchBar = ({ onSearch }: SearchProps) => {
   return (
     <div className="relative mt-4">
       <input
@@ -9,6 +13,7 @@ const SearchBar = () => {
         style={{
           fontSize: "15px",
         }}
+        onChange={(e) => onSearch(e.target.value)}
       />
       <Image
         src="/images/search.png"

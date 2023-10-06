@@ -9,37 +9,58 @@ import Header from "../components/Header";
 import SearchBar from "./components/SearchBar";
 
 const News = () => {
-  const [tag, setTag] = useState("semua")
+  const [data, setData] = useState(dummyNewsData)
+  const [tagState, setTagState] = useState("semua")
+  const [keywordState, setKeywordState] = useState("")
 
-  let newsData = dummyNewsData;
-  if (tag !== "semua") {
-    newsData = newsData.filter((news) => {
-      return news.tags.includes(tag)
+  const setTag = (tag: string) => {
+    const filteredData = getFilteredData(keywordState, tag)
+    setData(filteredData)
+    setTagState(tag)
+  }
+
+  const onSearch = (keyword: string) => {
+    if (keyword.length === 0) {
+      setData(dummyNewsData)
+    }
+
+    const filteredData = getFilteredData(keyword, tagState)
+    setData(filteredData)
+    setKeywordState(keyword)
+  }
+
+  const getFilteredData = (keyword: string, tag: string) => {
+    const filteredData = dummyNewsData.filter((item) => {
+      const titleMatch = item.title.toLowerCase().includes(keyword.toLowerCase())
+      const descriptionPlaceholderMatch = item.descriptionPlaceholder.toLowerCase().includes(keyword.toLowerCase())
+      const tagMatch = tag != "semua" ? item.tags.includes(tag) : true
+      return tagMatch && (titleMatch || descriptionPlaceholderMatch)
     })
+    return filteredData;
   }
 
   return (
     <div className="flex flex-col h-screen" >
       <Header title="Artikel Kesehatan" />
       <div className="px-4">
-        <SearchBar />
+        <SearchBar onSearch={onSearch} />
 
         <div className="flex flex-wrap mt-4 px-2 gap-2">
           <NewsTag
             tagName="semua"
-            isActive={tag === 'semua' ? true : false}
+            isActive={tagState === 'semua' ? true : false}
             handleClick={() => {
               setTag("semua")
             }} />
           <NewsTag
             tagName="tips kesehatan"
-            isActive={tag === 'tips kesehatan' ? true : false}
+            isActive={tagState === 'tips kesehatan' ? true : false}
             handleClick={() => {
               setTag("tips kesehatan")
             }} />
           <NewsTag
             tagName="penyakit kronis"
-            isActive={tag === 'penyakit kronis' ? true : false}
+            isActive={tagState === 'penyakit kronis' ? true : false}
             handleClick={() => {
               setTag("penyakit kronis")
             }} />
@@ -47,7 +68,7 @@ const News = () => {
 
         <div className="mt-4">
           {
-            newsData.map((news) => (
+            data.map((news) => (
               <NewsCard
                 key={news.id}
                 title={news.title}
