@@ -14,17 +14,12 @@ const RujukanPage = () => {
       setData(dummyRujukanData)
     }
 
-    console.log(keyword)
-
     const filteredData = dummyRujukanData.filter((item) => {
       const locationMatch = item.location.toLowerCase().includes(keyword.toLowerCase())
       const referenceLocationMatch = item.referenceLocation.toLowerCase().includes(keyword.toLowerCase())
       const diagnoseMatch = item.diagnose.toLowerCase().includes(keyword.toLowerCase())
-      console.log(item.id, locationMatch, referenceLocationMatch, diagnoseMatch)
-      console.log(item.id, locationMatch || referenceLocationMatch || diagnoseMatch)
       return locationMatch || referenceLocationMatch || diagnoseMatch
     })
-    console.log(filteredData)
     setData(filteredData)
   }
 
