@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { User, dummyUserData } from "../common/constants";
-import ProfileHeader from "./components/profileHeader";
-import ProfileOptionCard from "./components/profileOptionCard";
+import ProfileHeader from "./components/ProfileHeader";
+import ProfileOptionCard from "./components/ProfileOptionCard";
 import BottomNavbar from "../components/BottomNavbar";
 
 const ProfilePage = () => {
