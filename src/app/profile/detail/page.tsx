@@ -3,18 +3,29 @@
 import Header from "@/app/components/Header";
 import { formatDate } from "@/app/common/dateHelper";
 import BottomNavbar from "@/app/components/BottomNavbar";
-import { User } from "@/app/common/constants";
+import { User, dummyUserData } from "@/app/common/constants";
 import DetailInfoCard from "../components/DetailInfoCard";
+import { useEffect, useState } from "react";
 
-type ProfileDetailProps = {
-  user: User;
-}
+const ProfileDetail = () => {
+  const [user, setUser] = useState<User>()
+  
+  useEffect(() => {
+    if (typeof window !== 'undefined' && user == null) {
+      const userEmail = localStorage.getItem('authUserEmail');
+      const userData = dummyUserData.find((user) => user.email === userEmail)
+      setUser(userData)
+    }
+  }, [user])
 
-const ProfileDetail = ({ user }: ProfileDetailProps) => {
+  if (!user) {
+    return <div> Loading... </div>
+  }
+
   return (
     <div className="flex flex-col">
-      <Header title="Resume Medis" />
-      <div className="flex flex-col w-full px-4 py-4 gap-3 mb-2">
+      <Header title="Profil Saya" />
+      <div className="flex flex-col w-full px-4 py-4 gap-3 mb-16">
         <h3 className="font-semibold">Informasi Umum</h3>
         <DetailInfoCard
           title={"Nama Lengkap"}
@@ -50,6 +61,7 @@ const ProfileDetail = ({ user }: ProfileDetailProps) => {
         />
       </div>
 
+      {/* TODO: update jadi edit profile */}
       <BottomNavbar />
     </div>
   );

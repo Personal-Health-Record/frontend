@@ -16,7 +16,6 @@ const ProfilePage = () => {
     }
   }, [user])
 
-
   return (
     <div className="flex flex-col">
       {
@@ -27,7 +26,7 @@ const ProfilePage = () => {
             <ProfileHeader user={user} />
             <div>
               <hr />
-              <ProfileOptionCard title="Profil Saya" path="/" />
+              <ProfileOptionCard title="Profil Saya" path="/profile/detail" />
               <ProfileOptionCard title="Anggota Keluarga" path="/" />
               <ProfileOptionCard title="Asuransi Kesehatan" path="/" />
             </div>
