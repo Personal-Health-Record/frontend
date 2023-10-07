@@ -17,6 +17,6 @@ export const menuNavbar = [
   {
     icon: "/images/bottomnav/user.png",
     title: "Profil",
-    route: "/",
+    route: "/profile",
   },
 ];
