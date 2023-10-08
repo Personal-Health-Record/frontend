@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { getUserData } from "@/app/common/dataHelper";
 import TextInput from "@/app/components/TextInput";
 import RadioInput from "@/app/components/RadioInput";
+import { User } from "@/app/common/constants";
 
 export type RegisterFormAttributes = {
   email: string,
@@ -22,6 +23,7 @@ export type RegisterFormAttributes = {
 }
 
 const RegisterForm = () => {
+  const router = useRouter();
   const [formState, setFormState] = useState<RegisterFormAttributes>(
     {
       email: "",
@@ -38,19 +40,53 @@ const RegisterForm = () => {
       profilePicture: "",
     }
   );
-  // const { userData } = getUserData();
+  const { userData } = getUserData();
+  if (!userData) {
+    return <div> Loading... </div>
+  }
 
-  const router = useRouter();
 
   const handleClickRegister = () => {
-    validateForm();
-    // const user = userData!.find((user) => user.email === email && user.password === password);
-    // if (user && user.email) {
-    //   localStorage.setItem('authUserEmail', user.email);
-    //   router.push("/");
-    // } else {
-    //   alert('Register gagal');
-    // }
+    const isValidated = validateForm();
+    if (!isValidated) {
+      return;
+    }
+
+    const newUser: User = {
+      id: (userData.length + 1).toString(),
+      email: formState.email,
+      password: formState.password,
+      name: formState.name,
+      nik: formState.nik,
+      dateOfBirth: formState.dateOfBirth,
+      age: formState.age,
+      gender: formState.gender,
+      bloodType: formState.bloodType,
+      maritalStatus: formState.maritalStatus,
+      phoneNumber: formState.phoneNumber,
+      profilePicture: formState.profilePicture,
+      role: 'patient',
+    }
+
+    // validate email uniqueness
+    for (const user of userData) {
+      if (user.email === newUser.email) {
+        alert('Email sudah terdaftar');
+        return;
+      }
+    }
+
+    const newUserData =
+      JSON.stringify(
+        [
+          ...userData,
+          newUser
+        ]
+      )
+
+    localStorage.setItem('userDataStorage', newUserData);
+
+    router.push("/auth");
   };
 
   const validateForm = () => {
@@ -69,9 +105,6 @@ const RegisterForm = () => {
     return true;
   }
 
-  // if (!userData) {
-  //   return <div> Loading... </div>
-  // }
 
   return (
     <div className="mt-8">
@@ -105,7 +138,7 @@ const RegisterForm = () => {
       <TextInput
         label="NIK"
         placeholder="NIK"
-        type="text"
+        type="number"
         onChange={(value: any) => setFormState({ ...formState, nik: value })}
 
       />

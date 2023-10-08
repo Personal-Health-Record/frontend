@@ -19,7 +19,9 @@ const RadioInput = ({ label, options, onClick, inputKey }: RadioInputProps) => {
         {
           options.map((option, index) => (
             <label className="flex items-center" key={index} >
-              <input type="radio" name={"radioOption_" + inputKey} value={option.value} className="mr-2" onClick={onClick} />
+              <input type="radio" name={"radioOption_" + inputKey} value={option.value} className="mr-2" onClick={() => {
+                onClick(option.value);
+              }} />
               <p className="text-sm">{option.label}</p>
             </label>
           ))
