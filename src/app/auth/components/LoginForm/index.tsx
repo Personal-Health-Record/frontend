@@ -1,8 +1,9 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getUserData } from "@/app/common/dataHelper";
+import TextInput from "@/app/components/TextInput";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -21,43 +22,28 @@ const LoginForm = () => {
     }
   };
 
+  const handleRegisterClick = () => {
+    router.push("/auth/register");
+  }
+
   if (!userData) {
     return <div> Loading... </div>
   }
 
   return (
     <div className="mt-8">
-      <div className="relative mt-4 px-8">
-        <label
-          htmlFor="input"
-          className="absolute left-12 -top-3 bg-white px-1 text-gray-600 text-sm"
-        >
-          Email
-        </label>
-        <input
-          type="text"
-          id="input"
-          className="w-full px-4 py-2 border border-gray-400 rounded-2xl bg-transparent focus:outline-none focus:border-gray-900"
-          placeholder="mail@mail.com"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
-
-      <div className="relative mt-8 px-8 ">
-        <label
-          htmlFor="input"
-          className="absolute left-12 -top-3 bg-white px-1 text-gray-600 text-sm"
-        >
-          Password
-        </label>
-        <input
-          type="password"
-          id="input"
-          className="w-full px-4 py-2 border border-gray-400 rounded-2xl bg-transparent focus:outline-none focus:border-gray-900"
-          placeholder="****"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
+      <TextInput
+        label="Email"
+        placeholder="mail@mail.com"
+        type="text"
+        onChange={(value: any) => setEmail(value)}
+      />
+      <TextInput
+        label="Password"
+        placeholder="****"
+        type="password"
+        onChange={(value: any) => setPassword(value)}
+      />
 
       <div className="px-8 mt-8">
         <button
@@ -79,7 +65,7 @@ const LoginForm = () => {
       </div> */}
 
       <p className="w-full text-center mt-6 text-lightGrey">
-        Belum punya akun? <span className="text-mainBlue">Register</span>
+        Belum punya akun? <span className="text-mainBlue" onClick={handleRegisterClick}>Register</span>
       </p>
 
       <p className="w-full text-center mt-2 text-lightGrey">Lupa Password?</p>
