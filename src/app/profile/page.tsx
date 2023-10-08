@@ -1,38 +1,28 @@
 "use client"
 
-import { useEffect, useState } from "react";
-import { User, dummyUserData } from "../common/constants";
 import ProfileHeader from "./components/ProfileHeader";
 import ProfileOptionCard from "./components/ProfileOptionCard";
 import BottomNavbar from "../components/BottomNavbar";
+import { getLoggedInUser } from "../common/dataHelper";
 
 const ProfilePage = () => {
-  const [user, setUser] = useState<User>()
-  useEffect(() => {
-    if (typeof window !== 'undefined' && user == null) {
-      const userEmail = localStorage.getItem('authUserEmail');
-      const userData = dummyUserData.find((user) => user.email === userEmail)
-      setUser(userData)
-    }
-  }, [user])
+  const { loggedInUser: user } = getLoggedInUser();
+
+  if (!user) {
+    return <div> Loading... </div>
+  }
 
   return (
     <div className="flex flex-col">
-      {
-        !user ? (
-          <div> Loading... </div>
-        ) : (
-          <div className="flex flex-col py-3 px-4 gap-6 pt-6">
-            <ProfileHeader user={user} />
-            <div>
-              <hr />
-              <ProfileOptionCard title="Profil Saya" path="/profile/detail" />
-              <ProfileOptionCard title="Anggota Keluarga" path="/" />
-              <ProfileOptionCard title="Asuransi Kesehatan" path="/" />
-            </div>
-          </div>
-        )
-      }
+      <div className="flex flex-col py-3 px-4 gap-6 pt-6">
+        <ProfileHeader user={user} />
+        <div>
+          <hr />
+          <ProfileOptionCard title="Profil Saya" path="/profile/detail" />
+          <ProfileOptionCard title="Anggota Keluarga" path="/" />
+          <ProfileOptionCard title="Asuransi Kesehatan" path="/" />
+        </div>
+      </div>
       <BottomNavbar />
     </div>
   );
