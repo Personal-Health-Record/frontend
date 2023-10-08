@@ -3,6 +3,7 @@ type TextInputProps = {
   placeholder: string,
   type: string,
   onChange: (value: any) => void,
+  value?: any,
 }
 
 const TextInput = (
@@ -11,6 +12,7 @@ const TextInput = (
     placeholder,
     type,
     onChange,
+    value,
   }: TextInputProps) => {
   return (
     <div className="relative mt-4 px-8">
@@ -22,10 +24,10 @@ const TextInput = (
       </label>
       <input
         type={type}
-        id="input"
         className="w-full px-4 py-2 border border-gray-400 rounded-2xl bg-transparent focus:outline-none focus:border-gray-900"
         placeholder={placeholder}
         onChange={(e) => onChange(e.target.value)}
+        value={value}
       />
     </div>
   )

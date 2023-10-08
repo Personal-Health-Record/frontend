@@ -47,9 +47,8 @@ export const getLoggedInUser = () => {
     }
 }
 
-export const updateUserData = (updatedUserData: User) => {
-    const { userData } = getUserData();
-    const updatedUserDataList = userData!.map((user) => {
+export const updateUserData = (updatedUserData: User, existingUserDataList: User[]) => {
+    const updatedUserDataList = existingUserDataList!.map((user) => {
         if (user.id === updatedUserData.id) {
             return updatedUserData;
         }
@@ -57,4 +56,5 @@ export const updateUserData = (updatedUserData: User) => {
     });
 
     localStorage.setItem('userDataStorage', JSON.stringify(updatedUserDataList));
+    localStorage.setItem('authUserEmail', updatedUserData.email!);
 }

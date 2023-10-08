@@ -10,8 +10,6 @@ import { log } from "console";
 
 export type EditProfileFormAttributes = {
   email?: string,
-  password?: string,
-  confirmPassword?: string,
   name?: string,
   nik?: string,
   dateOfBirth?: string,
@@ -28,8 +26,6 @@ const EditProfileForm = () => {
   const [formState, setFormState] = useState<EditProfileFormAttributes>(
     {
       email: "",
-      password: "",
-      confirmPassword: "",
       name: "",
       nik: "",
       dateOfBirth: "",
@@ -49,8 +45,6 @@ const EditProfileForm = () => {
   if (formState.email === "") {
     setFormState({
       email: loggedInUser.email,
-      password: loggedInUser.password,
-      confirmPassword: loggedInUser.password,
       name: loggedInUser.name,
       nik: loggedInUser.nik,
       dateOfBirth: loggedInUser.dateOfBirth,
@@ -73,7 +67,7 @@ const EditProfileForm = () => {
     const updatedUser: User = {
       id: loggedInUser.id,
       email: formState.email,
-      password: formState.password,
+      password: loggedInUser.password,
       name: formState.name!,
       nik: formState.nik,
       dateOfBirth: formState.dateOfBirth,
@@ -86,16 +80,23 @@ const EditProfileForm = () => {
       role: 'patient',
     }
 
-    updateUserData(updatedUser)
+    // validate email uniqueness
+    for (const user of userData) {
+      if (user.id === updatedUser.id) {
+        continue;
+      }
+      if (user.email === updatedUser.email) {
+        alert('Email sudah terdaftar');
+        return;
+      }
+    }
+
+    updateUserData(updatedUser, userData)
 
     router.push("/profile");
   };
 
   const validateForm = () => {
-    if (formState.password !== formState.confirmPassword) {
-      alert('Password dan konfirmasi password harus sama');
-      return false;
-    }
     for (const [key, value] of Object.entries(formState)) {
       // TODO: remove validation for profile picture until firebase storage is ready
       if (!value && key !== 'profilePicture') {
@@ -115,52 +116,42 @@ const EditProfileForm = () => {
         placeholder="mail@mail.com"
         type="email"
         onChange={(value: any) => setFormState({ ...formState, email: value })}
-      />
-      <TextInput
-        label="Password"
-        placeholder="****"
-        type="password"
-        onChange={(value: any) => setFormState({ ...formState, password: value })}
-
-      />
-      <TextInput
-        label="Confirmation Password"
-        placeholder="****"
-        type="password"
-        onChange={(value: any) => setFormState({ ...formState, confirmPassword: value })}
-
+        value={formState.email}
       />
       <TextInput
         label="Nama Lengkap"
         placeholder="Nama Lengkap"
         type="text"
         onChange={(value: any) => setFormState({ ...formState, name: value })}
-
+        value={formState.name}
       />
       <TextInput
         label="NIK"
         placeholder="NIK"
         type="number"
         onChange={(value: any) => setFormState({ ...formState, nik: value })}
-
+        value={formState.nik}
       />
       <TextInput
         label="Tanggal Lahir"
         placeholder="Tanggal Lahir"
         type="date"
         onChange={(value: any) => setFormState({ ...formState, dateOfBirth: value })}
+        value={formState.dateOfBirth}
       />
       <TextInput
         label="Umur"
         placeholder="Umur"
         type="number"
         onChange={(value: any) => setFormState({ ...formState, age: value })}
+        value={formState.age}
       />
       <TextInput
         label="Nomor Telepon"
         placeholder="Nomor Telepon"
         type="number"
         onChange={(value: any) => setFormState({ ...formState, phoneNumber: value })}
+        value={formState.phoneNumber}
       />
       <RadioInput
         label="Jenis Kelamin"
@@ -170,6 +161,7 @@ const EditProfileForm = () => {
         ]}
         onClick={(value: any) => setFormState({ ...formState, gender: value })}
         inputKey="gender"
+        value={formState.gender!}
       />
       <RadioInput
         label="Golongan Darah"
@@ -181,6 +173,7 @@ const EditProfileForm = () => {
         ]}
         onClick={(value: any) => setFormState({ ...formState, bloodType: value })}
         inputKey="bloodType"
+        value={formState.bloodType!}
       />
       <RadioInput
         label="Status Pernikahan"
@@ -191,6 +184,7 @@ const EditProfileForm = () => {
         ]}
         onClick={(value: any) => setFormState({ ...formState, maritalStatus: value })}
         inputKey="maritalStatus"
+        value={formState.maritalStatus!}
       />
       {/* TODO: profile picture upload ke firebase */}
       <div className="px-8 mt-8 mb-4">
