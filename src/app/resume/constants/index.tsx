@@ -3,7 +3,7 @@ import { Resume } from "../models";
 export const dummyResumeData: Resume[] = [
     {
         id: 1,
-        date: "04-18-2022",
+        date: "2022-04-18",
         location: "Rumah Sakit Maju Jaya",
         diagnose: "E11.9 - Diabetes mellitus",
         recordNumber: "12345",
@@ -23,7 +23,7 @@ export const dummyResumeData: Resume[] = [
     },
     {
         id: 2,
-        date: "04-04-2022",
+        date: "2022-04-04",
         location: "Puskesmas Serpong",
         diagnose: "E11.9 - Diabetes mellitus",
         recordNumber: "54321",
@@ -43,7 +43,7 @@ export const dummyResumeData: Resume[] = [
     },
     {
         id: 3,
-        date: "03-21-2022",
+        date: "2022-03-21",
         location: "Klinik Makmur Jaya",
         diagnose: "E11.9 - Diabetes mellitus",
         recordNumber: "98765",
@@ -63,7 +63,7 @@ export const dummyResumeData: Resume[] = [
     },
     {
         id: 4,
-        date: "03-07-2022",
+        date: "2022-03-07",
         location: "Rumah Sakit Medika",
         diagnose: "E11.9 - Diabetes mellitus",
         recordNumber: "56789",
@@ -83,7 +83,7 @@ export const dummyResumeData: Resume[] = [
     },
     {
         id: 5,
-        date: "02-22-2022",
+        date: "2022-02-22",
         location: "Puskesmas Serpong",
         diagnose: "E11.9 - Diabetes mellitus",
         recordNumber: "23456",
@@ -103,7 +103,7 @@ export const dummyResumeData: Resume[] = [
     },
     {
         id: 6,
-        date: "02-07-2022",
+        date: "2022-02-07",
         location: "Rumah Sakit Maju Jaya",
         diagnose: "A75 - Demam tifus",
         recordNumber: "67890",
@@ -123,7 +123,7 @@ export const dummyResumeData: Resume[] = [
     },
     {
         id: 7,
-        date: "01-24-2022",
+        date: "2022-01-24",
         location: "Puskesmas Serpong",
         diagnose: "A75 - Demam tifus",
         recordNumber: "78901",
@@ -143,7 +143,7 @@ export const dummyResumeData: Resume[] = [
     },
     {
         id: 8,
-        date: "01-07-2022",
+        date: "2022-01-07",
         location: "Klinik Makmur Jaya",
         diagnose: "Z23.2 - Imunisasi BCG",
         recordNumber: "34567",
@@ -163,7 +163,7 @@ export const dummyResumeData: Resume[] = [
     },
     {
         id: 9,
-        date: "12-21-2021",
+        date: "2021-12-21",
         location: "Klinik Angga Jaya",
         diagnose: "Z23.2 - Vaksin BCG",
         recordNumber: "12312",
@@ -183,7 +183,7 @@ export const dummyResumeData: Resume[] = [
     },
     {
         id: 10,
-        date: "12-10-2021",
+        date: "2021-12-10",
         location: "Klinik Ari Jaya",
         diagnose: "Z23.1 - Vaksin BCG",
         recordNumber: "111421",
