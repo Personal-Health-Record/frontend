@@ -7,6 +7,7 @@ import { getLoggedInUser } from "@/app/common/dataHelper";
 import BottomNavbarEditProfile from "../components/BottomNavbarEditProfile";
 import FamilyCard from "../components/FamilyCard";
 import BottomNavbarOneButton from "../../components/BottomNavbarOneButton";
+import InsuranceCard from "../components/InsuranceCard";
 
 const FamilyPage = () => {
   const { loggedInUser: user, userData } = getLoggedInUser();
@@ -19,22 +20,24 @@ const FamilyPage = () => {
 
   return (
     <div className="flex flex-col">
-      <Header title="Anggota Keluarga" />
+      <Header title="Asuransi Kesehatan" />
       <div className="flex flex-col w-full px-4 py-4 mb-16">
-        {
-          userRelations.map((item, index) => (
-            <FamilyCard
-              key={index}
-              user={item}
-            />
-          ))
-        }
+        <InsuranceCard
+          title="BPJS Kesehatan"
+          cardNumber="0000000000000000"
+          isActive={true}
+        />
+        <InsuranceCard
+          title="BPJS Kesehatan"
+          cardNumber="0000000000000000"
+          isActive={true}
+        />
       </div>
 
       <BottomNavbarOneButton
-        path="/profile/edit/family"
+        path="/profile/edit/insurance"
         iconPath="/images/plus.png"
-        text="Tambahkan Anggota Keluarga" />
+        text="Tambahkan Asuransi Kesehatan" />
     </div>
   );
 };
