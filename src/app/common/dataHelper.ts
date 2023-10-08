@@ -26,23 +26,35 @@ export const getUserData = () => {
 export const getLoggedInUser = () => {
     const { userData } = getUserData();
     const [loggedInUser, setLoggedInUser] = useState<User>()
-    
-    useEffect(() => {
-      if (!loggedInUser && typeof window !== 'undefined') {
-        const userEmail = localStorage.getItem('authUserEmail');
-        if (!userEmail) {
-            alert('Please login to continue');
-            return;
-        }
 
-        if (userData) {
-            setLoggedInUser(userData.find((user) => user.email === userEmail))
+    useEffect(() => {
+        if (!loggedInUser && typeof window !== 'undefined') {
+            const userEmail = localStorage.getItem('authUserEmail');
+            if (!userEmail) {
+                alert('Please login to continue');
+                return;
+            }
+
+            if (userData) {
+                setLoggedInUser(userData.find((user) => user.email === userEmail))
+            }
         }
-      }
     }, [loggedInUser, userData])
 
     return {
         loggedInUser,
         userData
     }
+}
+
+export const updateUserData = (updatedUserData: User) => {
+    const { userData } = getUserData();
+    const updatedUserDataList = userData!.map((user) => {
+        if (user.id === updatedUserData.id) {
+            return updatedUserData;
+        }
+        return user;
+    });
+
+    localStorage.setItem('userDataStorage', JSON.stringify(updatedUserDataList));
 }
