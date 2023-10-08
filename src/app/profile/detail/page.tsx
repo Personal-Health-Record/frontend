@@ -3,20 +3,11 @@
 import Header from "@/app/components/Header";
 import { formatDate } from "@/app/common/dateHelper";
 import BottomNavbar from "@/app/components/BottomNavbar";
-import { User, dummyUserData } from "@/app/common/constants";
 import DetailInfoCard from "../components/DetailInfoCard";
-import { useEffect, useState } from "react";
+import { getLoggedInUser } from "@/app/common/dataHelper";
 
 const ProfileDetail = () => {
-  const [user, setUser] = useState<User>()
-  
-  useEffect(() => {
-    if (typeof window !== 'undefined' && user == null) {
-      const userEmail = localStorage.getItem('authUserEmail');
-      const userData = dummyUserData.find((user) => user.email === userEmail)
-      setUser(userData)
-    }
-  }, [user])
+  const { loggedInUser: user } = getLoggedInUser();
 
   if (!user) {
     return <div> Loading... </div>

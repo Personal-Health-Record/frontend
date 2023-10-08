@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 import { User, dummyUserData } from "./constants";
 
 export const getUserData = () => {
-    const [userData, setUserData] = useState<User[]>([])
+    const [userData, setUserData] = useState<User[]>()
 
     useEffect(() => {
-        if (userData.length == 0 && typeof window !== 'undefined') {
+        if (!userData && typeof window !== 'undefined') {
             const userDataStorage = localStorage.getItem('userDataStorage');
             if (userDataStorage) {
                 setUserData(JSON.parse(userDataStorage));
@@ -21,4 +21,28 @@ export const getUserData = () => {
     return {
         userData
     };
+}
+
+export const getLoggedInUser = () => {
+    const { userData } = getUserData();
+    const [loggedInUser, setLoggedInUser] = useState<User>()
+    
+    useEffect(() => {
+      if (!loggedInUser && typeof window !== 'undefined') {
+        const userEmail = localStorage.getItem('authUserEmail');
+        if (!userEmail) {
+            alert('Please login to continue');
+            return;
+        }
+
+        if (userData) {
+            setLoggedInUser(userData.find((user) => user.email === userEmail))
+        }
+      }
+    }, [loggedInUser, userData])
+
+    return {
+        loggedInUser,
+        userData
+    }
 }

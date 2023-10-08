@@ -12,7 +12,7 @@ const LoginForm = () => {
   const router = useRouter();
 
   const handleClickLogin = () => {
-    const user = userData.find((user) => user.email === email && user.password === password);
+    const user = userData!.find((user) => user.email === email && user.password === password);
     if (user && user.email) {
       localStorage.setItem('authUserEmail', user.email);
       router.push("/");
@@ -20,6 +20,10 @@ const LoginForm = () => {
       alert('Login gagal');
     }
   };
+
+  if (!userData) {
+    return <div> Loading... </div>
+  }
 
   return (
     <div className="mt-8">
