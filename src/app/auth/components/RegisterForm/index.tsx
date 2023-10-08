@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { getUserData } from "@/app/common/dataHelper";
 import TextInput from "@/app/components/TextInput";
+import RadioInput from "@/app/components/RadioInput";
 
 type RegisterFormAttributes = {
   email: string,
@@ -44,6 +45,10 @@ const RegisterForm = () => {
     }
     if (formState.password !== formState.confirmPassword) {
       alert('Password dan konfirmasi password harus sama');
+      return false;
+    }
+    if (!formState.bloodType || !formState.maritalStatus || !formState.gender) {
+      alert('Data harus diisi semua');
       return false;
     }
     return true;
@@ -108,9 +113,6 @@ const RegisterForm = () => {
         onChange={(value: any) => setFormState({ ...formState, age: value })}
         isRequired={true}
       />
-      {/* gender pake select option */}
-      {/* blood type pake select option */}
-      {/* marital status pake select option */}
       <TextInput
         label="Nomor Telepon"
         placeholder="Nomor Telepon"
@@ -118,9 +120,38 @@ const RegisterForm = () => {
         onChange={(value: any) => setFormState({ ...formState, phoneNumber: value })}
         isRequired={true}
       />
-      {/* profile picture upload ke firebase */}
-
-      <div className="px-8 mt-8">
+      <RadioInput
+        label="Jenis Kelamin"
+        options={[
+          { label: 'Laki-laki', value: 'laki-laki' },
+          { label: 'Perempuan', value: 'perempuan' },
+        ]}
+        onClick={(value: any) => setFormState({ ...formState, gender: value })}
+        inputKey="gender"
+      />
+      <RadioInput
+        label="Golongan Darah"
+        options={[
+          { label: 'A', value: 'A' },
+          { label: 'B', value: 'B' },
+          { label: 'AB', value: 'AB' },
+          { label: 'O', value: 'O' },
+        ]}
+        onClick={(value: any) => setFormState({ ...formState, bloodType: value })}
+        inputKey="bloodType"
+      />
+      <RadioInput
+        label="Status Pernikahan"
+        options={[
+          { label: 'Belum Menikah', value: 'Belum Menikah' },
+          { label: 'Sudah Menikah', value: 'Sudah Menikah' },
+          { label: 'Sudah Cerai', value: 'Sudah Cerai' },
+        ]}
+        onClick={(value: any) => setFormState({ ...formState, maritalStatus: value })}
+        inputKey="maritalStatus"
+      />
+      {/* TODO: profile picture upload ke firebase */}
+      <div className="px-8 mt-8 mb-4">
         <button
           className="rounded-2xl bg-mainBlue w-full h-10 text-white"
           onClick={handleClickRegister}

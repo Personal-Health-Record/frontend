@@ -3,8 +3,8 @@ import RegisterForm from "../components/RegisterForm";
 
 const RegisterPage = () => {
   return (
-    <div className="flex flex-col h-screen justify-center">
-      <IconPHR />
+    <div className="flex flex-col justify-center">
+      <IconPHR className="mt-8" />
       <RegisterForm />
     </div>
   );
