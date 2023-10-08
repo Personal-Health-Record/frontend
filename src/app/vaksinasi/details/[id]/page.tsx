@@ -7,12 +7,18 @@ import BottomNavbarMedis from "@/app/components/BottomNavbarMedis";
 import { useParams } from "next/navigation";
 import { dummyVaksinasiData } from "../../constants";
 import { formatDate } from "@/app/common/dateHelper";
-import { dummyUserData } from "@/app/common/constants";
+import { getUserData } from "@/app/common/dataHelper";
 
 const VaksinasiDetails = () => {
   const params = useParams();
   const vaksin = dummyVaksinasiData.find((data) => data.id === params.id as string)!
-  const user = dummyUserData.find((data) => data.id === vaksin.userId)!
+
+  const { userData } = getUserData();
+  if (!userData) {
+    return <div> Loading... </div>
+  }
+
+  const user = userData.find((data) => data.id === vaksin.userId)!
 
   return (
     <div className="flex flex-col">

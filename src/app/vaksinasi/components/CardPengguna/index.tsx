@@ -1,15 +1,16 @@
 "use client"
 
-import { User, dummyUserData } from "@/app/common/constants";
+import { User } from "@/app/common/constants";
 import Image from "next/image";
 import { useState } from "react";
 
 interface Props {
   user: User;
+  userData: User[];
   setUser: (user: User) => void;
 }
 
-const CardPengguna = ({ user, setUser }: Props) => {
+const CardPengguna = ({ user, userData, setUser }: Props) => {
   const [showSelectUser, setShowSelectUser] = useState(false);
   const getValue = (renderUser?: User) => {
     if (!renderUser) {
@@ -24,12 +25,12 @@ const CardPengguna = ({ user, setUser }: Props) => {
   }
 
   const renderRelation = () => {
-    let userRelations = dummyUserData.filter((item) => item.parentId === user.id);
+    let userRelations = userData.filter((item) => item.parentId === user.id);
 
     // have parent
     if (user.parentId) {
-      const parentUser = dummyUserData.find((item) => item.id === user.parentId)!;
-      const otherChild = dummyUserData
+      const parentUser = userData.find((item) => item.id === user.parentId)!;
+      const otherChild = userData
         .filter((item) => item.parentId === parentUser.id)
         .filter((item) => item.id !== user.id);
       userRelations.push(...[parentUser, ...otherChild]);

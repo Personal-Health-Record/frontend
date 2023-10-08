@@ -4,11 +4,23 @@ import Header from "@/app/components/Header";
 import CardPengguna from "./components/CardPengguna";
 import VaksinasiList from "./components/VaksinasiList";
 import Keterangan from "./components/Keterangan";
-import { dummyUserData } from "@/app/common/constants";
 import { useState } from "react";
+import { getLoggedInUser } from "../common/dataHelper";
+import { User } from "../common/constants";
 
 const VaksinasiPribadi = () => {
-  const [user, setUser] = useState(dummyUserData[0]);
+  const { loggedInUser, userData } = getLoggedInUser();
+  const [user, setUser] = useState<User>();
+  
+  if (!loggedInUser || !userData) {
+    return <div> Loading... </div>
+  }
+
+  // populate user if not exist
+  if (loggedInUser && !user) {
+    setUser(loggedInUser);
+  }
+
 
   return (
     <div className="flex flex-col">
@@ -16,11 +28,12 @@ const VaksinasiPribadi = () => {
 
       <div className="flex flex-col w-full px-4 py-4 gap-6">
         <CardPengguna
-          user={user}
+          user={user!}
           setUser={setUser}
+          userData={userData}
         />
 
-        <VaksinasiList user={user}/>
+        <VaksinasiList user={user!}/>
         <Keterangan />
       </div>
     </div>
