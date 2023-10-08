@@ -4,7 +4,7 @@ import Header from "@/app/components/Header";
 import { formatDate } from "@/app/common/dateHelper";
 import DetailInfoCard from "../components/DetailInfoCard";
 import { getLoggedInUser } from "@/app/common/dataHelper";
-import BottomNavbarEditProfile from "../components/BottomEditProfile";
+import BottomNavbarEditProfile from "../components/BottomNavbarEditProfile";
 
 const ProfileDetail = () => {
   const { loggedInUser: user } = getLoggedInUser();

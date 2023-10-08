@@ -19,8 +19,8 @@ const ProfilePage = () => {
         <div>
           <hr />
           <ProfileOptionCard title="Profil Saya" path="/profile/detail" />
-          <ProfileOptionCard title="Anggota Keluarga" path="/" />
-          <ProfileOptionCard title="Asuransi Kesehatan" path="/" />
+          <ProfileOptionCard title="Anggota Keluarga" path="/profile/family" />
+          <ProfileOptionCard title="Asuransi Kesehatan" path="/profile/insurance" />
         </div>
       </div>
       <BottomNavbar />
