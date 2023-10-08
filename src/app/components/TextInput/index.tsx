@@ -3,7 +3,6 @@ type TextInputProps = {
   placeholder: string,
   type: string,
   onChange: (value: any) => void,
-  isRequired?: boolean,
 }
 
 const TextInput = (
@@ -12,7 +11,6 @@ const TextInput = (
     placeholder,
     type,
     onChange,
-    isRequired
   }: TextInputProps) => {
   return (
     <div className="relative mt-4 px-8">
@@ -28,7 +26,6 @@ const TextInput = (
         className="w-full px-4 py-2 border border-gray-400 rounded-2xl bg-transparent focus:outline-none focus:border-gray-900"
         placeholder={placeholder}
         onChange={(e) => onChange(e.target.value)}
-        required={isRequired ? true : false}
       />
     </div>
   )

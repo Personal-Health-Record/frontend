@@ -65,14 +65,12 @@ const RegisterForm = () => {
         placeholder="mail@mail.com"
         type="email"
         onChange={(value: any) => setFormState({ ...formState, email: value })}
-        isRequired={true}
       />
       <TextInput
         label="Password"
         placeholder="****"
         type="password"
         onChange={(value: any) => setFormState({ ...formState, password: value })}
-        isRequired={true}
 
       />
       <TextInput
@@ -80,7 +78,6 @@ const RegisterForm = () => {
         placeholder="****"
         type="password"
         onChange={(value: any) => setFormState({ ...formState, confirmPassword: value })}
-        isRequired={true}
 
       />
       <TextInput
@@ -88,7 +85,6 @@ const RegisterForm = () => {
         placeholder="Nama Lengkap"
         type="text"
         onChange={(value: any) => setFormState({ ...formState, name: value })}
-        isRequired={true}
 
       />
       <TextInput
@@ -96,7 +92,6 @@ const RegisterForm = () => {
         placeholder="NIK"
         type="text"
         onChange={(value: any) => setFormState({ ...formState, nik: value })}
-        isRequired={true}
 
       />
       <TextInput
@@ -104,21 +99,18 @@ const RegisterForm = () => {
         placeholder="Tanggal Lahir"
         type="date"
         onChange={(value: any) => setFormState({ ...formState, dateOfBirth: value })}
-        isRequired={true}
       />
       <TextInput
         label="Umur"
         placeholder="Umur"
         type="number"
         onChange={(value: any) => setFormState({ ...formState, age: value })}
-        isRequired={true}
       />
       <TextInput
         label="Nomor Telepon"
         placeholder="Nomor Telepon"
         type="number"
         onChange={(value: any) => setFormState({ ...formState, phoneNumber: value })}
-        isRequired={true}
       />
       <RadioInput
         label="Jenis Kelamin"
