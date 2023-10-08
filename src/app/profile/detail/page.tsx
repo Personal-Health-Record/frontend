@@ -2,9 +2,9 @@
 
 import Header from "@/app/components/Header";
 import { formatDate } from "@/app/common/dateHelper";
-import BottomNavbar from "@/app/components/BottomNavbar";
 import DetailInfoCard from "../components/DetailInfoCard";
 import { getLoggedInUser } from "@/app/common/dataHelper";
+import BottomNavbarEditProfile from "../components/BottomEditProfile";
 
 const ProfileDetail = () => {
   const { loggedInUser: user } = getLoggedInUser();
@@ -52,8 +52,7 @@ const ProfileDetail = () => {
         />
       </div>
 
-      {/* TODO: update jadi edit profile */}
-      <BottomNavbar />
+      <BottomNavbarEditProfile />
     </div>
   );
 };
