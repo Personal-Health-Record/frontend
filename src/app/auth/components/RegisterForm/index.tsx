@@ -6,7 +6,7 @@ import { getUserData } from "@/app/common/dataHelper";
 import TextInput from "@/app/components/TextInput";
 import RadioInput from "@/app/components/RadioInput";
 
-type RegisterFormAttributes = {
+export type RegisterFormAttributes = {
   email: string,
   password: string,
   confirmPassword: string,
@@ -22,13 +22,28 @@ type RegisterFormAttributes = {
 }
 
 const RegisterForm = () => {
-  const [formState, setFormState] = useState({} as RegisterFormAttributes);
+  const [formState, setFormState] = useState<RegisterFormAttributes>(
+    {
+      email: "",
+      password: "",
+      confirmPassword: "",
+      name: "",
+      nik: "",
+      dateOfBirth: "",
+      age: 0,
+      gender: "",
+      bloodType: "",
+      maritalStatus: "",
+      phoneNumber: "",
+      profilePicture: "",
+    }
+  );
   // const { userData } = getUserData();
 
   const router = useRouter();
 
   const handleClickRegister = () => {
-    console.log(formState)
+    validateForm();
     // const user = userData!.find((user) => user.email === email && user.password === password);
     // if (user && user.email) {
     //   localStorage.setItem('authUserEmail', user.email);
@@ -39,18 +54,18 @@ const RegisterForm = () => {
   };
 
   const validateForm = () => {
-    if (!formState.email || !formState.password) {
-      alert('Email dan password harus diisi');
-      return false;
-    }
     if (formState.password !== formState.confirmPassword) {
       alert('Password dan konfirmasi password harus sama');
       return false;
     }
-    if (!formState.bloodType || !formState.maritalStatus || !formState.gender) {
-      alert('Data harus diisi semua');
-      return false;
+    for (const [key, value] of Object.entries(formState)) {
+      // TODO: remove validation for profile picture until firebase storage is ready
+      if (!value && key !== 'profilePicture') {
+        alert('Data harus diisi semua');
+        return false;
+      }
     }
+
     return true;
   }
 
