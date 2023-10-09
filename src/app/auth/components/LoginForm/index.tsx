@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { getUserData } from "@/app/common/dataHelper";
+import { getUserData } from "@/app/common/userDataHelper";
 import TextInput from "@/app/components/TextInput";
 
 const LoginForm = () => {

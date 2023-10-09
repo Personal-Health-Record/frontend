@@ -5,7 +5,7 @@ import CardPengguna from "./components/CardPengguna";
 import VaksinasiList from "./components/VaksinasiList";
 import Keterangan from "./components/Keterangan";
 import { useState } from "react";
-import { getLoggedInUser } from "../common/dataHelper";
+import { getLoggedInUser } from "../common/userDataHelper";
 import { User } from "../common/constants";
 
 const VaksinasiPribadi = () => {

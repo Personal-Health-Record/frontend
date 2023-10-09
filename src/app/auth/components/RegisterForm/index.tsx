@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { getUserData } from "@/app/common/dataHelper";
+import { getUserData } from "@/app/common/userDataHelper";
 import TextInput from "@/app/components/TextInput";
 import RadioInput from "@/app/components/RadioInput";
 import { User } from "@/app/common/constants";

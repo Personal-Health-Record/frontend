@@ -7,7 +7,7 @@ import BottomNavbarMedis from "@/app/components/BottomNavbarMedis";
 import { useParams } from "next/navigation";
 import { dummyVaksinasiData } from "../../constants";
 import { formatDate } from "@/app/common/dateHelper";
-import { getUserData } from "@/app/common/dataHelper";
+import { getUserData } from "@/app/common/userDataHelper";
 
 const VaksinasiDetails = () => {
   const params = useParams();

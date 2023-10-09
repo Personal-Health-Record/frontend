@@ -1,7 +1,7 @@
 type InsuranceCardProps = {
   title: string;
   cardNumber: string;
-  isActive: boolean;
+  isActive: string;
 }
 
 const InsuranceCard = ({ title, cardNumber, isActive }: InsuranceCardProps) => {
@@ -24,7 +24,7 @@ const InsuranceCard = ({ title, cardNumber, isActive }: InsuranceCardProps) => {
           color: "#5F5F5F",
           fontSize: 12,
           fontWeight: 400
-        }}>{isActive ? "Aktif" : "Tidak Aktif"}</p>
+        }}>{isActive}</p>
       </div>
     </div>
   );

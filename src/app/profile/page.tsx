@@ -3,7 +3,7 @@
 import ProfileHeader from "./components/ProfileHeader";
 import ProfileOptionCard from "./components/ProfileOptionCard";
 import BottomNavbar from "../components/BottomNavbar";
-import { getLoggedInUser } from "../common/dataHelper";
+import { getLoggedInUser } from "../common/userDataHelper";
 
 const ProfilePage = () => {
   const { loggedInUser: user } = getLoggedInUser();

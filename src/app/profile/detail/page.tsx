@@ -3,7 +3,7 @@
 import Header from "@/app/components/Header";
 import { formatDate } from "@/app/common/dateHelper";
 import DetailInfoCard from "../components/DetailInfoCard";
-import { getLoggedInUser } from "@/app/common/dataHelper";
+import { getLoggedInUser } from "@/app/common/userDataHelper";
 import BottomNavbarOneButton from "@/app/components/BottomNavbarOneButton";
 
 const ProfileDetail = () => {
