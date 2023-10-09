@@ -1,3 +1,4 @@
+import { getTodayFormatted } from "../common/dateHelper";
 import Header from "../components/Header";
 import ButtonTambah from "./components/ButtonTambah";
 import ChipDate from "./components/ChipDate";
@@ -9,7 +10,7 @@ const PengingatObatPage = () => {
       <Header title="Pengingat Obat" />
 
       <div className="flex flex-col w-full px-4 py-4 gap-3">
-        <ChipDate date="Senin, 11 April 2023" />
+        <ChipDate date={getTodayFormatted()} />
         <ListPengingat />
         <ButtonTambah />
       </div>

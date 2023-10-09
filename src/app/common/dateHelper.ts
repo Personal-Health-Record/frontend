@@ -28,3 +28,19 @@ export const getDiffDate = (dateBefore: Date, dateAfter: Date): number => {
 
   return diffDays;
 }
+
+export const formatDateToDay = (inputDate: Date): string => {
+  const date = new Date(inputDate);
+  const day = date.toLocaleDateString('id-ID', { weekday: 'long' });
+  const month = date.toLocaleDateString('id-ID', { month: 'long' });
+  const year = date.getFullYear();
+  const dateNumber = date.getDate();
+
+  return `${day}, ${dateNumber} ${month} ${year}`;
+}
+
+export const getTodayFormatted = (): string => {
+  const today = new Date();
+
+  return formatDateToDay(today);
+}
