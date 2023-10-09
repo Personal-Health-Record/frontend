@@ -1,5 +1,11 @@
 import { type } from "os";
 
+export type Pengingat = {
+    id: string;
+    time: string;
+    consumptionStatus: string;
+}
+
 export type Obat = {
     id: string;
     name: string;
@@ -11,7 +17,8 @@ export type Obat = {
     consumptionMandatory: string;
     dateFrom: string;
     dateTo: string;
-    notificationTime: string[];
+    listPengingat: Pengingat[];
+    userId: string;
 }
 
 export const dummyObatData: Obat[] = [
@@ -22,11 +29,24 @@ export const dummyObatData: Obat[] = [
         type: "Tablet",
         consumptionPerDay: 2,
         consumptionTime: "Setelah makan",
-        consumptionMethod: "Diminum",
+        consumptionMethod: "Ditelan",
         consumptionMandatory: "Ya",
         dateFrom: "2021-09-01",
         dateTo: "2021-09-06",
-        notificationTime: ["08:00"]
+        listPengingat: [{
+            id: "1",
+            time: "08:00",
+            consumptionStatus: "Sudah dikonsumsi"
+        }, {
+            id: "2",
+            time: "12:00",
+            consumptionStatus: "Belum dikonsumsi"
+        }, {
+            id: "3",
+            time: "16:00",
+            consumptionStatus: "Belum dikonsumsi"
+        }],
+        userId: "1"
     },
     {
         id: "2",
@@ -35,11 +55,24 @@ export const dummyObatData: Obat[] = [
         type: "Tablet",
         consumptionPerDay: 2,
         consumptionTime: "Setelah makan",
-        consumptionMethod: "Diminum",
+        consumptionMethod: "Ditelan",
         consumptionMandatory: "Ya",
         dateFrom: "2021-09-06",
         dateTo: "2021-09-07",
-        notificationTime: ["08:00", "12:00", "16:00"]
+        listPengingat: [{
+            id: "1",
+            time: "08:00",
+            consumptionStatus: "Belum dikonsumsi"
+        }, {
+            id: "2",
+            time: "12:00",
+            consumptionStatus: "Sudah dikonsumsi"
+        }, {
+            id: "3",
+            time: "16:00",
+            consumptionStatus: "Belum dikonsumsi"
+        }],
+        userId: "1"
     },
     {
         id: "3",
@@ -48,11 +81,24 @@ export const dummyObatData: Obat[] = [
         type: "Tablet",
         consumptionPerDay: 2,
         consumptionTime: "Setelah makan",
-        consumptionMethod: "Diminum",
+        consumptionMethod: "Ditelan",
         consumptionMandatory: "Ya",
         dateFrom: "2021-09-01",
         dateTo: "2021-09-06",
-        notificationTime: ["08:00", "16:00"]
+        listPengingat: [{
+            id: "1",
+            time: "08:00",
+            consumptionStatus: "Belum dikonsumsi"
+        }, {
+            id: "2",
+            time: "12:00",
+            consumptionStatus: "Sudah dikonsumsi"
+        }, {
+            id: "3",
+            time: "16:00",
+            consumptionStatus: "Belum dikonsumsi"
+        }],
+        userId: "1"
     },
     {
         id: "4",
@@ -61,11 +107,24 @@ export const dummyObatData: Obat[] = [
         type: "Tablet",
         consumptionPerDay: 1,
         consumptionTime: "Setelah makan",
-        consumptionMethod: "Diminum",
+        consumptionMethod: "Ditelan",
         consumptionMandatory: "Ya",
         dateFrom: "2021-09-01",
         dateTo: "2021-09-06",
-        notificationTime: ["08:00", "16:00"]
+        listPengingat: [{
+            id: "1",
+            time: "08:00",
+            consumptionStatus: "Sudah dikonsumsi"
+        }, {
+            id: "2",
+            time: "12:00",
+            consumptionStatus: "Belum dikonsumsi"
+        }, {
+            id: "3",
+            time: "16:00",
+            consumptionStatus: "Belum dikonsumsi"
+        }],
+        userId: "1"
     },
     {
         id: "5",
@@ -74,10 +133,23 @@ export const dummyObatData: Obat[] = [
         type: "Tablet",
         consumptionPerDay: 2,
         consumptionTime: "Setelah makan",
-        consumptionMethod: "Diminum",
+        consumptionMethod: "Ditelan",
         consumptionMandatory: "Ya",
         dateFrom: "2021-09-01",
         dateTo: "2021-09-06",
-        notificationTime: ["12:00", "16:00"]
+        listPengingat: [{
+            id: "1",
+            time: "08:00",
+            consumptionStatus: "Sudah dikonsumsi"
+        }, {
+            id: "2",
+            time: "12:00",
+            consumptionStatus: "Belum dikonsumsi"
+        }, {
+            id: "3",
+            time: "16:00",
+            consumptionStatus: "Belum dikonsumsi"
+        }],
+        userId: "1"
     }
 ]
