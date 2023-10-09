@@ -76,7 +76,7 @@ const EditProfileForm = () => {
       bloodType: formState.bloodType,
       maritalStatus: formState.maritalStatus,
       phoneNumber: formState.phoneNumber,
-      profilePicture: formState.profilePicture,
+      profilePicture: formState.profilePicture!,
       role: 'patient',
     }
 
