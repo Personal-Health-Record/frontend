@@ -1,12 +1,23 @@
 import Image from "next/image";
 import { Obat, Pengingat } from "../../constants";
+import { getUpdatedPengingatDataList } from "@/app/common/obatDataHelper";
 
 type PengingatCardProps = {
   obat: Obat,
+  handleChangeObatData: (obat: Obat) => void,
   pengingat: Pengingat
 }
 
-const PengingatCard = ({ obat, pengingat: pengigat }: PengingatCardProps) => {
+const PengingatCard = ({ obat, handleChangeObatData, pengingat: pengigat }: PengingatCardProps) => {
+  const handleConsume = () => {
+    pengigat.consumptionStatus = "Sudah dikonsumsi";
+    
+    const newPengingatList = getUpdatedPengingatDataList(pengigat, obat.listPengingat);
+    obat.listPengingat = newPengingatList;
+
+    handleChangeObatData(obat);
+  }
+
   const renderConsumeButton = () => {
     if (pengigat.consumptionStatus === "Sudah dikonsumsi") {
       return (
@@ -23,7 +34,7 @@ const PengingatCard = ({ obat, pengingat: pengigat }: PengingatCardProps) => {
     }
 
     return (
-      <div className="flex bg-mainBlue items-center gap-2 px-2 py-1 rounded-2xl">
+      <div className="flex bg-mainBlue items-center gap-2 px-2 py-1 rounded-2xl" onClick={handleConsume}>
         <p className="text-xs text-white">Konsumsi</p>
       </div>
     )

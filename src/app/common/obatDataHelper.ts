@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Obat, dummyObatData } from "../obat/constants";
+import { Obat, Pengingat, dummyObatData } from "../obat/constants";
 
 export const getObatData = () => {
     const [obatData, setObatData] = useState<Obat[]>()
@@ -32,10 +32,22 @@ export const updateObatData = (updatedObatData: Obat, existingObatDataList: Obat
     });
 
     localStorage.setItem('obatDataStorage', JSON.stringify(updatedObatDataList));
+    return updatedObatDataList;
 }
 
 export const addObatData = (newObatData: Obat, existingObatDataList: Obat[]) => {
     const updatedObatDataList = existingObatDataList!.concat(newObatData);
 
     localStorage.setItem('obatDataStorage', JSON.stringify(updatedObatDataList));
+}
+
+export const getUpdatedPengingatDataList = (updatedPengingatData: Pengingat, existingPengingatDataList: Pengingat[]) => {
+    const updatedPengingatDataList = existingPengingatDataList!.map((pengingat) => {
+        if (pengingat.id === updatedPengingatData.id) {
+            return updatedPengingatData;
+        }
+        return pengingat;
+    });
+
+    return updatedPengingatDataList;
 }
