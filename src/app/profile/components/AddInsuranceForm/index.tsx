@@ -1,16 +1,12 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   getLoggedInUser,
-  getUserData,
-  updateUserData,
 } from '@/app/common/userDataHelper';
 import TextInput from '@/app/components/TextInput';
 import RadioInput from '@/app/components/RadioInput';
-import { User } from '@/app/common/constants';
-import { log } from 'console';
 import { Insurance } from '../../constants';
 import { getInsuranceData } from '@/app/common/insuranceDataHelper';
 
@@ -76,8 +72,6 @@ const AddInsuranceForm = () => {
 
     return true;
   };
-
-  console.log(formState);
 
   return (
     <div className="mt-8">

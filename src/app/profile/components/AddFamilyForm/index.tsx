@@ -10,7 +10,6 @@ import {
 import TextInput from '@/app/components/TextInput';
 import RadioInput from '@/app/components/RadioInput';
 import { User } from '@/app/common/constants';
-import { log } from 'console';
 
 export type AddFamilyFormAttributes = {
   name: string;
@@ -68,7 +67,6 @@ const AddFamilyForm = () => {
     };
 
     const newUserData = JSON.stringify([...userData, newUser]);
-    console.log('newUserData', newUserData);
 
     localStorage.setItem('userDataStorage', newUserData);
 

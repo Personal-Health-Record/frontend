@@ -5,6 +5,7 @@ import PengingatCard from '../PengingatCard';
 import { getObatData, updateObatData } from '@/app/common/obatDataHelper';
 import { useState } from 'react';
 import { Obat } from '../../constants';
+import { getTodayFormatted } from '@/app/common/dateHelper';
 
 const ListPengingat = () => {
   const { loggedInUser } = getLoggedInUser();
@@ -14,13 +15,27 @@ const ListPengingat = () => {
   if (!loggedInUser || !obatData) {
     return <div> Loading... </div>;
   }
-  if (!obatList) {
-    setObatList(obatData.filter((obat) => obat.userId === loggedInUser.id));
+  const getFilteredObatData = (listObat: Obat[]) => {
+    return listObat.filter((obat) => {
+      const isLoggedInUserObat = obat.userId === loggedInUser.id
+      const today = new Date();
+      const dateFrom = new Date(obat.dateFrom);
+      const dateTo = new Date(obat.dateTo);
+      const isDateValid = today >= dateFrom && today <= dateTo;
+
+
+      return isLoggedInUserObat && isDateValid;
+    });
   }
+
+  if (!obatList) {
+    setObatList(getFilteredObatData(obatData));
+  }
+
 
   const handleChangeObatData = (obat: Obat) => {
     const updatedObatList = updateObatData(obat, obatData);
-    setObatList(updatedObatList);
+    setObatList(getFilteredObatData(updatedObatList));
   };
 
   return (

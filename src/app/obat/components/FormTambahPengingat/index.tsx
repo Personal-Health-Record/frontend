@@ -41,10 +41,11 @@ const FormTambahPengingat = () => {
   }
 
   const handleOnSubmit = () => {
-    console.log(formState);
-    validateForm();
-    addObatData(formState, obatData);
-    router.push('/obat');
+    const isValidated = validateForm();
+    if (isValidated) {
+      addObatData(formState, obatData);
+      router.push('/obat');
+    }
   };
 
   const validateForm = () => {
@@ -53,6 +54,11 @@ const FormTambahPengingat = () => {
         alert('Data harus diisi semua');
         return false;
       }
+    }
+
+    if (formState.listPengingat.length === 0) {
+      alert('Notifikasi harus diisi minimal satu');
+      return false;
     }
 
     return true;
