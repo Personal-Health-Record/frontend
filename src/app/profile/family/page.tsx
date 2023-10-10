@@ -1,10 +1,7 @@
 "use client";
 
 import Header from "@/app/components/Header";
-import { formatDate } from "@/app/common/dateHelper";
-import DetailInfoCard from "../components/DetailInfoCard";
 import { getLoggedInUser } from "@/app/common/userDataHelper";
-import BottomNavbarEditProfile from "../components/BottomNavbarEditProfile";
 import FamilyCard from "../components/FamilyCard";
 import BottomNavbarOneButton from "../../components/BottomNavbarOneButton";
 

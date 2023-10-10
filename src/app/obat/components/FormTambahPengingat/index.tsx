@@ -146,7 +146,9 @@ const FormTambahPengingat = () => {
       </div>
 
       <div className="mt-2">
-        <Notifikasi />
+        <Notifikasi
+          formState={formState}
+          setFormState={setFormState} />
       </div>
 
       <button
