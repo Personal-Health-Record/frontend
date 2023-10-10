@@ -7,7 +7,7 @@ import { useState } from "react";
 import { getLoggedInUser } from "@/app/common/userDataHelper";
 import TextInput from "@/app/components/TextInput";
 import RadioInput from "@/app/components/RadioInput";
-import { getObatData } from "@/app/common/obatDataHelper";
+import { addObatData, getObatData } from "@/app/common/obatDataHelper";
 
 const FormTambahPengingat = () => {
   const router = useRouter();
@@ -46,7 +46,8 @@ const FormTambahPengingat = () => {
   const handleOnSubmit = () => {
     console.log(formState);
     validateForm();
-    // router.back();
+    addObatData(formState, obatData);
+    router.push("/obat");
   };
 
   const validateForm = () => {
