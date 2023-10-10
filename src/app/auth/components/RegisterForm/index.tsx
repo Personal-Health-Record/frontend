@@ -119,28 +119,23 @@ const RegisterForm = () => {
         placeholder="****"
         type="password"
         onChange={(value: any) => setFormState({ ...formState, password: value })}
-
       />
       <TextInput
         label="Confirmation Password"
         placeholder="****"
         type="password"
         onChange={(value: any) => setFormState({ ...formState, confirmPassword: value })}
-
       />
       <TextInput
         label="Nama Lengkap"
         placeholder="Nama Lengkap"
-        type="text"
         onChange={(value: any) => setFormState({ ...formState, name: value })}
-
       />
       <TextInput
         label="NIK"
         placeholder="NIK"
         type="number"
         onChange={(value: any) => setFormState({ ...formState, nik: value })}
-
       />
       <TextInput
         label="Tanggal Lahir"

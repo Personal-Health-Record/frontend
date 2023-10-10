@@ -22,9 +22,9 @@ const ListPengingat = () => {
       <div className="flex flex-col gap-5">
         {
           listObat.map((obat) => {
-            return obat.listPengingat.map((pengingat) => {
+            return obat.listPengingat.map((pengingat, index) => {
               return (<PengingatCard
-                key={obat.id}
+                key={obat.id + "-" + index}
                 obat={obat}
                 pengingat={pengingat}
               />)
