@@ -1,7 +1,7 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 type SearchProps = {
-  onSearch: (keyword: string) => void
+  onSearch: (keyword: string) => void;
 };
 
 const SearchBar = ({ onSearch }: SearchProps) => {

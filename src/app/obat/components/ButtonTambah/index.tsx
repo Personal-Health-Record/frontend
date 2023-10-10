@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
+import { useRouter } from 'next/navigation';
 
 const ButtonTambah = () => {
   const router = useRouter();
 
   const handleOnClick = () => {
-    router.push("/obat/tambah");
+    router.push('/obat/tambah');
   };
 
   return (

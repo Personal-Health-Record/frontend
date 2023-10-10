@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { Resume } from "../../models";
-import { formatDate } from "@/app/common/dateHelper";
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { Resume } from '../../models';
+import { formatDate } from '@/app/common/dateHelper';
 
 export type CardResumeProps = {
   resume: Resume;
-}
+};
 
-const CardResume = ({resume}: CardResumeProps) => {
+const CardResume = ({ resume }: CardResumeProps) => {
   const router = useRouter();
 
   const handleOnClick = () => {

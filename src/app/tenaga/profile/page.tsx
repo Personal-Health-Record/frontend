@@ -1,8 +1,8 @@
-import Header from "@/app/components/Header";
-import Image from "next/image";
-import ProfileHeader from "../components/ProfileHeader";
-import CardTenkesDetail from "../components/CardTenkesDetail";
-import CardTempatPraktik from "../components/CardTempatPraktik";
+import Header from '@/app/components/Header';
+import Image from 'next/image';
+import ProfileHeader from '../components/ProfileHeader';
+import CardTenkesDetail from '../components/CardTenkesDetail';
+import CardTempatPraktik from '../components/CardTempatPraktik';
 
 const ProfileTenagaMedis = () => {
   return (

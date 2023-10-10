@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { useRouter } from "next/navigation";
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 interface Props {
   name: string;
@@ -14,7 +14,7 @@ const CardTenagaKesehatan = ({ location, name, specialist, image }: Props) => {
   const router = useRouter();
 
   const handleOnClick = () => {
-    router.push("/tenaga/profile");
+    router.push('/tenaga/profile');
   };
 
   return (

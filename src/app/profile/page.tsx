@@ -1,15 +1,15 @@
-"use client"
+'use client';
 
-import ProfileHeader from "./components/ProfileHeader";
-import ProfileOptionCard from "./components/ProfileOptionCard";
-import BottomNavbar from "../components/BottomNavbar";
-import { getLoggedInUser } from "../common/userDataHelper";
+import ProfileHeader from './components/ProfileHeader';
+import ProfileOptionCard from './components/ProfileOptionCard';
+import BottomNavbar from '../components/BottomNavbar';
+import { getLoggedInUser } from '../common/userDataHelper';
 
 const ProfilePage = () => {
   const { loggedInUser: user } = getLoggedInUser();
 
   if (!user) {
-    return <div> Loading... </div>
+    return <div> Loading... </div>;
   }
 
   return (
@@ -20,7 +20,10 @@ const ProfilePage = () => {
           <hr />
           <ProfileOptionCard title="Profil Saya" path="/profile/detail" />
           <ProfileOptionCard title="Anggota Keluarga" path="/profile/family" />
-          <ProfileOptionCard title="Asuransi Kesehatan" path="/profile/insurance" />
+          <ProfileOptionCard
+            title="Asuransi Kesehatan"
+            path="/profile/insurance"
+          />
         </div>
       </div>
       <BottomNavbar />

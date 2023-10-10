@@ -8,17 +8,17 @@ type PaginationProps = {
 const Pagination = (props: PaginationProps) => {
   const { setPageNumber, pageNumber, pageSize, totalData } = props;
   const totalPage = Math.ceil(totalData / pageSize);
-  
+
   const handlePrevPage = () => {
     if (pageNumber > 1) {
       setPageNumber(pageNumber - 1);
     }
-  }
+  };
   const handleNextPage = () => {
     if (pageNumber < totalPage) {
       setPageNumber(pageNumber + 1);
     }
-  }
+  };
 
   const renderPageNumber = () => {
     const pageNumbers = [];
@@ -26,23 +26,31 @@ const Pagination = (props: PaginationProps) => {
       pageNumbers.push(i);
     }
     return pageNumbers.map((number) => (
-      <p className="text-xs" key={number} onClick={() => {
-        setPageNumber(number);
-      }}>{number}</p>
+      <p
+        className="text-xs"
+        key={number}
+        onClick={() => {
+          setPageNumber(number);
+        }}
+      >
+        {number}
+      </p>
     ));
-  }
+  };
 
   return (
     <div className="flex justify-between items-center mb-32">
-      <button 
-        className="bg-superLightGrey py-1 px-2 rounded-xl text-xs text-mainGrey" 
-        onClick={handlePrevPage}>
+      <button
+        className="bg-superLightGrey py-1 px-2 rounded-xl text-xs text-mainGrey"
+        onClick={handlePrevPage}
+      >
         Sebelumnya
       </button>
       {renderPageNumber()}
-      <button 
+      <button
         className="bg-superLightGrey py-1 px-2 rounded-xl text-xs text-mainGrey"
-        onClick={handleNextPage}>
+        onClick={handleNextPage}
+      >
         Selanjutnya
       </button>
     </div>

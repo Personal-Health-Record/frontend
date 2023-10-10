@@ -1,12 +1,16 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { getLoggedInUser, getUserData, updateUserData } from "@/app/common/userDataHelper";
-import TextInput from "@/app/components/TextInput";
-import RadioInput from "@/app/components/RadioInput";
-import { User } from "@/app/common/constants";
-import { log } from "console";
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import {
+  getLoggedInUser,
+  getUserData,
+  updateUserData,
+} from '@/app/common/userDataHelper';
+import TextInput from '@/app/components/TextInput';
+import RadioInput from '@/app/components/RadioInput';
+import { User } from '@/app/common/constants';
+import { log } from 'console';
 
 export type AddFamilyFormAttributes = {
   name: string;
@@ -16,38 +20,35 @@ export type AddFamilyFormAttributes = {
   profilePicture: string;
   parentId: string;
   relation: string;
-}
+};
 
 const AddFamilyForm = () => {
   const router = useRouter();
-  const [formState, setFormState] = useState<AddFamilyFormAttributes>(
-    {
-      name: "",
-      age: 0,
-      role: 'patient',
-      gender: "",
-      profilePicture: "",
-      parentId: "",
-      relation: "",
-    }
-  );
+  const [formState, setFormState] = useState<AddFamilyFormAttributes>({
+    name: '',
+    age: 0,
+    role: 'patient',
+    gender: '',
+    profilePicture: '',
+    parentId: '',
+    relation: '',
+  });
   const { loggedInUser, userData } = getLoggedInUser();
   if (!userData || !loggedInUser) {
-    return <div> Loading... </div>
+    return <div> Loading... </div>;
   }
   // set default state from logged in user data
-  if (formState.parentId === "") {
+  if (formState.parentId === '') {
     setFormState({
-      name: "",
+      name: '',
       age: 0,
       role: 'patient',
-      gender: "",
-      profilePicture: "",
+      gender: '',
+      profilePicture: '',
       parentId: loggedInUser.id,
-      relation: "",
-    })
+      relation: '',
+    });
   }
-
 
   const handleClickAddFamily = () => {
     const isValidated = validateForm();
@@ -64,20 +65,14 @@ const AddFamilyForm = () => {
       profilePicture: formState.profilePicture,
       parentId: formState.parentId,
       relation: formState.relation,
-    }
+    };
 
-    const newUserData =
-      JSON.stringify(
-        [
-          ...userData,
-          newUser
-        ]
-      )
-    console.log("newUserData", newUserData)
+    const newUserData = JSON.stringify([...userData, newUser]);
+    console.log('newUserData', newUserData);
 
     localStorage.setItem('userDataStorage', newUserData);
 
-    router.push("/profile");
+    router.push('/profile');
   };
 
   const validateForm = () => {
@@ -90,8 +85,7 @@ const AddFamilyForm = () => {
     }
 
     return true;
-  }
-
+  };
 
   return (
     <div className="mt-8">
@@ -126,7 +120,9 @@ const AddFamilyForm = () => {
           { label: 'Suami', value: 'Suami' },
           { label: 'Anak', value: 'Anak' },
         ]}
-        onClick={(value: any) => setFormState({ ...formState, relation: value })}
+        onClick={(value: any) =>
+          setFormState({ ...formState, relation: value })
+        }
         inputKey="relation"
         value={formState.relation!}
       />

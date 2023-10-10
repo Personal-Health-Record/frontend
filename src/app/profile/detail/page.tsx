@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import Header from "@/app/components/Header";
-import { formatDate } from "@/app/common/dateHelper";
-import DetailInfoCard from "../components/DetailInfoCard";
-import { getLoggedInUser } from "@/app/common/userDataHelper";
-import BottomNavbarOneButton from "@/app/components/BottomNavbarOneButton";
+import Header from '@/app/components/Header';
+import { formatDate } from '@/app/common/dateHelper';
+import DetailInfoCard from '../components/DetailInfoCard';
+import { getLoggedInUser } from '@/app/common/userDataHelper';
+import BottomNavbarOneButton from '@/app/components/BottomNavbarOneButton';
 
 const ProfileDetail = () => {
   const { loggedInUser: user } = getLoggedInUser();
 
   if (!user) {
-    return <div> Loading... </div>
+    return <div> Loading... </div>;
   }
 
   return (
@@ -18,44 +18,27 @@ const ProfileDetail = () => {
       <Header title="Profil Saya" />
       <div className="flex flex-col w-full px-4 py-4 gap-3 mb-16">
         <h3 className="font-semibold">Informasi Umum</h3>
+        <DetailInfoCard title={'Nama Lengkap'} data={user.name} />
+        <DetailInfoCard title={'NIK'} data={user.nik!} />
         <DetailInfoCard
-          title={"Nama Lengkap"}
-          data={user.name}
-        />
-        <DetailInfoCard
-          title={"NIK"}
-          data={user.nik!}
-        />
-        <DetailInfoCard
-          title={"Tanggal Lahir"}
+          title={'Tanggal Lahir'}
           data={formatDate(user.dateOfBirth!)}
         />
+        <DetailInfoCard title={'Usia'} data={user.age.toString()} />
+        <DetailInfoCard title={'Jenis Kelamin'} data={user.gender} />
+        <DetailInfoCard title={'Golongan Darah'} data={user.bloodType!} />
         <DetailInfoCard
-          title={"Usia"}
-          data={user.age.toString()}
-        />
-        <DetailInfoCard
-          title={"Jenis Kelamin"}
-          data={user.gender}
-        />
-        <DetailInfoCard
-          title={"Golongan Darah"}
-          data={user.bloodType!}
-        />
-        <DetailInfoCard
-          title={"Status Pernikahan"}
+          title={'Status Pernikahan'}
           data={user.maritalStatus!}
         />
-        <DetailInfoCard
-          title={"Email"}
-          data={user.email!}
-        />
+        <DetailInfoCard title={'Email'} data={user.email!} />
       </div>
 
       <BottomNavbarOneButton
         path="/profile/edit"
         iconPath="/images/edit.png"
-        text="Edit profile" />
+        text="Edit profile"
+      />
     </div>
   );
 };

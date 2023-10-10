@@ -1,8 +1,8 @@
-import { getTodayFormatted } from "../common/dateHelper";
-import Header from "../components/Header";
-import ButtonTambah from "./components/ButtonTambah";
-import ChipDate from "./components/ChipDate";
-import ListPengingat from "./components/ListPengingat";
+import { getTodayFormatted } from '../common/dateHelper';
+import Header from '../components/Header';
+import ButtonTambah from './components/ButtonTambah';
+import ChipDate from './components/ChipDate';
+import ListPengingat from './components/ListPengingat';
 
 const PengingatObatPage = () => {
   return (

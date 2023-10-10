@@ -1,20 +1,23 @@
-"use client"
+'use client';
 
-import Header from "@/app/components/Header";
-import Timeline from "../components/Timeline";
-import Pagination from "../components/Pagination";
-import BottomNavbarMedis from "@/app/components/BottomNavbarMedis";
-import { useState } from "react";
-import { dummyResumeData } from "../constants";
+import Header from '@/app/components/Header';
+import Timeline from '../components/Timeline';
+import Pagination from '../components/Pagination';
+import BottomNavbarMedis from '@/app/components/BottomNavbarMedis';
+import { useState } from 'react';
+import { dummyResumeData } from '../constants';
 
 const PAGE_SIZE = 5;
 
 const RiwayatResume = () => {
-  const [pageNumber, setPageNumber] = useState(1)
+  const [pageNumber, setPageNumber] = useState(1);
 
   const riwayatData = () => {
-    return dummyResumeData.slice((pageNumber - 1) * PAGE_SIZE, pageNumber * PAGE_SIZE);
-  }
+    return dummyResumeData.slice(
+      (pageNumber - 1) * PAGE_SIZE,
+      pageNumber * PAGE_SIZE,
+    );
+  };
 
   const totalData = dummyResumeData.length;
 
@@ -27,19 +30,24 @@ const RiwayatResume = () => {
           <h3 className="font-semibold text-mainGrey">Riwayat Medis Anda</h3>
           <p className="text-xs text-lightGrey">
             Riwayat medis Anda berdasarkan hasil kunjungan atau pemeriksaan dan
-            kode diagnosis ICD-10{" "}
+            kode diagnosis ICD-10{' '}
           </p>
         </div>
 
-        <Timeline dataRiwayat={riwayatData()} pageNumber={pageNumber} pageSize={PAGE_SIZE}/>
-
+        <Timeline
+          dataRiwayat={riwayatData()}
+          pageNumber={pageNumber}
+          pageSize={PAGE_SIZE}
+        />
       </div>
       <div className="border-b-2 mt-6 mb-4" />
 
-      <Pagination setPageNumber={setPageNumber} 
-        pageNumber={pageNumber} 
-        pageSize={PAGE_SIZE} 
-        totalData={totalData}/>
+      <Pagination
+        setPageNumber={setPageNumber}
+        pageNumber={pageNumber}
+        pageSize={PAGE_SIZE}
+        totalData={totalData}
+      />
       <BottomNavbarMedis />
     </div>
   );

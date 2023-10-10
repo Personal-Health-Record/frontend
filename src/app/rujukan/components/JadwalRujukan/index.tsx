@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { formatDate } from "@/app/common/dateHelper";
-import { dummyRujukanData } from "../../constants";
-import { useRouter } from "next/navigation";
+import { formatDate } from '@/app/common/dateHelper';
+import { dummyRujukanData } from '../../constants';
+import { useRouter } from 'next/navigation';
 
 const JadwalRujukan = () => {
   const router = useRouter();
@@ -10,7 +10,7 @@ const JadwalRujukan = () => {
 
   const handleClick = () => {
     router.push(`/rujukan/details/${latestRujukan.id}`);
-  }
+  };
 
   return (
     <div className="flex flex-col gap-2 mt-3">
@@ -18,7 +18,10 @@ const JadwalRujukan = () => {
         Jadwal Rujukan Akan Datang
       </h3>
 
-      <div className="flex flex-col gap-2 shadow-md p-4 rounded-xl" onClick={handleClick}>
+      <div
+        className="flex flex-col gap-2 shadow-md p-4 rounded-xl"
+        onClick={handleClick}
+      >
         <div className="flex justify-between items-center">
           <p className="text-sm">{formatDate(latestRujukan.date)}</p>
           <p className="text-sm bg-superLightGrey px-4 py-1 rounded-2xl text-mainGrey">
@@ -33,7 +36,9 @@ const JadwalRujukan = () => {
           </div>
           <div className="flex flex-col gap-1">
             <p className="text-sm text-lightGrey">: {latestRujukan.location}</p>
-            <p className="text-sm text-lightGrey">: {latestRujukan.referenceLocation}</p>
+            <p className="text-sm text-lightGrey">
+              : {latestRujukan.referenceLocation}
+            </p>
             <p className="text-sm text-lightGrey">: {latestRujukan.diagnose}</p>
           </div>
         </div>

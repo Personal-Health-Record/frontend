@@ -1,33 +1,35 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { getUserData } from "@/app/common/userDataHelper";
-import TextInput from "@/app/components/TextInput";
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { getUserData } from '@/app/common/userDataHelper';
+import TextInput from '@/app/components/TextInput';
 
 const LoginForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const { userData } = getUserData();
 
   const router = useRouter();
 
   const handleClickLogin = () => {
-    const user = userData!.find((user) => user.email === email && user.password === password);
+    const user = userData!.find(
+      (user) => user.email === email && user.password === password,
+    );
     if (user && user.email) {
       localStorage.setItem('authUserEmail', user.email);
-      router.push("/");
+      router.push('/');
     } else {
       alert('Login gagal');
     }
   };
 
   const handleRegisterClick = () => {
-    router.push("/auth/register");
-  }
+    router.push('/auth/register');
+  };
 
   if (!userData) {
-    return <div> Loading... </div>
+    return <div> Loading... </div>;
   }
 
   return (
@@ -65,7 +67,10 @@ const LoginForm = () => {
       </div> */}
 
       <p className="w-full text-center mt-6 text-lightGrey">
-        Belum punya akun? <span className="text-mainBlue" onClick={handleRegisterClick}>Register</span>
+        Belum punya akun?{' '}
+        <span className="text-mainBlue" onClick={handleRegisterClick}>
+          Register
+        </span>
       </p>
 
       <p className="w-full text-center mt-2 text-lightGrey">Lupa Password?</p>

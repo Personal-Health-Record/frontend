@@ -1,7 +1,7 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 type SearchProps = {
-  onSearch: (keyword: string) => void
+  onSearch: (keyword: string) => void;
 };
 
 const SearchBar = ({ onSearch }: SearchProps) => {
@@ -11,7 +11,7 @@ const SearchBar = ({ onSearch }: SearchProps) => {
         className="border border-lightGrey w-full px-3 h-11 rounded-2xl focus:outline-none focus:border-blue-500"
         placeholder="Cari artikel kesehatan"
         style={{
-          fontSize: "15px",
+          fontSize: '15px',
         }}
         onChange={(e) => onSearch(e.target.value)}
       />

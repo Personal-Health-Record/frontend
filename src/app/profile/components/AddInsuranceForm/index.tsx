@@ -1,45 +1,47 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { getLoggedInUser, getUserData, updateUserData } from "@/app/common/userDataHelper";
-import TextInput from "@/app/components/TextInput";
-import RadioInput from "@/app/components/RadioInput";
-import { User } from "@/app/common/constants";
-import { log } from "console";
-import { Insurance } from "../../constants";
-import { getInsuranceData } from "@/app/common/insuranceDataHelper";
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import {
+  getLoggedInUser,
+  getUserData,
+  updateUserData,
+} from '@/app/common/userDataHelper';
+import TextInput from '@/app/components/TextInput';
+import RadioInput from '@/app/components/RadioInput';
+import { User } from '@/app/common/constants';
+import { log } from 'console';
+import { Insurance } from '../../constants';
+import { getInsuranceData } from '@/app/common/insuranceDataHelper';
 
 export type AddInsuranceFormAttributes = {
   title: string;
   cardNumber: string;
   isActive: string;
   userId: string;
-}
+};
 
 const AddInsuranceForm = () => {
   const router = useRouter();
-  const [formState, setFormState] = useState<AddInsuranceFormAttributes>(
-    {
-      title: "",
-      cardNumber: "",
-      isActive: "Tidak Aktif",
-      userId: "",
-    }
-  );
+  const [formState, setFormState] = useState<AddInsuranceFormAttributes>({
+    title: '',
+    cardNumber: '',
+    isActive: 'Tidak Aktif',
+    userId: '',
+  });
   const { loggedInUser } = getLoggedInUser();
   const { insuranceData } = getInsuranceData();
   if (!insuranceData || !loggedInUser) {
-    return <div> Loading... </div>
+    return <div> Loading... </div>;
   }
   // set default state from logged in user data
-  if (formState.userId === "") {
+  if (formState.userId === '') {
     setFormState({
-      title: "",
-      cardNumber: "",
-      isActive: "Tidak Aktif",
+      title: '',
+      cardNumber: '',
+      isActive: 'Tidak Aktif',
       userId: loggedInUser.id,
-    })
+    });
   }
 
   const handleClickAddInsurance = () => {
@@ -53,20 +55,14 @@ const AddInsuranceForm = () => {
       title: formState.title,
       cardNumber: formState.cardNumber,
       isActive: formState.isActive,
-      userId: formState.userId
-    }
+      userId: formState.userId,
+    };
 
-    const newInsuranceData =
-      JSON.stringify(
-        [
-          ...insuranceData,
-          newInsurance
-        ]
-      )
+    const newInsuranceData = JSON.stringify([...insuranceData, newInsurance]);
 
     localStorage.setItem('insuranceDataStorage', newInsuranceData);
 
-    router.push("/profile");
+    router.push('/profile');
   };
 
   const validateForm = () => {
@@ -79,10 +75,9 @@ const AddInsuranceForm = () => {
     }
 
     return true;
-  }
+  };
 
   console.log(formState);
-
 
   return (
     <div className="mt-8">
@@ -97,16 +92,20 @@ const AddInsuranceForm = () => {
         label="Card Number"
         placeholder="Card Number"
         type="number"
-        onChange={(value: any) => setFormState({ ...formState, cardNumber: value.toString() })}
+        onChange={(value: any) =>
+          setFormState({ ...formState, cardNumber: value.toString() })
+        }
         value={formState.cardNumber}
       />
       <RadioInput
         label="Apakah Aktif?"
         options={[
-          { label: 'Aktif', value: "Aktif" },
-          { label: 'Tidak Aktif', value: "Tidak Aktif" },
+          { label: 'Aktif', value: 'Aktif' },
+          { label: 'Tidak Aktif', value: 'Tidak Aktif' },
         ]}
-        onClick={(value: any) => setFormState({ ...formState, isActive: value })}
+        onClick={(value: any) =>
+          setFormState({ ...formState, isActive: value })
+        }
         inputKey="isActive"
         value={formState.isActive}
       />

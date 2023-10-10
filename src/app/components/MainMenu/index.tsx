@@ -1,5 +1,5 @@
-import MainMenuIcon from "./MainMenuIcon";
-import { menuList } from "./constants";
+import MainMenuIcon from './MainMenuIcon';
+import { menuList } from './constants';
 
 const MainMenu = () => {
   return (

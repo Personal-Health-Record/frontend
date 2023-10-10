@@ -1,5 +1,5 @@
-import { screeningData } from "../../constants";
-import ScreeningKesehatanMandiriCard from "../ScreeningKesehatanMandiriCard";
+import { screeningData } from '../../constants';
+import ScreeningKesehatanMandiriCard from '../ScreeningKesehatanMandiriCard';
 
 const ScreeningKesehatanMandiri = () => {
   return (
@@ -9,8 +9,8 @@ const ScreeningKesehatanMandiri = () => {
       </h3>
 
       <div className="flex flex-col gap-4 ">
-        {screeningData.map((screening) => (
-          <ScreeningKesehatanMandiriCard dataCard={screening} />
+        {screeningData.map((screening, index) => (
+          <ScreeningKesehatanMandiriCard key={index} dataCard={screening} />
         ))}
       </div>
     </div>

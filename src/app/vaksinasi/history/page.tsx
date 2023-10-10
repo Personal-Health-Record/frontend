@@ -1,16 +1,16 @@
-'use client'
-import Header from "@/app/components/Header";
-import CardNextVaksinasi from "../components/CardNextVaksinasi";
-import CardVaksinHistory from "../components/CardVaksinHistory";
-import { useSearchParams } from "next/navigation";
-import { useRouter } from "next/navigation";
-import { dummyVaksinasiData } from "../constants";
+'use client';
+import Header from '@/app/components/Header';
+import CardNextVaksinasi from '../components/CardNextVaksinasi';
+import CardVaksinHistory from '../components/CardVaksinHistory';
+import { useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
+import { dummyVaksinasiData } from '../constants';
 
 const VaksinasiHistory = () => {
-  const searchParams = useSearchParams()
-  const type = searchParams.get('type')
-  const userId = searchParams.get('userId')
-  const router = useRouter()
+  const searchParams = useSearchParams();
+  const type = searchParams.get('type');
+  const userId = searchParams.get('userId');
+  const router = useRouter();
 
   const userVaksinData = dummyVaksinasiData
     .filter((item) => item.userId === userId)
@@ -18,7 +18,7 @@ const VaksinasiHistory = () => {
 
   const handleClick = (id: string) => {
     router.push(`/vaksinasi/details/${id}`);
-  }
+  };
 
   return (
     <div className="flex flex-col">
@@ -35,9 +35,12 @@ const VaksinasiHistory = () => {
 
           <div className="flex flex-col gap-3">
             {userVaksinData.map((item, index) => (
-              <CardVaksinHistory key={index} vaksinData={item} handleClick={handleClick}/>
-            ))
-            }
+              <CardVaksinHistory
+                key={index}
+                vaksinData={item}
+                handleClick={handleClick}
+              />
+            ))}
           </div>
         </div>
       </div>

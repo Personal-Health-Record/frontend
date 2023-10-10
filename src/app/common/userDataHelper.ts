@@ -1,60 +1,62 @@
-"use client";
-import { useEffect, useState } from "react";
-import { User, dummyUserData } from "./constants";
+'use client';
+import { useEffect, useState } from 'react';
+import { User, dummyUserData } from './constants';
 
 export const getUserData = () => {
-    const [userData, setUserData] = useState<User[]>()
+  const [userData, setUserData] = useState<User[]>();
 
-    useEffect(() => {
-        if (!userData && typeof window !== 'undefined') {
-            const userDataStorage = localStorage.getItem('userDataStorage');
-            if (userDataStorage) {
-                setUserData(JSON.parse(userDataStorage));
-                return;
-            }
+  useEffect(() => {
+    if (!userData && typeof window !== 'undefined') {
+      const userDataStorage = localStorage.getItem('userDataStorage');
+      if (userDataStorage) {
+        setUserData(JSON.parse(userDataStorage));
+        return;
+      }
 
-            setUserData(dummyUserData);
-        }
-    }, [userData])
+      setUserData(dummyUserData);
+    }
+  }, [userData]);
 
-
-    return {
-        userData
-    };
-}
+  return {
+    userData,
+  };
+};
 
 export const getLoggedInUser = () => {
-    const { userData } = getUserData();
-    const [loggedInUser, setLoggedInUser] = useState<User>()
+  const { userData } = getUserData();
+  const [loggedInUser, setLoggedInUser] = useState<User>();
 
-    useEffect(() => {
-        if (!loggedInUser && typeof window !== 'undefined') {
-            const userEmail = localStorage.getItem('authUserEmail');
-            if (!userEmail) {
-                alert('Please login to continue');
-                return;
-            }
+  useEffect(() => {
+    if (!loggedInUser && typeof window !== 'undefined') {
+      const userEmail = localStorage.getItem('authUserEmail');
+      if (!userEmail) {
+        alert('Please login to continue');
+        return;
+      }
 
-            if (userData) {
-                setLoggedInUser(userData.find((user) => user.email === userEmail))
-            }
-        }
-    }, [loggedInUser, userData])
-
-    return {
-        loggedInUser,
-        userData
+      if (userData) {
+        setLoggedInUser(userData.find((user) => user.email === userEmail));
+      }
     }
-}
+  }, [loggedInUser, userData]);
 
-export const updateUserData = (updatedUserData: User, existingUserDataList: User[]) => {
-    const updatedUserDataList = existingUserDataList!.map((user) => {
-        if (user.id === updatedUserData.id) {
-            return updatedUserData;
-        }
-        return user;
-    });
+  return {
+    loggedInUser,
+    userData,
+  };
+};
 
-    localStorage.setItem('userDataStorage', JSON.stringify(updatedUserDataList));
-    localStorage.setItem('authUserEmail', updatedUserData.email!);
-}
+export const updateUserData = (
+  updatedUserData: User,
+  existingUserDataList: User[],
+) => {
+  const updatedUserDataList = existingUserDataList!.map((user) => {
+    if (user.id === updatedUserData.id) {
+      return updatedUserData;
+    }
+    return user;
+  });
+
+  localStorage.setItem('userDataStorage', JSON.stringify(updatedUserDataList));
+  localStorage.setItem('authUserEmail', updatedUserData.email!);
+};

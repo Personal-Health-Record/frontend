@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
+import { useRouter } from 'next/navigation';
 
 const RiwayatScreeningCard = () => {
   const router = useRouter();
 
   const handleOnClick = () => {
-    router.push("/screening/history");
+    router.push('/screening/history');
   };
 
   return (

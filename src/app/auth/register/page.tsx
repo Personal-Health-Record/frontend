@@ -1,5 +1,5 @@
-import IconPHR from "../components/IconPHR";
-import RegisterForm from "../components/RegisterForm";
+import IconPHR from '../components/IconPHR';
+import RegisterForm from '../components/RegisterForm';
 
 const RegisterPage = () => {
   return (

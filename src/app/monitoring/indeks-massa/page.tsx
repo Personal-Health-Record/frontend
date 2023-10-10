@@ -1,6 +1,6 @@
-import Header from "@/app/components/Header";
-import FormIndeksMassa from "../components/FormIndeksMassa";
-import CardHasil from "../components/CardHasil";
+import Header from '@/app/components/Header';
+import FormIndeksMassa from '../components/FormIndeksMassa';
+import CardHasil from '../components/CardHasil';
 
 const KalkulatorIndeksMassa = () => {
   return (

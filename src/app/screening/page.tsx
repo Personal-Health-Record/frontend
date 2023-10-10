@@ -1,6 +1,6 @@
-import Header from "../components/Header";
-import RiwayatScreening from "./components/RiwayatScreening";
-import ScreeningKesehatanMandiri from "./components/ScreeningKesehatanMandiri";
+import Header from '../components/Header';
+import RiwayatScreening from './components/RiwayatScreening';
+import ScreeningKesehatanMandiri from './components/ScreeningKesehatanMandiri';
 
 const ScreeningPage = () => {
   return (

@@ -1,5 +1,5 @@
-import IconPHR from "./components/IconPHR";
-import LoginForm from "./components/LoginForm";
+import IconPHR from './components/IconPHR';
+import LoginForm from './components/LoginForm';
 
 const Authentication = () => {
   return (

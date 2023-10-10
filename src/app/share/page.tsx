@@ -1,9 +1,9 @@
-import Header from "../components/Header";
-import Title from "../components/Title";
-import ButtonSection from "./components/ButtonSection";
-import CardTenkes from "./components/CardTenkes";
-import SearchBar from "./components/SearchBar";
-import { dataTenagaKesehatan } from "./constants";
+import Header from '../components/Header';
+import Title from '../components/Title';
+import ButtonSection from './components/ButtonSection';
+import CardTenkes from './components/CardTenkes';
+import SearchBar from './components/SearchBar';
+import { dataTenagaKesehatan } from './constants';
 
 const SharePage = () => {
   return (

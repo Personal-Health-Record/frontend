@@ -1,8 +1,8 @@
-import Header from "@/app/components/Header";
-import SearchBar from "../components/SearchBar";
-import Title from "@/app/components/Title";
-import CardObat from "../components/CardObat";
-import CardRiwayat from "../components/CardRiwayat";
+import Header from '@/app/components/Header';
+import SearchBar from '../components/SearchBar';
+import Title from '@/app/components/Title';
+import CardObat from '../components/CardObat';
+import CardRiwayat from '../components/CardRiwayat';
 
 const RiwayatObat = () => {
   return (

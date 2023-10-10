@@ -1,7 +1,7 @@
-import Header from "@/app/components/Header";
-import CardFaskesDetail from "../components/CardFaskesDetail";
-import { faskesDetailData, poliklinik } from "../constants";
-import Chip from "../components/Chip";
+import Header from '@/app/components/Header';
+import CardFaskesDetail from '../components/CardFaskesDetail';
+import { faskesDetailData, poliklinik } from '../constants';
+import Chip from '../components/Chip';
 
 const FaskesDetail = () => {
   return (
@@ -12,8 +12,12 @@ const FaskesDetail = () => {
         <h3 className="font-semibold">Informasi Umum</h3>
 
         <div className="flex flex-col">
-          {faskesDetailData.map((detail) => (
-            <CardFaskesDetail data={detail.value} title={detail.title} />
+          {faskesDetailData.map((detail, index) => (
+            <CardFaskesDetail
+              key={index}
+              data={detail.value}
+              title={detail.title}
+            />
           ))}
         </div>
 

@@ -1,6 +1,6 @@
-import Header from "@/app/components/Header";
-import FormMental from "../components/FormMental";
-import { mentalQuestion } from "../constants";
+import Header from '@/app/components/Header';
+import FormMental from '../components/FormMental';
+import { mentalQuestion } from '../constants';
 
 const ScreeningMental = () => {
   return (
@@ -13,8 +13,8 @@ const ScreeningMental = () => {
           masalah-masalah berikut?
         </h3>
 
-        {mentalQuestion.map((question) => (
-          <FormMental title={question} />
+        {mentalQuestion.map((question, index) => (
+          <FormMental key={index} title={question} />
         ))}
 
         <button className="bg-mainBlue rounded-3xl text-white font-semibold py-3">

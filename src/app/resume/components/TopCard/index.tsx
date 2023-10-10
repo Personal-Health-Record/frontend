@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { useRouter } from "next/navigation";
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const TopCard = () => {
   const router = useRouter();
 
   const handleOnClick = () => {
-    router.push("/resume/riwayat");
+    router.push('/resume/riwayat');
   };
 
   return (

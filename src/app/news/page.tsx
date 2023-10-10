@@ -1,46 +1,50 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import BottomNavbar from "../components/BottomNavbar";
-import NewsCard from "./components/NewsCard";
-import NewsTag from "./components/NewsTag"
-import { dummyNewsData } from "./constants";
-import Header from "../components/Header";
-import SearchBar from "./components/SearchBar";
+import { useState } from 'react';
+import BottomNavbar from '../components/BottomNavbar';
+import NewsCard from './components/NewsCard';
+import NewsTag from './components/NewsTag';
+import { dummyNewsData } from './constants';
+import Header from '../components/Header';
+import SearchBar from './components/SearchBar';
 
 const News = () => {
-  const [data, setData] = useState(dummyNewsData)
-  const [tagState, setTagState] = useState("semua")
-  const [keywordState, setKeywordState] = useState("")
+  const [data, setData] = useState(dummyNewsData);
+  const [tagState, setTagState] = useState('semua');
+  const [keywordState, setKeywordState] = useState('');
 
   const setTag = (tag: string) => {
-    const filteredData = getFilteredData(keywordState, tag)
-    setData(filteredData)
-    setTagState(tag)
-  }
+    const filteredData = getFilteredData(keywordState, tag);
+    setData(filteredData);
+    setTagState(tag);
+  };
 
   const onSearch = (keyword: string) => {
     if (keyword.length === 0) {
-      setData(dummyNewsData)
+      setData(dummyNewsData);
     }
 
-    const filteredData = getFilteredData(keyword, tagState)
-    setData(filteredData)
-    setKeywordState(keyword)
-  }
+    const filteredData = getFilteredData(keyword, tagState);
+    setData(filteredData);
+    setKeywordState(keyword);
+  };
 
   const getFilteredData = (keyword: string, tag: string) => {
     const filteredData = dummyNewsData.filter((item) => {
-      const titleMatch = item.title.toLowerCase().includes(keyword.toLowerCase())
-      const descriptionPlaceholderMatch = item.descriptionPlaceholder.toLowerCase().includes(keyword.toLowerCase())
-      const tagMatch = tag != "semua" ? item.tags.includes(tag) : true
-      return tagMatch && (titleMatch || descriptionPlaceholderMatch)
-    })
+      const titleMatch = item.title
+        .toLowerCase()
+        .includes(keyword.toLowerCase());
+      const descriptionPlaceholderMatch = item.descriptionPlaceholder
+        .toLowerCase()
+        .includes(keyword.toLowerCase());
+      const tagMatch = tag != 'semua' ? item.tags.includes(tag) : true;
+      return tagMatch && (titleMatch || descriptionPlaceholderMatch);
+    });
     return filteredData;
-  }
+  };
 
   return (
-    <div className="flex flex-col h-screen" >
+    <div className="flex flex-col h-screen">
       <Header title="Artikel Kesehatan" />
       <div className="px-4">
         <SearchBar onSearch={onSearch} />
@@ -50,38 +54,40 @@ const News = () => {
             tagName="semua"
             isActive={tagState === 'semua' ? true : false}
             handleClick={() => {
-              setTag("semua")
-            }} />
+              setTag('semua');
+            }}
+          />
           <NewsTag
             tagName="tips kesehatan"
             isActive={tagState === 'tips kesehatan' ? true : false}
             handleClick={() => {
-              setTag("tips kesehatan")
-            }} />
+              setTag('tips kesehatan');
+            }}
+          />
           <NewsTag
             tagName="penyakit kronis"
             isActive={tagState === 'penyakit kronis' ? true : false}
             handleClick={() => {
-              setTag("penyakit kronis")
-            }} />
+              setTag('penyakit kronis');
+            }}
+          />
         </div>
 
         <div className="mt-4">
-          {
-            data.map((news) => (
-              <NewsCard
-                key={news.id}
-                title={news.title}
-                description={news.descriptionPlaceholder}
-                imageUrl={news.imageUrl}
-                route={news.route} />
-            ))
-          }
+          {data.map((news) => (
+            <NewsCard
+              key={news.id}
+              title={news.title}
+              description={news.descriptionPlaceholder}
+              imageUrl={news.imageUrl}
+              route={news.route}
+            />
+          ))}
         </div>
       </div>
 
       <BottomNavbar />
-    </div >
+    </div>
   );
 };
 

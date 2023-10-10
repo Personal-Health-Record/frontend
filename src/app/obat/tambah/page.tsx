@@ -1,5 +1,5 @@
-import Header from "@/app/components/Header";
-import FormTambahPengingat from "../components/FormTambahPengingat";
+import Header from '@/app/components/Header';
+import FormTambahPengingat from '../components/FormTambahPengingat';
 
 const TambahPengingat = () => {
   return (

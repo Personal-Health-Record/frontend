@@ -1,7 +1,7 @@
-import Header from "../components/Header";
-import CardTenagaKesehatan from "./components/CardTenagaKesehatan";
-import SearchBar from "./components/SearchBar";
-import { dataTenagaKesehatan } from "./constants";
+import Header from '../components/Header';
+import CardTenagaKesehatan from './components/CardTenagaKesehatan';
+import SearchBar from './components/SearchBar';
+import { dataTenagaKesehatan } from './constants';
 
 const TenagaMedisPage = () => {
   return (
@@ -10,8 +10,9 @@ const TenagaMedisPage = () => {
 
       <div className="flex flex-col py-3 px-4 gap-6 pt-6">
         <SearchBar />
-        {dataTenagaKesehatan.map((docter) => (
+        {dataTenagaKesehatan.map((docter, index) => (
           <CardTenagaKesehatan
+            key={index}
             image={docter.image}
             location={docter.location}
             name={docter.name}

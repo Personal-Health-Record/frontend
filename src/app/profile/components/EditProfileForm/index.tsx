@@ -1,48 +1,50 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { getLoggedInUser, getUserData, updateUserData } from "@/app/common/userDataHelper";
-import TextInput from "@/app/components/TextInput";
-import RadioInput from "@/app/components/RadioInput";
-import { User } from "@/app/common/constants";
-import { log } from "console";
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import {
+  getLoggedInUser,
+  getUserData,
+  updateUserData,
+} from '@/app/common/userDataHelper';
+import TextInput from '@/app/components/TextInput';
+import RadioInput from '@/app/components/RadioInput';
+import { User } from '@/app/common/constants';
+import { log } from 'console';
 
 export type EditProfileFormAttributes = {
-  email?: string,
-  name?: string,
-  nik?: string,
-  dateOfBirth?: string,
-  age?: number,
-  gender?: string,
-  bloodType?: string,
-  maritalStatus?: string,
-  phoneNumber?: string,
-  profilePicture?: string,
-}
+  email?: string;
+  name?: string;
+  nik?: string;
+  dateOfBirth?: string;
+  age?: number;
+  gender?: string;
+  bloodType?: string;
+  maritalStatus?: string;
+  phoneNumber?: string;
+  profilePicture?: string;
+};
 
 const EditProfileForm = () => {
   const router = useRouter();
-  const [formState, setFormState] = useState<EditProfileFormAttributes>(
-    {
-      email: "",
-      name: "",
-      nik: "",
-      dateOfBirth: "",
-      age: 0,
-      gender: "",
-      bloodType: "",
-      maritalStatus: "",
-      phoneNumber: "",
-      profilePicture: "",
-    }
-  );
+  const [formState, setFormState] = useState<EditProfileFormAttributes>({
+    email: '',
+    name: '',
+    nik: '',
+    dateOfBirth: '',
+    age: 0,
+    gender: '',
+    bloodType: '',
+    maritalStatus: '',
+    phoneNumber: '',
+    profilePicture: '',
+  });
   const { loggedInUser, userData } = getLoggedInUser();
   if (!userData || !loggedInUser) {
-    return <div> Loading... </div>
+    return <div> Loading... </div>;
   }
   // set default state from logged in user data
-  if (formState.email === "") {
+  if (formState.email === '') {
     setFormState({
       email: loggedInUser.email,
       name: loggedInUser.name,
@@ -54,9 +56,8 @@ const EditProfileForm = () => {
       maritalStatus: loggedInUser.maritalStatus,
       phoneNumber: loggedInUser.phoneNumber,
       profilePicture: loggedInUser.profilePicture,
-    })
+    });
   }
-
 
   const handleClickEditProfile = () => {
     const isValidated = validateForm();
@@ -78,7 +79,7 @@ const EditProfileForm = () => {
       phoneNumber: formState.phoneNumber,
       profilePicture: formState.profilePicture!,
       role: 'patient',
-    }
+    };
 
     // validate email uniqueness
     for (const user of userData) {
@@ -91,9 +92,9 @@ const EditProfileForm = () => {
       }
     }
 
-    updateUserData(updatedUser, userData)
+    updateUserData(updatedUser, userData);
 
-    router.push("/profile");
+    router.push('/profile');
   };
 
   const validateForm = () => {
@@ -106,8 +107,7 @@ const EditProfileForm = () => {
     }
 
     return true;
-  }
-
+  };
 
   return (
     <div className="mt-8">
@@ -136,7 +136,9 @@ const EditProfileForm = () => {
         label="Tanggal Lahir"
         placeholder="Tanggal Lahir"
         type="date"
-        onChange={(value: any) => setFormState({ ...formState, dateOfBirth: value })}
+        onChange={(value: any) =>
+          setFormState({ ...formState, dateOfBirth: value })
+        }
         value={formState.dateOfBirth}
       />
       <TextInput
@@ -150,7 +152,9 @@ const EditProfileForm = () => {
         label="Nomor Telepon"
         placeholder="Nomor Telepon"
         type="number"
-        onChange={(value: any) => setFormState({ ...formState, phoneNumber: value })}
+        onChange={(value: any) =>
+          setFormState({ ...formState, phoneNumber: value })
+        }
         value={formState.phoneNumber}
       />
       <RadioInput
@@ -171,7 +175,9 @@ const EditProfileForm = () => {
           { label: 'AB', value: 'AB' },
           { label: 'O', value: 'O' },
         ]}
-        onClick={(value: any) => setFormState({ ...formState, bloodType: value })}
+        onClick={(value: any) =>
+          setFormState({ ...formState, bloodType: value })
+        }
         inputKey="bloodType"
         value={formState.bloodType!}
       />
@@ -182,7 +188,9 @@ const EditProfileForm = () => {
           { label: 'Sudah Menikah', value: 'Sudah Menikah' },
           { label: 'Sudah Cerai', value: 'Sudah Cerai' },
         ]}
-        onClick={(value: any) => setFormState({ ...formState, maritalStatus: value })}
+        onClick={(value: any) =>
+          setFormState({ ...formState, maritalStatus: value })
+        }
         inputKey="maritalStatus"
         value={formState.maritalStatus!}
       />

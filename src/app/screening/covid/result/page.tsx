@@ -1,4 +1,4 @@
-import Header from "@/app/components/Header";
+import Header from '@/app/components/Header';
 
 const ScreeningCovid = () => {
   return (
@@ -7,8 +7,8 @@ const ScreeningCovid = () => {
 
       <div className="flex py-5 px-4 flex-col gap-10">
         <p className="text-center shadow-md py-5 px-3 rounded-xl">
-          Anda{" "}
-          <span className="font-semibold text-mainBlue">tidak memiliki</span>{" "}
+          Anda{' '}
+          <span className="font-semibold text-mainBlue">tidak memiliki</span>{' '}
           risiko terinfeksi COVID-19
         </p>
 

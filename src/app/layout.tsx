@@ -1,12 +1,12 @@
-import "./globals.css";
-import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import './globals.css';
+import type { Metadata } from 'next';
+import { Montserrat } from 'next/font/google';
 
-const monsterrat = Montserrat({ subsets: ["latin"] });
+const monsterrat = Montserrat({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "PHR Fasilkom UI",
-  description: "Your Healtcare Solutions",
+  title: 'PHR Fasilkom UI',
+  description: 'Your Healtcare Solutions',
 };
 
 export default function RootLayout({

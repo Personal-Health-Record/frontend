@@ -1,155 +1,175 @@
-import { type } from "os";
+import { type } from 'os';
 
 export type Pengingat = {
-    id: string;
-    time: string;
-    consumptionStatus: string;
-}
+  id: string;
+  time: string;
+  consumptionStatus: string;
+};
 
 export type Obat = {
-    id: string;
-    name: string;
-    dosage: string;
-    type: string;
-    consumptionPerDay: number;
-    consumptionTime: string;
-    consumptionMethod: string;
-    consumptionMandatory: string;
-    dateFrom: string;
-    dateTo: string;
-    listPengingat: Pengingat[];
-    userId: string;
-}
+  id: string;
+  name: string;
+  dosage: string;
+  type: string;
+  consumptionPerDay: number;
+  consumptionTime: string;
+  consumptionMethod: string;
+  consumptionMandatory: string;
+  dateFrom: string;
+  dateTo: string;
+  listPengingat: Pengingat[];
+  userId: string;
+};
 
 export const dummyObatData: Obat[] = [
-    {
-        id: "1",
-        name: "Paracetamol",
-        dosage: "500 mg",
-        type: "Tablet",
-        consumptionPerDay: 2,
-        consumptionTime: "Setelah makan",
-        consumptionMethod: "Ditelan",
-        consumptionMandatory: "Ya",
-        dateFrom: "2021-09-01",
-        dateTo: "2021-09-06",
-        listPengingat: [{
-            id: "1",
-            time: "08:00",
-            consumptionStatus: "Sudah dikonsumsi"
-        }, {
-            id: "2",
-            time: "12:00",
-            consumptionStatus: "Belum dikonsumsi"
-        }, {
-            id: "3",
-            time: "16:00",
-            consumptionStatus: "Belum dikonsumsi"
-        }],
-        userId: "1"
-    },
-    {
-        id: "2",
-        name: "Bodrex",
-        dosage: "500 mg",
-        type: "Tablet",
-        consumptionPerDay: 2,
-        consumptionTime: "Setelah makan",
-        consumptionMethod: "Ditelan",
-        consumptionMandatory: "Ya",
-        dateFrom: "2021-09-06",
-        dateTo: "2021-09-07",
-        listPengingat: [{
-            id: "1",
-            time: "08:00",
-            consumptionStatus: "Belum dikonsumsi"
-        }, {
-            id: "2",
-            time: "12:00",
-            consumptionStatus: "Sudah dikonsumsi"
-        }, {
-            id: "3",
-            time: "16:00",
-            consumptionStatus: "Belum dikonsumsi"
-        }],
-        userId: "1"
-    },
-    {
-        id: "3",
-        name: "Mylanta",
-        dosage: "500 mg",
-        type: "Tablet",
-        consumptionPerDay: 2,
-        consumptionTime: "Setelah makan",
-        consumptionMethod: "Ditelan",
-        consumptionMandatory: "Ya",
-        dateFrom: "2021-09-01",
-        dateTo: "2021-09-06",
-        listPengingat: [{
-            id: "1",
-            time: "08:00",
-            consumptionStatus: "Belum dikonsumsi"
-        }, {
-            id: "2",
-            time: "12:00",
-            consumptionStatus: "Sudah dikonsumsi"
-        }, {
-            id: "3",
-            time: "16:00",
-            consumptionStatus: "Belum dikonsumsi"
-        }],
-        userId: "1"
-    },
-    {
-        id: "4",
-        name: "Cdr",
-        dosage: "500 mg",
-        type: "Tablet",
-        consumptionPerDay: 1,
-        consumptionTime: "Setelah makan",
-        consumptionMethod: "Ditelan",
-        consumptionMandatory: "Ya",
-        dateFrom: "2021-09-01",
-        dateTo: "2021-09-06",
-        listPengingat: [{
-            id: "1",
-            time: "08:00",
-            consumptionStatus: "Sudah dikonsumsi"
-        }, {
-            id: "2",
-            time: "12:00",
-            consumptionStatus: "Belum dikonsumsi"
-        }, {
-            id: "3",
-            time: "16:00",
-            consumptionStatus: "Belum dikonsumsi"
-        }],
-        userId: "1"
-    },
-    {
-        id: "5",
-        name: "Neuralgin",
-        dosage: "500 mg",
-        type: "Tablet",
-        consumptionPerDay: 2,
-        consumptionTime: "Setelah makan",
-        consumptionMethod: "Ditelan",
-        consumptionMandatory: "Ya",
-        dateFrom: "2021-09-01",
-        dateTo: "2021-09-06",
-        listPengingat: [{
-            id: "1",
-            time: "08:00",
-            consumptionStatus: "Sudah dikonsumsi"
-        }, {
-            id: "2",
-            time: "12:00",
-            consumptionStatus: "Belum dikonsumsi"
-        }, {
-            id: "3",
-            time: "16:00",
-            consumptionStatus: "Belum dikonsumsi"
-        }],
-        userId: "1"
-    }
-]
+  {
+    id: '1',
+    name: 'Paracetamol',
+    dosage: '500 mg',
+    type: 'Tablet',
+    consumptionPerDay: 2,
+    consumptionTime: 'Setelah makan',
+    consumptionMethod: 'Ditelan',
+    consumptionMandatory: 'Ya',
+    dateFrom: '2021-09-01',
+    dateTo: '2021-09-06',
+    listPengingat: [
+      {
+        id: '1',
+        time: '08:00',
+        consumptionStatus: 'Sudah dikonsumsi',
+      },
+      {
+        id: '2',
+        time: '12:00',
+        consumptionStatus: 'Belum dikonsumsi',
+      },
+      {
+        id: '3',
+        time: '16:00',
+        consumptionStatus: 'Belum dikonsumsi',
+      },
+    ],
+    userId: '1',
+  },
+  {
+    id: '2',
+    name: 'Bodrex',
+    dosage: '500 mg',
+    type: 'Tablet',
+    consumptionPerDay: 2,
+    consumptionTime: 'Setelah makan',
+    consumptionMethod: 'Ditelan',
+    consumptionMandatory: 'Ya',
+    dateFrom: '2021-09-06',
+    dateTo: '2021-09-07',
+    listPengingat: [
+      {
+        id: '1',
+        time: '08:00',
+        consumptionStatus: 'Belum dikonsumsi',
+      },
+      {
+        id: '2',
+        time: '12:00',
+        consumptionStatus: 'Sudah dikonsumsi',
+      },
+      {
+        id: '3',
+        time: '16:00',
+        consumptionStatus: 'Belum dikonsumsi',
+      },
+    ],
+    userId: '1',
+  },
+  {
+    id: '3',
+    name: 'Mylanta',
+    dosage: '500 mg',
+    type: 'Tablet',
+    consumptionPerDay: 2,
+    consumptionTime: 'Setelah makan',
+    consumptionMethod: 'Ditelan',
+    consumptionMandatory: 'Ya',
+    dateFrom: '2021-09-01',
+    dateTo: '2021-09-06',
+    listPengingat: [
+      {
+        id: '1',
+        time: '08:00',
+        consumptionStatus: 'Belum dikonsumsi',
+      },
+      {
+        id: '2',
+        time: '12:00',
+        consumptionStatus: 'Sudah dikonsumsi',
+      },
+      {
+        id: '3',
+        time: '16:00',
+        consumptionStatus: 'Belum dikonsumsi',
+      },
+    ],
+    userId: '1',
+  },
+  {
+    id: '4',
+    name: 'Cdr',
+    dosage: '500 mg',
+    type: 'Tablet',
+    consumptionPerDay: 1,
+    consumptionTime: 'Setelah makan',
+    consumptionMethod: 'Ditelan',
+    consumptionMandatory: 'Ya',
+    dateFrom: '2021-09-01',
+    dateTo: '2021-09-06',
+    listPengingat: [
+      {
+        id: '1',
+        time: '08:00',
+        consumptionStatus: 'Sudah dikonsumsi',
+      },
+      {
+        id: '2',
+        time: '12:00',
+        consumptionStatus: 'Belum dikonsumsi',
+      },
+      {
+        id: '3',
+        time: '16:00',
+        consumptionStatus: 'Belum dikonsumsi',
+      },
+    ],
+    userId: '1',
+  },
+  {
+    id: '5',
+    name: 'Neuralgin',
+    dosage: '500 mg',
+    type: 'Tablet',
+    consumptionPerDay: 2,
+    consumptionTime: 'Setelah makan',
+    consumptionMethod: 'Ditelan',
+    consumptionMandatory: 'Ya',
+    dateFrom: '2021-09-01',
+    dateTo: '2021-09-06',
+    listPengingat: [
+      {
+        id: '1',
+        time: '08:00',
+        consumptionStatus: 'Sudah dikonsumsi',
+      },
+      {
+        id: '2',
+        time: '12:00',
+        consumptionStatus: 'Belum dikonsumsi',
+      },
+      {
+        id: '3',
+        time: '16:00',
+        consumptionStatus: 'Belum dikonsumsi',
+      },
+    ],
+    userId: '1',
+  },
+];

@@ -1,12 +1,12 @@
-"use client";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
+'use client';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const Pengingat = () => {
   const router = useRouter();
 
   const handleRedirectObat = () => {
-    router.push("/obat");
+    router.push('/obat');
   };
 
   return (

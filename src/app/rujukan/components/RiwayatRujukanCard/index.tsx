@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
-import { Rujukan } from "../../models";
-import { formatDate } from "@/app/common/dateHelper";
+import { useRouter } from 'next/navigation';
+import { Rujukan } from '../../models';
+import { formatDate } from '@/app/common/dateHelper';
 
 type RiwayatRujukanCardProps = {
   rujukanData: Rujukan;
-}
+};
 
 const RiwayatRujukanCard = ({ rujukanData }: RiwayatRujukanCardProps) => {
   const router = useRouter();
@@ -31,7 +31,9 @@ const RiwayatRujukanCard = ({ rujukanData }: RiwayatRujukanCardProps) => {
         </div>
         <div className="flex flex-col gap-1">
           <p className="text-sm text-lightGrey">: {rujukanData.location}</p>
-          <p className="text-sm text-lightGrey">: {rujukanData.referenceLocation}</p>
+          <p className="text-sm text-lightGrey">
+            : {rujukanData.referenceLocation}
+          </p>
           <p className="text-sm text-lightGrey">: {rujukanData.diagnose}</p>
         </div>
       </div>

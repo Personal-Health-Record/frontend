@@ -1,4 +1,4 @@
-import RiwayatScreeningCard from "../RiwayatScreeningCard";
+import RiwayatScreeningCard from '../RiwayatScreeningCard';
 
 const RiwayatScreening = () => {
   return (

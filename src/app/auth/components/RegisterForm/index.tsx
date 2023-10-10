@@ -1,50 +1,47 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { getUserData } from "@/app/common/userDataHelper";
-import TextInput from "@/app/components/TextInput";
-import RadioInput from "@/app/components/RadioInput";
-import { User } from "@/app/common/constants";
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { getUserData } from '@/app/common/userDataHelper';
+import TextInput from '@/app/components/TextInput';
+import RadioInput from '@/app/components/RadioInput';
+import { User } from '@/app/common/constants';
 
 export type RegisterFormAttributes = {
-  email: string,
-  password: string,
-  confirmPassword: string,
-  name: string,
-  nik: string,
-  dateOfBirth: string,
-  age: number,
-  gender: string,
-  bloodType: string,
-  maritalStatus: string,
-  phoneNumber: string,
-  profilePicture: string,
-}
+  email: string;
+  password: string;
+  confirmPassword: string;
+  name: string;
+  nik: string;
+  dateOfBirth: string;
+  age: number;
+  gender: string;
+  bloodType: string;
+  maritalStatus: string;
+  phoneNumber: string;
+  profilePicture: string;
+};
 
 const RegisterForm = () => {
   const router = useRouter();
-  const [formState, setFormState] = useState<RegisterFormAttributes>(
-    {
-      email: "",
-      password: "",
-      confirmPassword: "",
-      name: "",
-      nik: "",
-      dateOfBirth: "",
-      age: 0,
-      gender: "",
-      bloodType: "",
-      maritalStatus: "",
-      phoneNumber: "",
-      profilePicture: "",
-    }
-  );
+  const [formState, setFormState] = useState<RegisterFormAttributes>({
+    email: '',
+    password: '',
+    confirmPassword: '',
+    name: '',
+    nik: '',
+    dateOfBirth: '',
+    age: 0,
+    gender: '',
+    bloodType: '',
+    maritalStatus: '',
+    phoneNumber: '',
+    profilePicture: '',
+  });
   const { userData } = getUserData();
   if (!userData) {
-    return <div> Loading... </div>
+    return <div> Loading... </div>;
   }
-
 
   const handleClickRegister = () => {
     const isValidated = validateForm();
@@ -66,7 +63,7 @@ const RegisterForm = () => {
       phoneNumber: formState.phoneNumber,
       profilePicture: formState.profilePicture,
       role: 'patient',
-    }
+    };
 
     // validate email uniqueness
     for (const user of userData) {
@@ -76,17 +73,11 @@ const RegisterForm = () => {
       }
     }
 
-    const newUserData =
-      JSON.stringify(
-        [
-          ...userData,
-          newUser
-        ]
-      )
+    const newUserData = JSON.stringify([...userData, newUser]);
 
     localStorage.setItem('userDataStorage', newUserData);
 
-    router.push("/auth");
+    router.push('/auth');
   };
 
   const validateForm = () => {
@@ -103,8 +94,7 @@ const RegisterForm = () => {
     }
 
     return true;
-  }
-
+  };
 
   return (
     <div className="mt-8">
@@ -118,13 +108,17 @@ const RegisterForm = () => {
         label="Password"
         placeholder="****"
         type="password"
-        onChange={(value: any) => setFormState({ ...formState, password: value })}
+        onChange={(value: any) =>
+          setFormState({ ...formState, password: value })
+        }
       />
       <TextInput
         label="Confirmation Password"
         placeholder="****"
         type="password"
-        onChange={(value: any) => setFormState({ ...formState, confirmPassword: value })}
+        onChange={(value: any) =>
+          setFormState({ ...formState, confirmPassword: value })
+        }
       />
       <TextInput
         label="Nama Lengkap"
@@ -141,7 +135,9 @@ const RegisterForm = () => {
         label="Tanggal Lahir"
         placeholder="Tanggal Lahir"
         type="date"
-        onChange={(value: any) => setFormState({ ...formState, dateOfBirth: value })}
+        onChange={(value: any) =>
+          setFormState({ ...formState, dateOfBirth: value })
+        }
       />
       <TextInput
         label="Umur"
@@ -153,7 +149,9 @@ const RegisterForm = () => {
         label="Nomor Telepon"
         placeholder="Nomor Telepon"
         type="number"
-        onChange={(value: any) => setFormState({ ...formState, phoneNumber: value })}
+        onChange={(value: any) =>
+          setFormState({ ...formState, phoneNumber: value })
+        }
       />
       <RadioInput
         label="Jenis Kelamin"
@@ -172,7 +170,9 @@ const RegisterForm = () => {
           { label: 'AB', value: 'AB' },
           { label: 'O', value: 'O' },
         ]}
-        onClick={(value: any) => setFormState({ ...formState, bloodType: value })}
+        onClick={(value: any) =>
+          setFormState({ ...formState, bloodType: value })
+        }
         inputKey="bloodType"
       />
       <RadioInput
@@ -182,7 +182,9 @@ const RegisterForm = () => {
           { label: 'Sudah Menikah', value: 'Sudah Menikah' },
           { label: 'Sudah Cerai', value: 'Sudah Cerai' },
         ]}
-        onClick={(value: any) => setFormState({ ...formState, maritalStatus: value })}
+        onClick={(value: any) =>
+          setFormState({ ...formState, maritalStatus: value })
+        }
         inputKey="maritalStatus"
       />
       {/* TODO: profile picture upload ke firebase */}

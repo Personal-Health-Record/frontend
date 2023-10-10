@@ -1,8 +1,8 @@
-import Header from "@/app/components/Header";
-import FormKontak from "../components/FormKontak";
-import FormLuarNegri from "../components/FormLuarNegri";
-import FormLokal from "../components/FormLokal";
-import FormGejala from "../components/FormGejala";
+import Header from '@/app/components/Header';
+import FormKontak from '../components/FormKontak';
+import FormLuarNegri from '../components/FormLuarNegri';
+import FormLokal from '../components/FormLokal';
+import FormGejala from '../components/FormGejala';
 
 const ScreeningCovid = () => {
   return (

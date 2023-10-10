@@ -1,4 +1,4 @@
-import Header from "@/app/components/Header";
+import Header from '@/app/components/Header';
 
 const ScreeningMentalResult = () => {
   return (
@@ -7,7 +7,7 @@ const ScreeningMentalResult = () => {
 
       <div className="flex py-5 px-4 flex-col gap-10">
         <p className="text-center shadow-md py-5 px-3 rounded-xl">
-          Anda <span className="font-semibold text-mainBlue">memiliki</span>{" "}
+          Anda <span className="font-semibold text-mainBlue">memiliki</span>{' '}
           gejala depresi ringan
         </p>
 

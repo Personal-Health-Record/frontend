@@ -1,7 +1,7 @@
-import Image from "next/image";
-import { Obat, Pengingat } from "../../constants";
-import { Dispatch, SetStateAction, useState } from "react";
-import TextInput from "@/app/components/TextInput";
+import Image from 'next/image';
+import { Obat, Pengingat } from '../../constants';
+import { Dispatch, SetStateAction, useState } from 'react';
+import TextInput from '@/app/components/TextInput';
 
 type NotifikasiProps = {
   formState: Obat;
@@ -9,30 +9,32 @@ type NotifikasiProps = {
 };
 
 const Notifikasi = ({ formState, setFormState }: NotifikasiProps) => {
-  const [editState, setEditState] = useState(false)
-  const [errorMessage, setErrorMessage] = useState<string>()
+  const [editState, setEditState] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string>();
 
   const getNotificationTime = () => {
-    let notificationTime = "";
+    let notificationTime = '';
     for (const pengingat of formState.listPengingat) {
-      notificationTime += pengingat.time + ",";
+      notificationTime += pengingat.time + ',';
     }
     if (notificationTime.length > 0) {
       notificationTime = notificationTime.slice(0, -1);
     }
 
     return notificationTime;
-  }
-  const [notificationTime, setNotificationTime] = useState<string>(getNotificationTime())
+  };
+  const [notificationTime, setNotificationTime] = useState<string>(
+    getNotificationTime(),
+  );
 
   const validateForm = () => {
     // make sure format notification time is correct
     // like 09:00,16:00
     // or 09:00
-    if (notificationTime !== "") {
-      const timeList = notificationTime.split(",");
+    if (notificationTime !== '') {
+      const timeList = notificationTime.split(',');
       const timeRegex = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
-  
+
       for (const time of timeList) {
         if (!timeRegex.test(time)) {
           setErrorMessage('Format waktu salah');
@@ -43,35 +45,38 @@ const Notifikasi = ({ formState, setFormState }: NotifikasiProps) => {
 
     setErrorMessage('');
     return true;
-  }
+  };
 
   const handleSubmit = () => {
     const isValidated = validateForm();
     if (isValidated) {
-      setEditState(!editState)
+      setEditState(!editState);
       let id = 1;
-      const listPengingat: Pengingat[] = notificationTime.split(",").map((time) => {
-        return {
-          id: (id++).toString(),
-          time: time,
-          consumptionStatus: "Belum dikonsumsi"
-        }
-      });
+      const listPengingat: Pengingat[] = notificationTime
+        .split(',')
+        .map((time) => {
+          return {
+            id: (id++).toString(),
+            time: time,
+            consumptionStatus: 'Belum dikonsumsi',
+          };
+        });
       setFormState({
         ...formState,
-        listPengingat: listPengingat
-      })
+        listPengingat: listPengingat,
+      });
     }
-
-  }
+  };
 
   const renderEditForm = () => {
     return (
       <div>
         <div className="flex flex-row justify-between w-full px-2 items-center">
-          <div style={{
-            flex: 4,
-          }}>
+          <div
+            style={{
+              flex: 4,
+            }}
+          >
             <TextInput
               label="Waktu Notifikasi"
               placeholder="09:00,16:00"
@@ -79,10 +84,12 @@ const Notifikasi = ({ formState, setFormState }: NotifikasiProps) => {
               value={notificationTime}
             />
           </div>
-          <div style={{
-            flex: 1,
-          }}
-            className="self-end flex justify-end">
+          <div
+            style={{
+              flex: 1,
+            }}
+            className="self-end flex justify-end"
+          >
             <Image
               src="/images/pengingat/edit.png"
               alt=""
@@ -92,57 +99,51 @@ const Notifikasi = ({ formState, setFormState }: NotifikasiProps) => {
             />
           </div>
         </div>
-        {
-          errorMessage && (
-            <div className="text-sm text-red-700 px-4 py-3 rounded relative">
-              {errorMessage}
-            </div>
-          )
-        }
+        {errorMessage && (
+          <div className="text-sm text-red-700 px-4 py-3 rounded relative">
+            {errorMessage}
+          </div>
+        )}
       </div>
     );
-  }
+  };
   return (
     <div className="flex flex-col">
       <h3 className="font-semibold text-mainGrey pl-2 mb-3">
         Waktu Notifikasi
       </h3>
 
-      {
-        editState ?
-          renderEditForm()
-          : (
-            <div className="flex w-full justify-between px-2 items-center">
-              <div className="flex gap-3 items-center">
-                <div>
-                  <Image
-                    src="/images/pengingat/alarm.png"
-                    alt=""
-                    width={30}
-                    height={30}
-                  />
-                </div>
-                {
-                  notificationTime === "" ? (
-                    <p> Belum ada waktu notifikasi </p>
-                  ) : (
-                    <p> {notificationTime} </p>
-                  )
-                }
-              </div>
-
+      {editState ? (
+        renderEditForm()
+      ) : (
+        <div className="flex w-full justify-between px-2 items-center">
+          <div className="flex gap-3 items-center">
+            <div>
               <Image
-                src="/images/pengingat/edit.png"
+                src="/images/pengingat/alarm.png"
                 alt=""
                 width={30}
                 height={30}
-                className="self-end"
-                onClick={() => setEditState(!editState)}
               />
-            </div >
-          )
-      }
-    </div >
+            </div>
+            {notificationTime === '' ? (
+              <p> Belum ada waktu notifikasi </p>
+            ) : (
+              <p> {notificationTime} </p>
+            )}
+          </div>
+
+          <Image
+            src="/images/pengingat/edit.png"
+            alt=""
+            width={30}
+            height={30}
+            className="self-end"
+            onClick={() => setEditState(!editState)}
+          />
+        </div>
+      )}
+    </div>
   );
 };
 

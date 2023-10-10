@@ -1,5 +1,5 @@
-import DashboardCard from "../DashboardCard";
-import { dashboardKesehatan } from "./constants";
+import DashboardCard from '../DashboardCard';
+import { dashboardKesehatan } from './constants';
 
 const Dashboard = () => {
   return (

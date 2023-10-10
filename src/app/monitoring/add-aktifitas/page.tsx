@@ -1,5 +1,5 @@
-import Header from "@/app/components/Header";
-import FormAddTracking from "../components/FormAddTracking";
+import Header from '@/app/components/Header';
+import FormAddTracking from '../components/FormAddTracking';
 
 const AddAktifitas = () => {
   return (

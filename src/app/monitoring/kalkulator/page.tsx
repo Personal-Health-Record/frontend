@@ -1,6 +1,6 @@
-import Header from "@/app/components/Header";
-import { lsitKalkulator } from "../constants";
-import KalkulatorKesehatanCard from "../components/KalkulatorKesehatanCard";
+import Header from '@/app/components/Header';
+import { lsitKalkulator } from '../constants';
+import KalkulatorKesehatanCard from '../components/KalkulatorKesehatanCard';
 
 const KalulatorKesehatan = () => {
   return (
@@ -12,8 +12,8 @@ const KalulatorKesehatan = () => {
           Kalkulator Kesehatan
         </h3>
 
-        {lsitKalkulator.map((kalkulator) => (
-          <KalkulatorKesehatanCard dataCard={kalkulator} />
+        {lsitKalkulator.map((kalkulator, index) => (
+          <KalkulatorKesehatanCard key={index} dataCard={kalkulator} />
         ))}
       </div>
     </div>
