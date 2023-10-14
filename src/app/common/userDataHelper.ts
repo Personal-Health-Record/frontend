@@ -60,3 +60,7 @@ export const updateUserData = (
   localStorage.setItem('userDataStorage', JSON.stringify(updatedUserDataList));
   localStorage.setItem('authUserEmail', updatedUserData.email!);
 };
+
+export const logoutUser = () => {
+  localStorage.removeItem('authUserEmail');
+};

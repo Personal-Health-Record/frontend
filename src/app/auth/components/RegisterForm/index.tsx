@@ -161,6 +161,7 @@ const RegisterForm = () => {
         ]}
         onClick={(value: any) => setFormState({ ...formState, gender: value })}
         inputKey="gender"
+        value={formState.gender}
       />
       <RadioInput
         label="Golongan Darah"
@@ -174,6 +175,7 @@ const RegisterForm = () => {
           setFormState({ ...formState, bloodType: value })
         }
         inputKey="bloodType"
+        value={formState.bloodType}
       />
       <RadioInput
         label="Status Pernikahan"
@@ -186,6 +188,7 @@ const RegisterForm = () => {
           setFormState({ ...formState, maritalStatus: value })
         }
         inputKey="maritalStatus"
+        value={formState.maritalStatus}
       />
       {/* TODO: profile picture upload ke firebase */}
       <div className="px-8 mt-8 mb-4">

@@ -6,7 +6,7 @@ type RadioInputProps = {
   }[];
   onClick: (value: any) => void;
   inputKey: string;
-  value?: string;
+  value: string;
 };
 
 const RadioInput = ({

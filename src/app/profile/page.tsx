@@ -3,7 +3,7 @@
 import ProfileHeader from './components/ProfileHeader';
 import ProfileOptionCard from './components/ProfileOptionCard';
 import BottomNavbar from '../components/BottomNavbar';
-import { getLoggedInUser } from '../common/userDataHelper';
+import { getLoggedInUser, logoutUser } from '../common/userDataHelper';
 
 const ProfilePage = () => {
   const { loggedInUser: user } = getLoggedInUser();
@@ -23,6 +23,13 @@ const ProfilePage = () => {
           <ProfileOptionCard
             title="Asuransi Kesehatan"
             path="/profile/insurance"
+          />
+          <ProfileOptionCard
+            title="Logout"
+            path="/auth"
+            onClick={() => {
+              logoutUser();
+            }}
           />
         </div>
       </div>

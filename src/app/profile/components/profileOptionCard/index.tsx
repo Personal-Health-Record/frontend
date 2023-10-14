@@ -6,13 +6,17 @@ import { useRouter } from 'next/navigation';
 interface Props {
   title: string;
   path: string;
+  onClick?: () => void;
 }
 
-const ProfileOptionCard = ({ title, path }: Props) => {
+const ProfileOptionCard = ({ title, path, onClick }: Props) => {
   const router = useRouter();
 
   const handleOnClick = () => {
     router.push(path);
+    if (onClick) {
+      onClick();
+    }
   };
 
   return (
