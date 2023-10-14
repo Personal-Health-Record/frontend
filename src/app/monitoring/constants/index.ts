@@ -1,17 +1,12 @@
-export const lsitKalkulator = [
+export const calculatorMenuList = [
   {
-    image: '/images/kalkulator/indeks-massa.png',
-    title: 'Indeks Massa Tubuh',
-    path: '/monitoring/indeks-massa',
+    image: '/images/kalkulator/bmi.png',
+    title: 'Indeks Massa Tubuh (BMI)',
+    path: '/monitoring/bmi',
   },
   {
-    image: '/images/kalkulator/kalori.png',
-    title: 'Kalkulator Kalori',
-    path: '/',
-  },
-  {
-    image: '/images/kalkulator/diabetes.png',
-    title: 'Kalkulator Resiko Diabetes',
+    image: '/images/kalkulator/bmr.png',
+    title: 'Kalkulator Kalori (BMR)',
     path: '/',
   },
 ];

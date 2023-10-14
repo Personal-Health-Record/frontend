@@ -1,5 +1,5 @@
 import Header from '@/app/components/Header';
-import { lsitKalkulator } from '../constants';
+import { calculatorMenuList } from '../constants';
 import KalkulatorKesehatanCard from '../components/KalkulatorKesehatanCard';
 
 const KalulatorKesehatan = () => {
@@ -12,7 +12,7 @@ const KalulatorKesehatan = () => {
           Kalkulator Kesehatan
         </h3>
 
-        {lsitKalkulator.map((kalkulator, index) => (
+        {calculatorMenuList.map((kalkulator, index) => (
           <KalkulatorKesehatanCard key={index} dataCard={kalkulator} />
         ))}
       </div>
