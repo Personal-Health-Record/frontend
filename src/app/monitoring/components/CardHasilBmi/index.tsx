@@ -1,11 +1,11 @@
 import { BMIForm } from '../../bmi/page';
 
-type CardHasilProps = {
+type CardHasilBmiProps = {
   bmiResult: number;
   formState: BMIForm;
 };
 
-const CardHasil = ({ bmiResult, formState }: CardHasilProps) => {
+const CardHasilBmi = ({ bmiResult, formState }: CardHasilBmiProps) => {
   const getResultType = () => {
     if (bmiResult < 18.5) {
       return 'Kurus (Underweight)';
@@ -46,4 +46,4 @@ const CardHasil = ({ bmiResult, formState }: CardHasilProps) => {
   );
 };
 
-export default CardHasil;
+export default CardHasilBmi;

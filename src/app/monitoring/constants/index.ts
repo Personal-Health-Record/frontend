@@ -7,6 +7,6 @@ export const calculatorMenuList = [
   {
     image: '/images/kalkulator/bmr.png',
     title: 'Kalkulator Kalori (BMR)',
-    path: '/',
+    path: '/monitoring/bmr',
   },
 ];
