@@ -1,4 +1,10 @@
-const CardObat = () => {
+import { Obat } from "../../constants";
+
+type CardObatProps = {
+  obat: Obat
+};
+
+const CardObat = ({ obat }: CardObatProps) => {
   return (
     <div className="flex flex-col gap-1 border-b-2 pb-4">
       <div className="flex justify-between items-center">
@@ -8,9 +14,9 @@ const CardObat = () => {
         </p>
       </div>
 
-      <p className="text-sm text-mainGrey">Paracetamol</p>
+      <p className="text-sm text-mainGrey">{obat.name}</p>
       <p className="text-sm text-mainGrey">
-        1 pil setelah makan, 1 kali sehari
+        1 {obat.type} {obat.consumptionTime}, {obat.consumptionPerDay} kali sehari
       </p>
     </div>
   );

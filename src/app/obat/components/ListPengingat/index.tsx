@@ -1,11 +1,10 @@
 'use client';
 
-import { getLoggedInUser, getUserData } from '@/app/common/userDataHelper';
+import { getLoggedInUser } from '@/app/common/userDataHelper';
 import PengingatCard from '../PengingatCard';
 import { getObatData, updateObatData } from '@/app/common/obatDataHelper';
 import { useState } from 'react';
 import { Obat } from '../../constants';
-import { getTodayFormatted } from '@/app/common/dateHelper';
 
 const ListPengingat = () => {
   const { loggedInUser } = getLoggedInUser();
