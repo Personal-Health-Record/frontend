@@ -2,10 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import {
-  getLoggedInUser,
-  updateUserData,
-} from '@/app/common/userDataHelper';
+import { getLoggedInUser, updateUserData } from '@/app/common/userDataHelper';
 import TextInput from '@/app/components/TextInput';
 import RadioInput from '@/app/components/RadioInput';
 import { User } from '@/app/common/constants';

@@ -2,9 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import {
-  getLoggedInUser,
-} from '@/app/common/userDataHelper';
+import { getLoggedInUser } from '@/app/common/userDataHelper';
 import TextInput from '@/app/components/TextInput';
 import RadioInput from '@/app/components/RadioInput';
 import { Insurance } from '../../constants';

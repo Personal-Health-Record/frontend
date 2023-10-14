@@ -1,7 +1,7 @@
-import { Obat } from "../../constants";
+import { Obat } from '../../constants';
 
 type CardObatProps = {
-  obat: Obat
+  obat: Obat;
 };
 
 const CardObat = ({ obat }: CardObatProps) => {
@@ -16,7 +16,8 @@ const CardObat = ({ obat }: CardObatProps) => {
 
       <p className="text-sm text-mainGrey">{obat.name}</p>
       <p className="text-sm text-mainGrey">
-        1 {obat.type} {obat.consumptionTime}, {obat.consumptionPerDay} kali sehari
+        1 {obat.type} {obat.consumptionTime}, {obat.consumptionPerDay} kali
+        sehari
       </p>
     </div>
   );

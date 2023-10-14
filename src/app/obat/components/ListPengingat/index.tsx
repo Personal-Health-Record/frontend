@@ -16,21 +16,19 @@ const ListPengingat = () => {
   }
   const getFilteredObatData = (listObat: Obat[]) => {
     return listObat.filter((obat) => {
-      const isLoggedInUserObat = obat.userId === loggedInUser.id
+      const isLoggedInUserObat = obat.userId === loggedInUser.id;
       const today = new Date();
       const dateFrom = new Date(obat.dateFrom);
       const dateTo = new Date(obat.dateTo);
       const isDateValid = today >= dateFrom && today <= dateTo;
 
-
       return isLoggedInUserObat && isDateValid;
     });
-  }
+  };
 
   if (!obatList) {
     setObatList(getFilteredObatData(obatData));
   }
-
 
   const handleChangeObatData = (obat: Obat) => {
     const updatedObatList = updateObatData(obat, obatData);

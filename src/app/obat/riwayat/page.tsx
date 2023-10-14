@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import Header from '@/app/components/Header';
 import SearchBar from '../components/SearchBar';
@@ -20,13 +20,15 @@ const RiwayatObat = () => {
   }
   const getFilteredObatData = (listObat: Obat[], keyword: string) => {
     return listObat.filter((obat) => {
-      const isLoggedInUserObat = obat.userId === loggedInUser.id
+      const isLoggedInUserObat = obat.userId === loggedInUser.id;
       const today = new Date();
       const dateTo = new Date(obat.dateTo);
-      const isObatNameMatch = obat.name.toLowerCase().includes(keyword.toLowerCase());
+      const isObatNameMatch = obat.name
+        .toLowerCase()
+        .includes(keyword.toLowerCase());
       return isLoggedInUserObat && today >= dateTo && isObatNameMatch;
     });
-  }
+  };
 
   if (!obatList) {
     setObatList(getFilteredObatData(obatData, ''));
@@ -49,14 +51,10 @@ const RiwayatObat = () => {
         <Title text="Tenaga Kesehatan Anda" />
         <CardRiwayat />
 
-        {
-          obatList &&
+        {obatList &&
           obatList.map((obat, index) => {
-            return (
-              <CardObat obat={obat} key={index} />
-            )
-          })
-        }
+            return <CardObat obat={obat} key={index} />;
+          })}
       </div>
     </div>
   );
