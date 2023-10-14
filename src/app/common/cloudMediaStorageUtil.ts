@@ -21,8 +21,6 @@ const cloudMediaStorageUtils = () => {
     if (files[0].size < 10000000) {
       setImageFile(files[0]);
       handleUploadFile(files[0]);
-
-      console.log(files[0]);
     } else {
       alert('File size to large');
     }

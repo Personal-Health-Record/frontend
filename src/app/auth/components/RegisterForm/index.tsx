@@ -40,6 +40,7 @@ const RegisterForm = () => {
     phoneNumber: '',
     profilePicture: '',
   });
+  const { downloadURL, handleSelectFile } = cloudMediaStorageUtils();
   const { userData } = getUserData();
   if (!userData) {
     return <div> Loading... </div>;
@@ -48,6 +49,10 @@ const RegisterForm = () => {
   const handleClickRegister = () => {
     const isValidated = validateForm();
     if (!isValidated) {
+      return;
+    }
+    if (!downloadURL) {
+      alert('Sedang mengunggah gambar');
       return;
     }
 
@@ -63,7 +68,7 @@ const RegisterForm = () => {
       bloodType: formState.bloodType,
       maritalStatus: formState.maritalStatus,
       phoneNumber: formState.phoneNumber,
-      profilePicture: formState.profilePicture,
+      profilePicture: downloadURL,
       role: 'patient',
     };
 
@@ -88,8 +93,7 @@ const RegisterForm = () => {
       return false;
     }
     for (const [key, value] of Object.entries(formState)) {
-      // TODO: remove validation for profile picture until firebase storage is ready
-      if (!value && key !== 'profilePicture') {
+      if (!value) {
         alert('Data harus diisi semua');
         return false;
       }
@@ -98,15 +102,13 @@ const RegisterForm = () => {
     return true;
   };
 
-  const {
-    imageFile,
-    downloadURL,
-    isUploading,
-    progressUpload,
-    handleSelectFile,
-    handleUploadFile,
-    handleRemoveFile,
-  } = cloudMediaStorageUtils();
+  const handleSelectProfilePicture = (files: FileList | null) => {
+    if (!files) {
+      return;
+    }
+    handleSelectFile(files);
+    setFormState({ ...formState, profilePicture: files[0].name });
+  };
 
   return (
     <div className="mt-8">
@@ -202,7 +204,10 @@ const RegisterForm = () => {
         inputKey="maritalStatus"
         value={formState.maritalStatus}
       />
-      <FileInput label="Profile Picture" handleSelectFile={handleSelectFile} />
+      <FileInput
+        label="Profile Picture"
+        handleSelectFile={handleSelectProfilePicture}
+      />
       <div className="px-8 mt-8 mb-4">
         <button
           className="rounded-2xl bg-mainBlue w-full h-10 text-white"

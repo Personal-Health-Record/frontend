@@ -64,6 +64,7 @@ const EditProfileForm = () => {
       return;
     }
     handleSelectFile(files);
+    setFormState({ ...formState, profilePicture: files[0].name });
   };
 
   const handleClickEditProfile = () => {
@@ -111,8 +112,7 @@ const EditProfileForm = () => {
 
   const validateForm = () => {
     for (const [key, value] of Object.entries(formState)) {
-      // TODO: remove validation for profile picture until firebase storage is ready
-      if (!value && key !== 'profilePicture') {
+      if (!value) {
         alert('Data harus diisi semua');
         return false;
       }
