@@ -6,6 +6,8 @@ import { getUserData } from '@/app/common/userDataHelper';
 import TextInput from '@/app/components/TextInput';
 import RadioInput from '@/app/components/RadioInput';
 import { User } from '@/app/common/constants';
+import cloudMediaStorageUtils from '@/app/common/cloudMediaStorageUtil';
+import FileInput from '@/app/components/ImageInput';
 
 export type RegisterFormAttributes = {
   email: string;
@@ -95,6 +97,16 @@ const RegisterForm = () => {
 
     return true;
   };
+
+  const {
+    imageFile,
+    downloadURL,
+    isUploading,
+    progressUpload,
+    handleSelectFile,
+    handleUploadFile,
+    handleRemoveFile,
+  } = cloudMediaStorageUtils();
 
   return (
     <div className="mt-8">
@@ -190,7 +202,7 @@ const RegisterForm = () => {
         inputKey="maritalStatus"
         value={formState.maritalStatus}
       />
-      {/* TODO: profile picture upload ke firebase */}
+      <FileInput label="Profile Picture" handleSelectFile={handleSelectFile} />
       <div className="px-8 mt-8 mb-4">
         <button
           className="rounded-2xl bg-mainBlue w-full h-10 text-white"

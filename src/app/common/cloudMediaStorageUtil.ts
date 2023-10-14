@@ -1,18 +1,26 @@
 'use client';
 
-import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import {
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+  deleteObject,
+} from 'firebase/storage';
 import { useState } from 'react';
-import { storage } from '../../../firebaseconfig';
+import { storage } from '../../../firebaseConfig';
 
-const UploadImageToStorage = () => {
+const cloudMediaStorageUtils = () => {
   const [imageFile, setImageFile] = useState<File>();
   const [downloadURL, setDownloadURL] = useState('');
   const [isUploading, setIsUploading] = useState(false);
   const [progressUpload, setProgressUpload] = useState(0);
 
   const handleSelectFile = (files: any) => {
-    if (files && files[0].size < 10000000) {
+    if (!files) return;
+
+    if (files[0].size < 10000000) {
       setImageFile(files[0]);
+      handleUploadFile(files[0]);
 
       console.log(files[0]);
     } else {
@@ -20,12 +28,12 @@ const UploadImageToStorage = () => {
     }
   };
 
-  const handleUploadFile = () => {
-    if (imageFile) {
+  const handleUploadFile = (file: File | undefined) => {
+    if (file) {
       setIsUploading(true);
-      const name = imageFile.name;
+      const name = file.name;
       const storageRef = ref(storage, `${name}`);
-      const uploadTask = uploadBytesResumable(storageRef, imageFile);
+      const uploadTask = uploadBytesResumable(storageRef, file);
 
       uploadTask.on(
         'state_changed',
@@ -48,11 +56,10 @@ const UploadImageToStorage = () => {
           alert(error.message);
         },
         () => {
+          console.log('Upload complete');
           getDownloadURL(uploadTask.snapshot.ref).then((url) => {
             //url is download url of file
             setDownloadURL(url);
-
-            // TODO: submit url to backend
           });
         },
       );
@@ -70,9 +77,8 @@ const UploadImageToStorage = () => {
     isUploading,
     progressUpload,
     handleSelectFile,
-    handleUploadFile,
     handleRemoveFile,
   };
 };
 
-export default UploadImageToStorage;
+export default cloudMediaStorageUtils;

@@ -6,6 +6,8 @@ import { getLoggedInUser, updateUserData } from '@/app/common/userDataHelper';
 import TextInput from '@/app/components/TextInput';
 import RadioInput from '@/app/components/RadioInput';
 import { User } from '@/app/common/constants';
+import cloudMediaStorageUtils from '@/app/common/cloudMediaStorageUtil';
+import FileInput from '@/app/components/ImageInput';
 
 export type EditProfileFormAttributes = {
   email?: string;
@@ -34,6 +36,9 @@ const EditProfileForm = () => {
     phoneNumber: '',
     profilePicture: '',
   });
+
+  const { downloadURL, handleSelectFile } = cloudMediaStorageUtils();
+
   const { loggedInUser, userData } = getLoggedInUser();
   if (!userData || !loggedInUser) {
     return <div> Loading... </div>;
@@ -54,9 +59,21 @@ const EditProfileForm = () => {
     });
   }
 
+  const handleSelectProfilePicture = (files: FileList | null) => {
+    if (!files) {
+      return;
+    }
+    handleSelectFile(files);
+  };
+
   const handleClickEditProfile = () => {
     const isValidated = validateForm();
     if (!isValidated) {
+      return;
+    }
+
+    if (!downloadURL) {
+      alert('Sedang mengunggah gambar');
       return;
     }
 
@@ -72,7 +89,7 @@ const EditProfileForm = () => {
       bloodType: formState.bloodType,
       maritalStatus: formState.maritalStatus,
       phoneNumber: formState.phoneNumber,
-      profilePicture: formState.profilePicture!,
+      profilePicture: downloadURL,
       role: 'patient',
     };
 
@@ -189,7 +206,10 @@ const EditProfileForm = () => {
         inputKey="maritalStatus"
         value={formState.maritalStatus!}
       />
-      {/* TODO: profile picture upload ke firebase */}
+      <FileInput
+        label="Profile Picture"
+        handleSelectFile={handleSelectProfilePicture}
+      />
       <div className="px-8 mt-8 mb-4">
         <button
           className="rounded-2xl bg-mainBlue w-full h-10 text-white"
