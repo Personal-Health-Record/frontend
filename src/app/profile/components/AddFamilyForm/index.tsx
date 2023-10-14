@@ -10,6 +10,8 @@ import {
 import TextInput from '@/app/components/TextInput';
 import RadioInput from '@/app/components/RadioInput';
 import { User } from '@/app/common/constants';
+import cloudMediaStorageUtils from '@/app/common/cloudMediaStorageUtil';
+import FileInput from '@/app/components/ImageInput';
 
 export type AddFamilyFormAttributes = {
   name: string;
@@ -32,6 +34,7 @@ const AddFamilyForm = () => {
     parentId: '',
     relation: '',
   });
+  const { downloadURL, handleSelectFile } = cloudMediaStorageUtils();
   const { loggedInUser, userData } = getLoggedInUser();
   if (!userData || !loggedInUser) {
     return <div> Loading... </div>;
@@ -54,6 +57,10 @@ const AddFamilyForm = () => {
     if (!isValidated) {
       return;
     }
+    if (!downloadURL) {
+      alert('Sedang mengunggah gambar');
+      return;
+    }
 
     const newUser: User = {
       id: (userData.length + 1).toString(),
@@ -61,7 +68,7 @@ const AddFamilyForm = () => {
       age: formState.age,
       role: formState.role,
       gender: formState.gender,
-      profilePicture: formState.profilePicture,
+      profilePicture: downloadURL,
       parentId: formState.parentId,
       relation: formState.relation,
     };
@@ -75,14 +82,21 @@ const AddFamilyForm = () => {
 
   const validateForm = () => {
     for (const [key, value] of Object.entries(formState)) {
-      // TODO: remove validation for profile picture until firebase storage is ready
-      if (!value && key !== 'profilePicture') {
+      if (!value) {
         alert('Data harus diisi semua');
         return false;
       }
     }
 
     return true;
+  };
+
+  const handleSelectProfilePicture = (files: FileList | null) => {
+    if (!files) {
+      return;
+    }
+    handleSelectFile(files);
+    setFormState({ ...formState, profilePicture: files[0].name });
   };
 
   return (
@@ -124,7 +138,10 @@ const AddFamilyForm = () => {
         inputKey="relation"
         value={formState.relation!}
       />
-      {/* TODO: profile picture upload ke firebase */}
+      <FileInput
+        label="Profile Picture"
+        handleSelectFile={handleSelectProfilePicture}
+      />
       <div className="px-8 mt-8 mb-4">
         <button
           className="rounded-2xl bg-mainBlue w-full h-10 text-white"
