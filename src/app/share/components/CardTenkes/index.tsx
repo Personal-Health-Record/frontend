@@ -3,16 +3,22 @@ import Image from 'next/image';
 interface Props {
   image: string;
   name: string;
-  location: string;
   specialist: string;
+  handleSelectDoctor: () => void;
 }
 
-const CardTenkes = ({ image, location, name, specialist }: Props) => {
+const CardTenkes = ({ image, name, specialist, handleSelectDoctor }: Props) => {
   return (
     <div className="flex shadow-md py-4 px-3 gap-3 rounded-lg justify-center">
-      <div>
-        <Image src={image} alt="" width={50} height={50} />
-      </div>
+      <div
+        style={{
+          width: 50,
+          height: 50,
+          borderRadius: 50,
+          background: `url(${image})`,
+          backgroundSize: 'cover',
+        }}
+      ></div>
 
       <div className="flex flex-col flex-1 justify-center gap-1">
         <div className="flex justify-between">
@@ -21,6 +27,7 @@ const CardTenkes = ({ image, location, name, specialist }: Props) => {
             <input
               type="checkbox"
               className="form-checkbox text-blue-600 h-4 w-4"
+              onChange={handleSelectDoctor}
             />
           </label>
         </div>
