@@ -34,6 +34,11 @@ const SharePage = () => {
   };
 
   const handleKirimData = () => {
+    if (listSelectedDoctor.length === 0) {
+      alert('Harap pilih tenaga kesehatan terlebih dahulu');
+      return;
+    }
+
     const newNotificationDataList = [];
     for (let i = 0; i < listSelectedDoctor.length; i++) {
       const doctorId = listSelectedDoctor[i];
@@ -48,6 +53,46 @@ const SharePage = () => {
         link: '/vaksinasi/details/1',
       };
       newNotificationDataList.push(newNotification);
+    }
+
+    addNotificationData(newNotificationDataList, notificationData!);
+    alert('Data berhasil dikirim');
+    router.push('/');
+  };
+
+  const handleKirimEmail = () => {
+    if (listSelectedDoctor.length === 0) {
+      alert('Harap pilih tenaga kesehatan terlebih dahulu');
+      return;
+    }
+    if (listSelectedDoctor.length > 1) {
+      alert(
+        'Metode kirim email hanya dapat digunakan untuk satu tenaga kesehatan',
+      );
+      return;
+    }
+
+    const newNotificationDataList = [];
+    for (let i = 0; i < listSelectedDoctor.length; i++) {
+      const doctorId = listSelectedDoctor[i];
+      const doctor = userData!.find((user) => user.id === doctorId);
+      const subject = 'Vaksinasi';
+      const body = `Vaksinasi COVID-19 kedua Anda dijadwalkan besok di Klinik Medi-Go. Silahkan buka menu notifikasi pada aplikasi PHR untuk melihat detailnya.`;
+
+      const newNotification: Notification = {
+        id: (notificationData!.length + i + 1).toString(),
+        fromUserId: loggedInUser!.id,
+        toUserId: doctorId,
+        title: subject,
+        body: body,
+        date: new Date().toISOString(),
+        isRead: false,
+        link: '/vaksinasi/details/1',
+      };
+      newNotificationDataList.push(newNotification);
+
+      document.location =
+        'mailto:' + doctor!.email + '?subject=' + subject + '&body=' + body;
     }
 
     addNotificationData(newNotificationDataList, notificationData!);
@@ -73,8 +118,10 @@ const SharePage = () => {
           />
         ))}
 
-        {/* TODO: kalo kirim email, buka email dengan prefilled data */}
-        <ButtonSection handleKirimData={handleKirimData} />
+        <ButtonSection
+          handleKirimData={handleKirimData}
+          handleKirimEmail={handleKirimEmail}
+        />
       </div>
     </div>
   );
