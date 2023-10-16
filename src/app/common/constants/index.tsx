@@ -100,3 +100,26 @@ export const dummyUserData: User[] = [
     practicePlace: 'Siloam Hospital',
   },
 ];
+
+export type Notification = {
+  id: string;
+  fromUserId?: string;
+  toUserId: string;
+  title: string;
+  body: string;
+  date: string;
+  isRead: boolean;
+  link: string;
+};
+
+export const dummyNotification: Notification[] = [
+  {
+    id: '1',
+    toUserId: '2',
+    title: 'Rujukan',
+    body: 'Rujukan ke Rumah Sakit Hermina Anda dijadwalkan besok di Klinik Medi-Go.',
+    date: '2021-10-01',
+    isRead: false,
+    link: '/rujukan/details/1',
+  },
+];

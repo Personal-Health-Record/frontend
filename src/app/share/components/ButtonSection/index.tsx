@@ -1,7 +1,14 @@
-const ButtonSection = () => {
+type Props = {
+  handleKirimData: () => void;
+};
+
+const ButtonSection = ({ handleKirimData }: Props) => {
   return (
     <div className="flex flex-col gap-3">
-      <button className="bg-mainBlue rounded-3xl text-white font-semibold py-3">
+      <button
+        className="bg-mainBlue rounded-3xl text-white font-semibold py-3"
+        onClick={handleKirimData}
+      >
         Kirim Data
       </button>
 
