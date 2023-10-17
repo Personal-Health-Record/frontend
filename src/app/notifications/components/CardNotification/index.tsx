@@ -1,14 +1,21 @@
 import Image from 'next/image';
+import { Notification } from '../../constants';
+import { useRouter } from 'next/navigation';
+import { formatDate } from '@/app/common/dateHelper';
 
 interface Props {
-  title: string;
-  date: string;
-  description: string;
+  notification: Notification;
 }
 
-const CardNotification = ({ date, description, title }: Props) => {
+const CardNotification = ({ notification }: Props) => {
+  const router = useRouter();
   return (
-    <div className="flex items-center gap-3">
+    <div
+      className="flex items-center gap-3"
+      onClick={() => {
+        router.push(notification.link);
+      }}
+    >
       <div>
         <Image
           src="/images/notification.png"
@@ -20,11 +27,15 @@ const CardNotification = ({ date, description, title }: Props) => {
 
       <div className="flex flex-col gap-2 w-full">
         <div className="flex justify-between">
-          <p className="text-xs font-bold text-mainGrey">{title}</p>
-          <p className="text-xs text-lightGrey">{date}</p>
+          <p className="text-xs font-bold text-mainGrey">
+            {notification.title}
+          </p>
+          <p className="text-xs text-lightGrey">
+            {formatDate(notification.date)}
+          </p>
         </div>
 
-        <div className="text-xs">{description}</div>
+        <div className="text-xs">{notification.body}</div>
       </div>
     </div>
   );

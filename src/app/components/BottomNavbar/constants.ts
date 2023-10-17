@@ -12,7 +12,7 @@ export const menuNavbar = [
   {
     icon: '/images/bottomnav/notifikasi.png',
     title: 'Notifikasi',
-    route: '/',
+    route: '/notifications',
   },
   {
     icon: '/images/bottomnav/user.png',

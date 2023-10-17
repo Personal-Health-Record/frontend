@@ -6,13 +6,13 @@ import Title from '../components/Title';
 import ButtonSection from './components/ButtonSection';
 import CardTenkes from './components/CardTenkes';
 import SearchBar from './components/SearchBar';
-import { Notification } from '../common/constants';
 import {
   addNotificationData,
   getNotificationData,
 } from '../common/notificationDataHelper';
 import { useRouter, useSearchParams } from 'next/navigation';
 import withAuth from '../components/PrivateRoute';
+import { Notification } from '../notifications/constants';
 
 const SharePage = () => {
   const router = useRouter();

@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { Notification, dummyNotification } from './constants';
+import { Notification, dummyNotification } from '../notifications/constants';
 
 export const getNotificationData = () => {
   const [notificationData, setNotificationData] = useState<Notification[]>();
