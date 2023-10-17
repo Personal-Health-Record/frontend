@@ -6,6 +6,7 @@ import CardResume from './components/CardResume';
 import SearchBar from './components/SearchBar';
 import TopCard from './components/TopCard';
 import { dummyResumeData } from './constants';
+import withAuth from '../components/PrivateRoute';
 
 const ResumePage = () => {
   const [data, setData] = useState(dummyResumeData);
@@ -35,4 +36,4 @@ const ResumePage = () => {
   );
 };
 
-export default ResumePage;
+export default withAuth(ResumePage);

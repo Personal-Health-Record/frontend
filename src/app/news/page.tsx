@@ -7,6 +7,7 @@ import NewsTag from './components/NewsTag';
 import { dummyNewsData } from './constants';
 import Header from '../components/Header';
 import SearchBar from './components/SearchBar';
+import withAuth from '../components/PrivateRoute';
 
 const News = () => {
   const [data, setData] = useState(dummyNewsData);
@@ -91,4 +92,4 @@ const News = () => {
   );
 };
 
-export default News;
+export default withAuth(News);

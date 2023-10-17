@@ -1,4 +1,7 @@
+'use client';
+
 import Header from '../components/Header';
+import withAuth from '../components/PrivateRoute';
 
 const MonitoringPage = () => {
   return (
@@ -14,4 +17,4 @@ const MonitoringPage = () => {
   );
 };
 
-export default MonitoringPage;
+export default withAuth(MonitoringPage);

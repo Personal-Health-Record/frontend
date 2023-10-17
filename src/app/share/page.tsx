@@ -12,6 +12,7 @@ import {
   getNotificationData,
 } from '../common/notificationDataHelper';
 import { useRouter } from 'next/navigation';
+import withAuth from '../components/PrivateRoute';
 
 const SharePage = () => {
   const router = useRouter();
@@ -127,4 +128,4 @@ const SharePage = () => {
   );
 };
 
-export default SharePage;
+export default withAuth(SharePage);

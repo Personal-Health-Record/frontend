@@ -1,4 +1,7 @@
+'use client';
+
 import Header from '../components/Header';
+import withAuth from '../components/PrivateRoute';
 
 const FaskesPage = () => {
   return (
@@ -12,4 +15,4 @@ const FaskesPage = () => {
   );
 };
 
-export default FaskesPage;
+export default withAuth(FaskesPage);

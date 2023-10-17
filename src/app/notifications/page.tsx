@@ -1,5 +1,6 @@
 'use client';
 import BottomNavbar from '../components/BottomNavbar';
+import withAuth from '../components/PrivateRoute';
 import CardNotification from './components/CardNotification';
 import SearchBar from './components/Searchbar';
 
@@ -45,4 +46,4 @@ const NotificationPage = () => {
   );
 };
 
-export default NotificationPage;
+export default withAuth(NotificationPage);

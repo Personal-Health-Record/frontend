@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import Header from '../components/Header';
+import withAuth from '../components/PrivateRoute';
 
 const KirimPesanPage = () => {
   return (
@@ -43,4 +46,4 @@ const KirimPesanPage = () => {
   );
 };
 
-export default KirimPesanPage;
+export default withAuth(KirimPesanPage);

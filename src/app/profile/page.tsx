@@ -1,9 +1,10 @@
 'use client';
 
-import ProfileHeader from './components/ProfileHeader';
-import ProfileOptionCard from './components/ProfileOptionCard';
 import BottomNavbar from '../components/BottomNavbar';
 import { getLoggedInUser, logoutUser } from '../common/userDataHelper';
+import withAuth from '../components/PrivateRoute';
+import ProfileHeader from './components/profileHeader';
+import ProfileOptionCard from './components/profileOptionCard';
 
 const ProfilePage = () => {
   const { loggedInUser: user } = getLoggedInUser();
@@ -38,4 +39,4 @@ const ProfilePage = () => {
   );
 };
 
-export default ProfilePage;
+export default withAuth(ProfilePage);

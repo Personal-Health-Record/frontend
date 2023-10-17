@@ -7,6 +7,7 @@ import Keterangan from './components/Keterangan';
 import { useState } from 'react';
 import { getLoggedInUser } from '../common/userDataHelper';
 import { User } from '../common/constants';
+import withAuth from '../components/PrivateRoute';
 
 const VaksinasiPribadi = () => {
   const { loggedInUser, userData } = getLoggedInUser();
@@ -35,4 +36,4 @@ const VaksinasiPribadi = () => {
   );
 };
 
-export default VaksinasiPribadi;
+export default withAuth(VaksinasiPribadi);
