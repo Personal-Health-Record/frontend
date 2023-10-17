@@ -1,4 +1,7 @@
+'use client';
+
 import Header from '../components/Header';
+import withAuth from '../components/PrivateRoute';
 import RiwayatScreening from './components/RiwayatScreening';
 import ScreeningKesehatanMandiri from './components/ScreeningKesehatanMandiri';
 
@@ -15,4 +18,4 @@ const ScreeningPage = () => {
   );
 };
 
-export default ScreeningPage;
+export default withAuth(ScreeningPage);

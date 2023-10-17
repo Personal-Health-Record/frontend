@@ -6,6 +6,7 @@ import JadwalRujukan from './components/JadwalRujukan';
 import RiwayatRujukan from './components/RiwayatRujukan';
 import SearchBar from './components/SearchBar';
 import { dummyRujukanData } from './constants';
+import withAuth from '../components/PrivateRoute';
 
 const RujukanPage = () => {
   const [data, setData] = useState(dummyRujukanData);
@@ -42,4 +43,4 @@ const RujukanPage = () => {
   );
 };
 
-export default RujukanPage;
+export default withAuth(RujukanPage);

@@ -6,8 +6,9 @@ import HeaderHome from './components/HeaderHome';
 import MainMenu from './components/MainMenu';
 import Pengingat from './components/Pengingat';
 import { useRouter } from 'next/navigation';
+import withAuth from './components/PrivateRoute';
 
-export default function Home() {
+const Home = () => {
   const router = useRouter();
 
   if (typeof window !== 'undefined') {
@@ -26,4 +27,6 @@ export default function Home() {
       <BottomNavbar />
     </main>
   );
-}
+};
+
+export default withAuth(Home);

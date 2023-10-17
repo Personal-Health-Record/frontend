@@ -1,4 +1,7 @@
+'use client';
+
 import Header from '../components/Header';
+import withAuth from '../components/PrivateRoute';
 import CardTenagaKesehatan from './components/CardTenagaKesehatan';
 import SearchBar from './components/SearchBar';
 import { dataTenagaKesehatan } from './constants';
@@ -24,4 +27,4 @@ const TenagaMedisPage = () => {
   );
 };
 
-export default TenagaMedisPage;
+export default withAuth(TenagaMedisPage);

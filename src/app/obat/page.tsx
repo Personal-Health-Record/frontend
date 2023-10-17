@@ -1,5 +1,8 @@
+'use client';
+
 import { getTodayFormatted } from '../common/dateHelper';
 import Header from '../components/Header';
+import withAuth from '../components/PrivateRoute';
 import ButtonTambah from './components/ButtonTambah';
 import ChipDate from './components/ChipDate';
 import ListPengingat from './components/ListPengingat';
@@ -18,4 +21,4 @@ const PengingatObatPage = () => {
   );
 };
 
-export default PengingatObatPage;
+export default withAuth(PengingatObatPage);
