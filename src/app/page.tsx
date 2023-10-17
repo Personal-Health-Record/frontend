@@ -5,18 +5,13 @@ import Dashboard from './components/Dashboard';
 import HeaderHome from './components/HeaderHome';
 import MainMenu from './components/MainMenu';
 import Pengingat from './components/Pengingat';
-import { useRouter } from 'next/navigation';
 import withAuth from './components/PrivateRoute';
+import { getObatData } from './common/obatDataHelper';
+import { useEffect, useState } from 'react';
+import { Obat } from './obat/constants';
 
 const Home = () => {
-  const router = useRouter();
-
-  if (typeof window !== 'undefined') {
-    const authUserEmail = localStorage.getItem('authUserEmail');
-    if (!authUserEmail) {
-      router.push('/auth');
-    }
-  }
+  const { obatData } = getObatData();
 
   return (
     <main className="flex flex-col min-h-screen ">

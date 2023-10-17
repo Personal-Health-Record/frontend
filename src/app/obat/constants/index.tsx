@@ -24,15 +24,15 @@ export type Obat = {
 export const dummyObatData: Obat[] = [
   {
     id: '1',
-    name: 'Paracetamol',
+    name: 'Panadol',
     dosage: '500 mg',
     type: 'Tablet',
     consumptionPerDay: 2,
     consumptionTime: 'Setelah makan',
     consumptionMethod: 'Ditelan',
     consumptionMandatory: 'Ya',
-    dateFrom: '2021-09-01',
-    dateTo: '2021-09-06',
+    dateFrom: '2023-10-01',
+    dateTo: '2023-10-30',
     listPengingat: [
       {
         id: '1',
