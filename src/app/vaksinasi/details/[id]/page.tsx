@@ -3,7 +3,7 @@
 import Header from '@/app/components/Header';
 import CardDetails from '../components/CardDetails';
 import CardVaksin from '../components/CardVaksin';
-import BottomNavbarMedis from '@/app/components/BottomNavbarMedis';
+import BottomNavbarDownloadShare from '@/app/components/BottomNavbarDownloadShare';
 import { useParams } from 'next/navigation';
 import { dummyVaksinasiData } from '../../constants';
 import { formatDate } from '@/app/common/dateHelper';
@@ -44,7 +44,7 @@ const VaksinasiDetails = () => {
         </div>
       </div>
 
-      <BottomNavbarMedis />
+      <BottomNavbarDownloadShare />
     </div>
   );
 };

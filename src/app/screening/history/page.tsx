@@ -1,7 +1,7 @@
 import Header from '@/app/components/Header';
 import CardHistory from '../components/HistoryCard';
 import { dataHistory } from '../constants';
-import BottomNavbarMedis from '@/app/components/BottomNavbarMedis';
+import BottomNavbarDownloadShare from '@/app/components/BottomNavbarDownloadShare';
 
 const ScreeningHistory = () => {
   return (
@@ -16,7 +16,7 @@ const ScreeningHistory = () => {
         ))}
       </div>
 
-      <BottomNavbarMedis />
+      <BottomNavbarDownloadShare />
     </div>
   );
 };

@@ -3,7 +3,7 @@
 import Header from '@/app/components/Header';
 import CardRujukanDetail from '../../components/CardRujukanDetail';
 import { dummyRujukanData } from '../../constants';
-import BottomNavbarMedis from '@/app/components/BottomNavbarMedis';
+import BottomNavbarDownloadShare from '@/app/components/BottomNavbarDownloadShare';
 import { useParams } from 'next/navigation';
 import { formatDate } from '@/app/common/dateHelper';
 
@@ -54,7 +54,7 @@ const RujukanDetails = () => {
           data={rujukan.referenceReason}
         />
       </div>
-      <BottomNavbarMedis />
+      <BottomNavbarDownloadShare />
     </div>
   );
 };

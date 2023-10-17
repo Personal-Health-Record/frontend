@@ -2,7 +2,7 @@
 
 import Header from '@/app/components/Header';
 import CardResumeDetail from '../../components/CardResumeDetail';
-import BottomNavbarMedis from '@/app/components/BottomNavbarMedis';
+import BottomNavbarDownloadShare from '@/app/components/BottomNavbarDownloadShare';
 import { useParams } from 'next/navigation';
 import { formatDate } from '@/app/common/dateHelper';
 import { dummyResumeData } from '../../constants';
@@ -91,7 +91,7 @@ const ResumeDetail = () => {
         <div className="flex flex-row h-48">{renderImage()}</div>
       </div>
 
-      <BottomNavbarMedis />
+      <BottomNavbarDownloadShare />
     </div>
   );
 };

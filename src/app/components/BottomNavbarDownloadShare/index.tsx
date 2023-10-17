@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-const BottomNavbarMedis = () => {
+const BottomNavbarDownloadShare = () => {
   const router = useRouter();
 
   const handleClickBagikan = () => {
@@ -31,4 +31,4 @@ const BottomNavbarMedis = () => {
   );
 };
 
-export default BottomNavbarMedis;
+export default BottomNavbarDownloadShare;

@@ -3,7 +3,7 @@
 import Header from '@/app/components/Header';
 import Timeline from '../components/Timeline';
 import Pagination from '../components/Pagination';
-import BottomNavbarMedis from '@/app/components/BottomNavbarMedis';
+import BottomNavbarDownloadShare from '@/app/components/BottomNavbarDownloadShare';
 import { useState } from 'react';
 import { dummyResumeData } from '../constants';
 
@@ -48,7 +48,7 @@ const RiwayatResume = () => {
         pageSize={PAGE_SIZE}
         totalData={totalData}
       />
-      <BottomNavbarMedis />
+      <BottomNavbarDownloadShare />
     </div>
   );
 };
