@@ -44,7 +44,13 @@ const VaksinasiDetails = () => {
         </div>
       </div>
 
-      <BottomNavbarDownloadShare />
+      <BottomNavbarDownloadShare
+        title="Vaksinasi"
+        body={`Silahkan check vaksinasi ${user.name} di ${
+          vaksin.detailType ?? vaksin.type
+        }}`}
+        link={`/vaksinasi/details/${vaksin.id}`}
+      />
     </div>
   );
 };

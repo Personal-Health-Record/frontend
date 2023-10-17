@@ -54,7 +54,11 @@ const RujukanDetails = () => {
           data={rujukan.referenceReason}
         />
       </div>
-      <BottomNavbarDownloadShare />
+      <BottomNavbarDownloadShare
+        title="Rujukan"
+        body={`Silahkan check rujukan ${rujukan.patientName} di ${rujukan.location}}`}
+        link={`/rujukan/details/${rujukan.id}`}
+      />
     </div>
   );
 };

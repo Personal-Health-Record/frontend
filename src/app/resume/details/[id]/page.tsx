@@ -91,7 +91,11 @@ const ResumeDetail = () => {
         <div className="flex flex-row h-48">{renderImage()}</div>
       </div>
 
-      <BottomNavbarDownloadShare />
+      <BottomNavbarDownloadShare
+        title="Resume Medis"
+        body={'Silahkan check resume medis ' + resume.recordNumber}
+        link={'/resume/details/' + resume.id}
+      />
     </div>
   );
 };

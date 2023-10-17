@@ -3,11 +3,17 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-const BottomNavbarDownloadShare = () => {
+export type ShareProps = {
+  title: string;
+  body: string;
+  link: string;
+};
+
+const BottomNavbarDownloadShare = ({ title, body, link }: ShareProps) => {
   const router = useRouter();
 
   const handleClickBagikan = () => {
-    router.push('/share');
+    router.push(`/share?title=${title}&body=${body}&link=${link}`);
   };
 
   return (

@@ -48,7 +48,11 @@ const RiwayatResume = () => {
         pageSize={PAGE_SIZE}
         totalData={totalData}
       />
-      <BottomNavbarDownloadShare />
+      <BottomNavbarDownloadShare
+        title="Riwayat Medis"
+        body={'Silahkan check riwayat medis'}
+        link={'/resume/riwayat/'}
+      />
     </div>
   );
 };

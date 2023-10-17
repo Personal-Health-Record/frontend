@@ -11,11 +11,16 @@ import {
   addNotificationData,
   getNotificationData,
 } from '../common/notificationDataHelper';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
-// TODO: kasih konteks dari yang manggil
 const SharePage = () => {
   const router = useRouter();
+
+  const searchParams = useSearchParams();
+  const title = searchParams.get('title');
+  const body = searchParams.get('body');
+  const link = searchParams.get('link');
+
   const [listSelectedDoctor, setListSelectedDoctor] = useState<string[]>([]);
   let { notificationData } = getNotificationData();
   let { loggedInUser, userData } = getLoggedInUser();
@@ -47,11 +52,11 @@ const SharePage = () => {
         id: (notificationData!.length + i + 1).toString(),
         fromUserId: loggedInUser!.id,
         toUserId: doctorId,
-        title: 'Vaksinasi',
-        body: `Vaksinasi COVID-19 kedua Anda dijadwalkan besok di Klinik Medi-Go.`,
-        date: new Date().toISOString(),
+        title: title!,
+        body: body!,
+        date: new Date().toISOString().split('T')[0],
         isRead: false,
-        link: '/vaksinasi/details/1',
+        link: link!,
       };
       newNotificationDataList.push(newNotification);
     }

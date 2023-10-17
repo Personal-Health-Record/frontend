@@ -16,7 +16,11 @@ const ScreeningHistory = () => {
         ))}
       </div>
 
-      <BottomNavbarDownloadShare />
+      <BottomNavbarDownloadShare
+        title="Rujukan"
+        body={`Silahkan check riwayat skrining`}
+        link={`/screening/history/`}
+      />
     </div>
   );
 };
