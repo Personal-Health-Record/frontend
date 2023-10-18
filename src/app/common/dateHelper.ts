@@ -53,3 +53,15 @@ export const getTodayFormatted = (): string => {
 
   return formatDateToDay(today);
 };
+
+export const getCurrentYearMonthDate = () => {
+  const currentDate = new Date();
+
+  const year = currentDate.getFullYear();
+  const month = (currentDate.getMonth() + 1).toString().padStart(2, '0'); // Adding 1 to the month since it's zero-based
+  const day = currentDate.getDate().toString().padStart(2, '0');
+
+  const formattedDate = `${year}-${month}-${day}`;
+
+  return formattedDate;
+};

@@ -58,17 +58,17 @@ export type Skrining = {
 
 export const dummySkriningList: Skrining[] = [
   {
-    date: '18 Maret 2023',
+    date: 'Senin, 18 Maret 2023',
     location: 'Puskesmas Serpong',
     skriningType: 'Skrining Penyakit Tidak Menular',
   },
   {
-    date: '1 Febaruari 2023',
+    date: 'Kamis, 1 Febaruari 2023',
     location: 'Mandiri',
     skriningType: 'Skrining COVID-19',
   },
   {
-    date: '8 Januari 2023',
+    date: 'Sabtu, 8 Januari 2023',
     location: 'Mandiri',
     skriningType: 'Skrining Kesehatan Mental',
   },

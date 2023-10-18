@@ -20,3 +20,16 @@ export const getSkriningKesehatanList = () => {
     listSkrining,
   };
 };
+
+export const addSkriningKesehatan = (
+  newSkriningKesehatan: Skrining,
+  existingSkriningKesehatan: Skrining[],
+) => {
+  const updatedSkriningKesehatan =
+    existingSkriningKesehatan!.concat(newSkriningKesehatan);
+
+  localStorage.setItem(
+    'listSkriningStorage',
+    JSON.stringify(updatedSkriningKesehatan),
+  );
+};
