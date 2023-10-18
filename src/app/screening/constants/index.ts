@@ -49,3 +49,27 @@ export const mentalQuestion = [
   'Sulit tidur/mudah terbangun, atau terlalu banyak tidur',
   'Merasa lelah atau kurang bertenaga',
 ];
+
+export type Skrining = {
+  date: string;
+  location: string;
+  skriningType: string;
+};
+
+export const dummySkriningList: Skrining[] = [
+  {
+    date: '18 Maret 2023',
+    location: 'Puskesmas Serpong',
+    skriningType: 'Skrining Penyakit Tidak Menular',
+  },
+  {
+    date: '1 Febaruari 2023',
+    location: 'Mandiri',
+    skriningType: 'Skrining COVID-19',
+  },
+  {
+    date: '8 Januari 2023',
+    location: 'Mandiri',
+    skriningType: 'Skrining Kesehatan Mental',
+  },
+];
