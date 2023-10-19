@@ -2,7 +2,7 @@ export const screeningData = [
   {
     title: 'Skrining Mandiri Penyakit Tidak Menular',
     image: '/images/screening/screening-0.png',
-    path: '/',
+    path: '/screening/ptm',
   },
   {
     title: 'Skrining COVID-19',
