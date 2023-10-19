@@ -16,7 +16,7 @@ const DetailCovid = () => {
     const id = searchParams.get('id');
     const skriningData = getSkriningById(parseInt(id || ''));
 
-    setData(skriningData?.detail);
+    setData(skriningData?.detail as Covid);
   }, [searchParams]);
 
   return (

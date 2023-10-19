@@ -19,6 +19,8 @@ const RiwayatScreeningCard = ({ date, location, type, id }: Props) => {
 
     if (skriningData?.skriningType === 'Skrining COVID-19') {
       router.push(`/screening/covid/detail?id=${id}`);
+    } else if (skriningData?.skriningType === 'Skrining Kesehatan Mental') {
+      router.push(`/screening/mental/detail?id=${id}`);
     }
   };
 

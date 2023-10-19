@@ -17,6 +17,7 @@ const ScreeningMental = () => {
   const [listScore, setListScore] = useState<number[]>(new Array(9).fill(0));
 
   const handleSubimt = () => {
+    console.log({ listScore });
     const totalScore = listScore.reduce(
       (accumulator, currentValue) => accumulator + currentValue,
       0,
@@ -27,6 +28,17 @@ const ScreeningMental = () => {
       date: getTodayFormatted(),
       location: 'Mandiri',
       skriningType: 'Skrining Kesehatan Mental',
+      detail: {
+        gairah: listScore[0],
+        murung: listScore[1],
+        sulitTidur: listScore[2],
+        lelah: listScore[3],
+        nafsuMakanKurang: listScore[4],
+        kurangPd: listScore[5],
+        sulitKonsen: listScore[6],
+        lambat: listScore[7],
+        melukai: listScore[8],
+      },
     };
 
     addSkriningKesehatan(skriningData, listSkrining || []);
