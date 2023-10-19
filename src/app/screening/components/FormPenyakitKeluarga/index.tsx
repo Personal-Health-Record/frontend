@@ -1,10 +1,13 @@
+'use client';
+
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 interface Props {
   setTotalPenyakit: Dispatch<SetStateAction<number>>;
+  setListPenyakit: Dispatch<SetStateAction<string[]>>;
 }
 
-const FormPenyakitKeluarga = ({ setTotalPenyakit }: Props) => {
+const FormPenyakitKeluarga = ({ setTotalPenyakit, setListPenyakit }: Props) => {
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
 
   const handleCheckboxClick = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,7 +23,8 @@ const FormPenyakitKeluarga = ({ setTotalPenyakit }: Props) => {
 
   useEffect(() => {
     setTotalPenyakit(selectedOptions.length);
-  }, [selectedOptions.length, setTotalPenyakit]);
+    setListPenyakit(selectedOptions);
+  }, [selectedOptions, setListPenyakit, setTotalPenyakit]);
 
   return (
     <div className="flex flex-col gap-3">
@@ -34,7 +38,7 @@ const FormPenyakitKeluarga = ({ setTotalPenyakit }: Props) => {
             <input
               type="checkbox"
               name="radioOption-ptm"
-              value="A"
+              value="Penyakit Jantung"
               className="mr-2"
               onChange={handleCheckboxClick}
             />
@@ -44,7 +48,7 @@ const FormPenyakitKeluarga = ({ setTotalPenyakit }: Props) => {
             <input
               type="checkbox"
               name="radioOption-ptm"
-              value="B"
+              value="Kanker"
               className="mr-2"
               onChange={handleCheckboxClick}
             />
@@ -54,7 +58,7 @@ const FormPenyakitKeluarga = ({ setTotalPenyakit }: Props) => {
             <input
               type="checkbox"
               name="radioOption-ptm"
-              value="C"
+              value="Diabetes"
               className="mr-2"
               onChange={handleCheckboxClick}
             />
@@ -64,7 +68,7 @@ const FormPenyakitKeluarga = ({ setTotalPenyakit }: Props) => {
             <input
               type="checkbox"
               name="radioOption-ptm"
-              value="D"
+              value="Penyakit paru kronik"
               className="mr-2"
               onChange={handleCheckboxClick}
             />
@@ -74,7 +78,7 @@ const FormPenyakitKeluarga = ({ setTotalPenyakit }: Props) => {
             <input
               type="checkbox"
               name="radioOption-ptm"
-              value="E"
+              value="Stroke"
               className="mr-2"
               onChange={handleCheckboxClick}
             />

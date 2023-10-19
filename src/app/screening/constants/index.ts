@@ -60,7 +60,7 @@ export type Skrining = {
   date: string;
   location: string;
   skriningType: string;
-  detail?: Covid | Mental;
+  detail?: Covid | Mental | PTM;
 };
 
 export type Covid = {
@@ -80,6 +80,19 @@ export type Mental = {
   sulitKonsen: number;
   lambat: number;
   melukai: number;
+};
+
+export type PTM = {
+  rokok: boolean;
+  fisik: boolean;
+  buahSayur: boolean;
+  penyakit: string;
+  systole: number;
+  diastole: number;
+  gula: number;
+  tinggi: number;
+  lingkar: number;
+  berat: number;
 };
 
 export const dummySkriningList: Skrining[] = [

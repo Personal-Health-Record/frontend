@@ -23,6 +23,13 @@ const ScreeningPTM = () => {
   const [fisik, setFisik] = useState(false);
   const [buahSayur, setBuahSayur] = useState(false);
   const [totalPenyakit, setTotalPenyakit] = useState(0);
+  const [listPenyakit, setListPenyakit] = useState<string[]>([]);
+  const [systole, setSystole] = useState(0);
+  const [diastole, setDiastole] = useState(0);
+  const [gula, setGula] = useState(0);
+  const [berat, setBerat] = useState(0);
+  const [tinggi, setTinggi] = useState(0);
+  const [lingkar, setLingkar] = useState(0);
 
   const handleSubimt = () => {
     let totalScore = 0;
@@ -44,6 +51,18 @@ const ScreeningPTM = () => {
       date: getTodayFormatted(),
       location: 'Mandiri',
       skriningType: 'Skrining Penyakit Tidak Menular',
+      detail: {
+        rokok: rokok,
+        fisik: fisik,
+        buahSayur: buahSayur,
+        penyakit: listPenyakit.join(', '),
+        systole: systole,
+        diastole: diastole,
+        tinggi: tinggi,
+        berat: berat,
+        lingkar: lingkar,
+        gula: gula,
+      },
     };
 
     addSkriningKesehatan(skriningData, listSkrining || []);
@@ -63,8 +82,18 @@ const ScreeningPTM = () => {
         <FormRokok setRokok={setRokok} />
         <FormFisik setFisik={setFisik} />
         <FormBuahSayur setBuahSayur={setBuahSayur} />
-        <FormPenyakitKeluarga setTotalPenyakit={setTotalPenyakit} />
-        <FormHasilPemeriksaan />
+        <FormPenyakitKeluarga
+          setTotalPenyakit={setTotalPenyakit}
+          setListPenyakit={setListPenyakit}
+        />
+        <FormHasilPemeriksaan
+          setBerat={setBerat}
+          setDiastole={setDiastole}
+          setGula={setGula}
+          setLingkar={setLingkar}
+          setSystole={setSystole}
+          setTinggi={setTinggi}
+        />
 
         <button
           className="bg-mainBlue rounded-3xl text-white font-semibold py-3"
