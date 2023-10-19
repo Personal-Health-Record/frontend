@@ -48,6 +48,11 @@ export const mentalQuestion = [
   'Merasa murung, sedih, atau putus asa',
   'Sulit tidur/mudah terbangun, atau terlalu banyak tidur',
   'Merasa lelah atau kurang bertenaga',
+  'Kurang nafsu makan atau terlalu banyak makan',
+  'Kurang percaya diri — atau merasa bahwa Anda adalah orang yang gagal atau telah mengecewakan diri sendiri atau keluarga',
+  'Sulit berkonsentrasi pada sesuatu, misalnya membaca koran atau menonton televisi',
+  'Bergerak atau berbicara sangat lambat sehingga orang lain memperhatikannya. Atau sebaliknya; merasa resah atau gelisah sehingga Anda lebih sering bergerak dari biasanya.',
+  'Merasa lebih baik mati atau ingin melukai diri sendiri dengan cara apapun.',
 ];
 
 export type Skrining = {
