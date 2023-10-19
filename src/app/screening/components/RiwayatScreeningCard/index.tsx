@@ -1,18 +1,25 @@
 'use client';
 
+import { getSkriningById } from '@/app/common/skriningKesehatanHelper';
 import { useRouter } from 'next/navigation';
+import { Skrining } from '../../constants';
 
 interface Props {
   date: string;
   type: string;
   location: string;
+  id: number;
 }
 
-const RiwayatScreeningCard = ({ date, location, type }: Props) => {
+const RiwayatScreeningCard = ({ date, location, type, id }: Props) => {
   const router = useRouter();
 
   const handleOnClick = () => {
-    router.push('/screening/history');
+    const skriningData: Skrining | undefined | null = getSkriningById(id);
+
+    if (skriningData?.skriningType === 'Skrining COVID-19') {
+      router.push(`/screening/covid/detail?id=${id}`);
+    }
   };
 
   return (

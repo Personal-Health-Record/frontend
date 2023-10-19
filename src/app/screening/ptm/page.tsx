@@ -39,9 +39,8 @@ const ScreeningPTM = () => {
 
     totalScore += totalPenyakit;
 
-    console.log({ totalScore });
-
     const skriningData: Skrining = {
+      id: Math.floor(Math.random() * 10000) + 1,
       date: getTodayFormatted(),
       location: 'Mandiri',
       skriningType: 'Skrining Penyakit Tidak Menular',

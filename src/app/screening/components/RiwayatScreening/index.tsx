@@ -17,6 +17,7 @@ const RiwayatScreening = () => {
             location={skrining.location}
             type={skrining.skriningType}
             key={`skrining-${idx}`}
+            id={skrining.id}
           />
         ))}
       </div>

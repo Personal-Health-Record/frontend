@@ -23,6 +23,7 @@ const ScreeningMental = () => {
     );
 
     const skriningData: Skrining = {
+      id: Math.floor(Math.random() * 10000) + 1,
       date: getTodayFormatted(),
       location: 'Mandiri',
       skriningType: 'Skrining Kesehatan Mental',

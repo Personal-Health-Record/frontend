@@ -19,6 +19,7 @@ const ScreeningCovid = () => {
   const [luarNegri, setLuarNegri] = useState(false);
   const [local, setLocal] = useState(false);
   const [totalGejala, setTotalGejala] = useState(0);
+  const [listGejala, setListGejala] = useState<string[]>([]);
   const { listSkrining } = getSkriningKesehatanList();
 
   const router = useRouter();
@@ -30,6 +31,7 @@ const ScreeningCovid = () => {
       totalScore += 1;
     }
     if (luarNegri) {
+      totalScore += 1;
     }
     if (local) {
       totalScore += 1;
@@ -38,9 +40,16 @@ const ScreeningCovid = () => {
     totalScore += totalGejala;
 
     const skriningData: Skrining = {
+      id: Math.floor(Math.random() * 10000) + 1,
       date: getTodayFormatted(),
       location: 'Mandiri',
-      skriningType: 'SkriningCOVID-19',
+      skriningType: 'Skrining COVID-19',
+      detail: {
+        area: local,
+        gejala: listGejala.join(', '),
+        kontak: kontak,
+        luarNegri: luarNegri,
+      },
     };
 
     addSkriningKesehatan(skriningData, listSkrining || []);
@@ -65,7 +74,10 @@ const ScreeningCovid = () => {
           Gejala yang dirasakan
         </h3>
 
-        <FormGejala setTotalGejala={setTotalGejala} />
+        <FormGejala
+          setTotalGejala={setTotalGejala}
+          setListGejala={setListGejala}
+        />
 
         <button
           className="bg-mainBlue rounded-3xl text-white font-semibold py-3"

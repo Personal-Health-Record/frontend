@@ -2,9 +2,10 @@ import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 interface Props {
   setTotalGejala: Dispatch<SetStateAction<number>>;
+  setListGejala: Dispatch<SetStateAction<string[]>>;
 }
 
-const FormGejala = ({ setTotalGejala }: Props) => {
+const FormGejala = ({ setTotalGejala, setListGejala }: Props) => {
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
 
   const handleCheckboxClick = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,7 +21,8 @@ const FormGejala = ({ setTotalGejala }: Props) => {
 
   useEffect(() => {
     setTotalGejala(selectedOptions.length);
-  }, [selectedOptions.length, setTotalGejala]);
+    setListGejala(selectedOptions);
+  }, [selectedOptions, setListGejala, setTotalGejala]);
 
   return (
     <div className="flex flex-col gap-3">
@@ -34,7 +36,7 @@ const FormGejala = ({ setTotalGejala }: Props) => {
             <input
               type="checkbox"
               name="radioOption"
-              value="A"
+              value="Demam"
               className="mr-2"
               onChange={handleCheckboxClick}
             />
@@ -44,7 +46,7 @@ const FormGejala = ({ setTotalGejala }: Props) => {
             <input
               type="checkbox"
               name="radioOption"
-              value="B"
+              value="Batuk/Pilek"
               className="mr-2"
               onChange={handleCheckboxClick}
             />
@@ -54,7 +56,7 @@ const FormGejala = ({ setTotalGejala }: Props) => {
             <input
               type="checkbox"
               name="radioOption"
-              value="C"
+              value="Sesak nafas"
               className="mr-2"
               onChange={handleCheckboxClick}
             />
@@ -64,7 +66,7 @@ const FormGejala = ({ setTotalGejala }: Props) => {
             <input
               type="checkbox"
               name="radioOption"
-              value="D"
+              value="Sakit tenggorokan"
               className="mr-2"
               onChange={handleCheckboxClick}
             />
