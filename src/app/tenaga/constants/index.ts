@@ -1,14 +1,30 @@
-export const dataTenagaKesehatan = [
+export type TenagaKesehatan = {
+  name: string;
+  specialist: string;
+  yoe: number;
+  sip: number;
+  almamater: string;
+  practiceLocation: string;
+  profilePicture: string;
+};
+
+export const dummyTenagaKesehatan: TenagaKesehatan[] = [
   {
     name: 'dr. Ali Abdul',
     specialist: 'Spesialis Penyakit Dalam',
-    location: 'RS Medika',
-    image: '/images/docter-1.png',
+    practiceLocation: 'RS Medika',
+    profilePicture: '/images/docter-1.png',
+    almamater: 'Universitas Indonesia',
+    sip: 87192672,
+    yoe: 12,
   },
   {
-    name: 'dr. Reza Andika',
-    specialist: 'Dokter Umum',
-    location: 'Klinik Makmur Jaya',
-    image: '/images/docter-2.png',
+    name: 'dr. Budi Santoso',
+    specialist: 'Spesialis Mata',
+    practiceLocation: 'RS Mata Bersih',
+    profilePicture: '/images/docter-2.png',
+    almamater: 'Universitas Diponegoro',
+    sip: 65478923,
+    yoe: 8,
   },
 ];

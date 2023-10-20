@@ -8,13 +8,20 @@ interface Props {
   location: string;
   specialist: string;
   image: string;
+  sip: number;
 }
 
-const CardTenagaKesehatan = ({ location, name, specialist, image }: Props) => {
+const CardTenagaKesehatan = ({
+  location,
+  name,
+  specialist,
+  image,
+  sip,
+}: Props) => {
   const router = useRouter();
 
   const handleOnClick = () => {
-    router.push('/tenaga/profile');
+    router.push(`/tenaga/profile?sip=${sip}`);
   };
 
   return (
