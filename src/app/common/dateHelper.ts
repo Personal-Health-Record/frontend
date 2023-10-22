@@ -65,3 +65,42 @@ export const getCurrentYearMonthDate = () => {
 
   return formattedDate;
 };
+
+export const getDateTrackerKesehatan = (val: string) => {
+  const parsedDate = new Date(val);
+
+  // Create an array of Indonesian day and month names.
+  const daysInIndonesian = [
+    'Minggu',
+    'Senin',
+    'Selasa',
+    'Rabu',
+    'Kamis',
+    'Jumat',
+    'Sabtu',
+  ];
+  const monthsInIndonesian = [
+    'Januari',
+    'Februari',
+    'Maret',
+    'April',
+    'Mei',
+    'Juni',
+    'Juli',
+    'Agustus',
+    'September',
+    'Oktober',
+    'November',
+    'Desember',
+  ];
+
+  // Extract day, month, and year from the parsed date.
+  const dayInIndonesian = daysInIndonesian[parsedDate.getUTCDay()];
+  const day = parsedDate.getUTCDate();
+  const monthInIndonesian = monthsInIndonesian[parsedDate.getUTCMonth()];
+  const year = parsedDate.getUTCFullYear();
+
+  const formattedDate = `${dayInIndonesian}, ${day} ${monthInIndonesian} ${year}`;
+
+  return formattedDate;
+};

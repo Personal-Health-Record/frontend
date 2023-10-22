@@ -47,7 +47,7 @@ export const menuList = [
   {
     icon: '/images/menu/menu-10.png',
     title: 'Tracking Data Kesehatan',
-    url: '/',
+    url: '/monitoring',
   },
   {
     icon: '/images/menu/menu-11.png',

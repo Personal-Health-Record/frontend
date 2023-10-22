@@ -1,11 +1,19 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
+
 const TargetSection = () => {
+  const router = useRouter();
   return (
     <div className="flex flex-col">
       <h3 className="font-semibold text-mainGrey pl-2 mb-3 mt-5">
         Target Saya
       </h3>
 
-      <div className="flex flex-col">
+      <div
+        className="flex flex-col"
+        onClick={() => router.push('/monitoring/insert-data-fisik')}
+      >
         <div className="flex flex-col shadow-md px-3 py-3 rounded-xl gap-2">
           <div className="flex justify-between">
             <p className="text-md font-bold text-mainGrey">Aktivitas Fisik</p>

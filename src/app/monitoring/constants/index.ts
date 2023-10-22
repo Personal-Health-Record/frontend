@@ -48,3 +48,15 @@ export const dataDarah = {
     },
   ],
 };
+
+export type PhysiqueData = {
+  height: number;
+  weight: number;
+  latestUpdate: string;
+};
+
+export const dummyUserPhysique: PhysiqueData = {
+  height: 170,
+  weight: 80,
+  latestUpdate: '2023-10-22T12:00:00Z',
+};
