@@ -1,15 +1,27 @@
+import { useRouter } from 'next/navigation';
+
 interface Props {
-  data: string;
+  name: string;
+  id: number;
 }
-const CardTempatPraktik = ({ data }: Props) => {
+const CardTempatPraktik = ({ name, id }: Props) => {
+  const router = useRouter();
+
+  const handleOnClick = () => {
+    router.push(`/faskes/details?id=${id}`);
+  };
+
   return (
     <div className="flex gap-1 border-b-2 py-3 justify-between">
       <div className="flex flex-col gap-1">
         <p className="text-sm">Tempat Praktik</p>
-        <p className="text-sm text-mainGrey">{data}</p>
+        <p className="text-sm text-mainGrey">{name}</p>
       </div>
 
-      <button className="text-xs bg-superLightGrey px-2 rounded-2xl font-semibold py-0">
+      <button
+        className="text-xs bg-superLightGrey px-2 rounded-2xl font-semibold py-0"
+        onClick={handleOnClick}
+      >
         Lihat Profil Faskes
       </button>
     </div>

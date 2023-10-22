@@ -18,8 +18,6 @@ const ProfileTenagaMedis = () => {
     const sip = searchParams.get('sip');
     const data = getTenkesBySIP(parseInt(sip || ''));
 
-    console.log({ data });
-
     setDataTenkes(data as TenagaKesehatan);
   }, [searchParams]);
 
@@ -51,7 +49,10 @@ const ProfileTenagaMedis = () => {
         />
         <CardTenkesDetail data={dataTenkes?.almamater || ''} title="Alumnus" />
 
-        <CardTempatPraktik data={dataTenkes?.practiceLocation || ''} />
+        <CardTempatPraktik
+          name={dataTenkes?.practiceLocation.name || ''}
+          id={dataTenkes?.practiceLocation.id || 0}
+        />
       </div>
     </div>
   );

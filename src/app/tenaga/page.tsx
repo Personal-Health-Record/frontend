@@ -18,7 +18,7 @@ const TenagaMedisPage = () => {
     }
 
     const filteredItem = listTenkes?.filter((tenkes) =>
-      tenkes.name.toLowerCase().includes(name),
+      tenkes.name.toLowerCase().includes(name.toLowerCase()),
     );
 
     setFilteredTenkes(filteredItem);
@@ -43,7 +43,7 @@ const TenagaMedisPage = () => {
           <CardTenagaKesehatan
             key={index}
             image={docter.profilePicture}
-            location={docter.practiceLocation}
+            location={docter.practiceLocation.name}
             name={docter.name}
             specialist={docter.specialist}
             sip={docter.sip}

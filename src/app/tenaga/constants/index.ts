@@ -4,7 +4,10 @@ export type TenagaKesehatan = {
   yoe: number;
   sip: number;
   almamater: string;
-  practiceLocation: string;
+  practiceLocation: {
+    name: string;
+    id: number;
+  };
   profilePicture: string;
 };
 
@@ -12,7 +15,10 @@ export const dummyTenagaKesehatan: TenagaKesehatan[] = [
   {
     name: 'dr. Ali Abdul',
     specialist: 'Spesialis Penyakit Dalam',
-    practiceLocation: 'RS Medika',
+    practiceLocation: {
+      name: 'RS Medika',
+      id: 1,
+    },
     profilePicture: '/images/docter-1.png',
     almamater: 'Universitas Indonesia',
     sip: 87192672,
@@ -21,7 +27,10 @@ export const dummyTenagaKesehatan: TenagaKesehatan[] = [
   {
     name: 'dr. Budi Santoso',
     specialist: 'Spesialis Mata',
-    practiceLocation: 'RS Mata Bersih',
+    practiceLocation: {
+      name: 'RS Medika',
+      id: 1,
+    },
     profilePicture: '/images/docter-2.png',
     almamater: 'Universitas Diponegoro',
     sip: 65478923,
