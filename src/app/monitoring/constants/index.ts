@@ -49,6 +49,44 @@ export const dataDarah = {
   ],
 };
 
+export const dataAktifitasFisikBulanan = {
+  labels: ['S', 'S', 'R', 'K', 'J', 'S', 'M'],
+  datasets: [
+    {
+      label: 'menit',
+      data: [30, 30, 25, 35, 15, 20, 30],
+      backgroundColor: 'rgba(54, 162, 235, 0.6)',
+    },
+  ],
+};
+
+export const dataWaktuTidurBulanan = {
+  labels: ['S', 'S', 'R', 'K', 'J', 'S', 'M'],
+  datasets: [
+    {
+      label: 'jam',
+      data: [8, 3, 7, 9, 10, 2, 5],
+      backgroundColor: 'rgba(54, 162, 235, 0.6)',
+    },
+  ],
+};
+
+export const dataDarahBulanan = {
+  labels: ['S', 'S', 'R', 'K', 'J', 'S', 'M'],
+  datasets: [
+    {
+      label: 'SYSTOLE',
+      data: [90, 104, 120, 110, 114, 95, 100],
+      backgroundColor: 'rgba(255, 99, 132, 0.5)',
+    },
+    {
+      label: 'DIASTOLE',
+      data: [60, 80, 90, 40, 55, 65, 80],
+      backgroundColor: 'rgba(53, 162, 235, 0.5)',
+    },
+  ],
+};
+
 export type PhysiqueData = {
   height: number;
   weight: number;
