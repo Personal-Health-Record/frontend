@@ -73,6 +73,9 @@ const FaskesPage = () => {
 
   const handleChangeMap = (lat: number, lng: number) => {
     setMarkerPosition({ lat: lat, lng: lng });
+    if (window !== undefined) {
+      window.scrollTo(0, 0);
+    }
   };
 
   const handleClickCard = (id: number) => {
