@@ -4,6 +4,10 @@ import { useCallback, useState } from 'react';
 import Header from '../components/Header';
 import withAuth from '../components/PrivateRoute';
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
+import SearchBar from './components/SearchBar';
+import { Faskes, dummyFaskes } from './constants';
+import CardFaskesLocation from './components/CardFaskesLocation';
+import { useRouter } from 'next/navigation';
 
 const containerStyle = {
   width: '100%',
@@ -11,16 +15,31 @@ const containerStyle = {
 };
 
 const FaskesPage = () => {
+  const router = useRouter();
+  const [filteredFaskes, setFilteredFaskes] = useState<Faskes[]>(dummyFaskes);
+  const [map, setMap] = useState<google.maps.Map | null>(null);
+
+  const [markerPosition, setMarkerPosition] = useState({
+    lat: -6.218938755964828,
+    lng: 106.81725999301412,
+  });
+
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: 'AIzaSyDITiNAxw43DqK1QeYXeaoTfFFJS8C8Rkk',
   });
 
-  const [map, setMap] = useState<google.maps.Map | null>(null);
-  const [markerPosition, setMarkerPosition] = useState({
-    lat: -6.218938755964828,
-    lng: 106.81725999301412,
-  });
+  const handleOnSearch = (val: string) => {
+    if (val === '') {
+      setFilteredFaskes(dummyFaskes);
+    } else {
+      const filtered = dummyFaskes.filter((faskes) =>
+        faskes.name.toLowerCase().includes(val),
+      );
+
+      setFilteredFaskes(filtered);
+    }
+  };
 
   const onLoad = useCallback(
     (map: google.maps.Map) => {
@@ -42,10 +61,15 @@ const FaskesPage = () => {
     setMarkerPosition({ lat: lat, lng: lng });
   };
 
+  const handleClickCard = (id: number) => {
+    router.push(`/faskes/details?id=${id}`);
+  };
+
   return (
     <div className="flex flex-col">
       <Header title="Profil Fasilitas Kesehatan" />
 
+      {/* Maps section */}
       {!isLoaded ? (
         <div className="flex justify-center items-center mt-20">
           <p>Loading Maps</p>
@@ -59,25 +83,25 @@ const FaskesPage = () => {
             onLoad={onLoad}
             onUnmount={onUnmount}
           >
-            {map && (
-              <Marker
-                position={markerPosition}
-                title="Klinik Terpilih"
-                label="Klikini"
-              />
-            )}
+            {map && <Marker position={markerPosition} />}
           </GoogleMap>
         </div>
       )}
 
-      <div>
-        <button
-          onClick={() =>
-            handleChangeMap(-6.196020716164743, 106.84649681231201)
-          }
-        >
-          Pindah
-        </button>
+      {/* Searchbar section */}
+      <div className="flex flex-col py-6 px-4">
+        <div className="mb-3">
+          <SearchBar onChangeSearch={handleOnSearch} />
+        </div>
+        {filteredFaskes.map((faskes, idx) => (
+          <CardFaskesLocation
+            key={`faskes-${idx}`}
+            typeFaskes={faskes.type}
+            nameFaskes={faskes.name}
+            onLocationClick={() => handleChangeMap(faskes.lat, faskes.lang)}
+            onCardClick={() => handleClickCard(faskes.id)}
+          />
+        ))}
       </div>
     </div>
   );
