@@ -14,14 +14,6 @@ export type BMRForm = {
   exerciseIntensity: string;
 };
 
-export const exerciseIntensityOptions = [
-  'Sedikit atau tanpa olahraga',
-  'Olahraga ringan 1-3 kali per minggu',
-  'Olahraga sedang 3-5 kali per minggu',
-  'Olahraga berat 6-7 kali per minggu',
-  'Olahraga berat setiap hari atau aktivitas fisik berat dan pekerjaan fisik',
-];
-
 const KalkulatorKalori = () => {
   const [bmrResult, setBmrResult] = useState(0);
   const [formState, setFormState] = useState<BMRForm>({
