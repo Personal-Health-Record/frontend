@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Header from '../components/Header';
 import withAuth from '../components/PrivateRoute';
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
@@ -8,6 +8,7 @@ import SearchBar from './components/SearchBar';
 import { Faskes, dummyFaskes } from './constants';
 import CardFaskesLocation from './components/CardFaskesLocation';
 import { useRouter } from 'next/navigation';
+import ChipTypes from './components/ChipTypes';
 
 const containerStyle = {
   width: '100%',
@@ -18,6 +19,7 @@ const FaskesPage = () => {
   const router = useRouter();
   const [filteredFaskes, setFilteredFaskes] = useState<Faskes[]>(dummyFaskes);
   const [map, setMap] = useState<google.maps.Map | null>(null);
+  const [typeFilter, setTypeFilter] = useState('');
 
   const [markerPosition, setMarkerPosition] = useState({
     lat: -6.218938755964828,
@@ -40,6 +42,18 @@ const FaskesPage = () => {
       setFilteredFaskes(filtered);
     }
   };
+
+  useEffect(() => {
+    if (typeFilter === '' || typeFilter === 'Semua') {
+      setFilteredFaskes(dummyFaskes);
+    } else {
+      const filtered = dummyFaskes.filter(
+        (faskes) => faskes.type === typeFilter,
+      );
+
+      setFilteredFaskes(filtered);
+    }
+  }, [typeFilter]);
 
   const onLoad = useCallback(
     (map: google.maps.Map) => {
@@ -90,9 +104,17 @@ const FaskesPage = () => {
 
       {/* Searchbar section */}
       <div className="flex flex-col py-6 px-4">
-        <div className="mb-3">
+        <div className="mb-4">
           <SearchBar onChangeSearch={handleOnSearch} />
         </div>
+
+        <div className="mb-3">
+          <ChipTypes
+            handleClickChip={setTypeFilter}
+            selectedChip={typeFilter}
+          />
+        </div>
+
         {filteredFaskes.map((faskes, idx) => (
           <CardFaskesLocation
             key={`faskes-${idx}`}

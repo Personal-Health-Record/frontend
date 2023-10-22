@@ -44,7 +44,7 @@ export const dummyFaskes: Faskes[] = [
   {
     id: 1,
     name: 'Rumah Sakit Medika',
-    type: 'RS Kelas C',
+    type: 'RS kelas C',
     phone: '(021) 7682918',
     address:
       'Jl. Kp. Utan No.31B, Cemp. Putih, Kec. Ciputat Tim., Kota Tangerang Selatan, Banten 15412',
@@ -64,7 +64,7 @@ export const dummyFaskes: Faskes[] = [
   {
     id: 2,
     name: 'Rumah Sakit Sehat Bahagia',
-    type: 'RS Kelas B',
+    type: 'RS kelas B',
     phone: '(021) 5551234',
     address:
       'Jl. Pemuda No. 42, Kec. Menteng, Jakarta Pusat, DKI Jakarta 12345',
@@ -83,7 +83,7 @@ export const dummyFaskes: Faskes[] = [
   {
     id: 3,
     name: 'Klinik Sejahtera',
-    type: 'Klinik Umum',
+    type: 'RS kelas D',
     phone: '(021) 9876543',
     address: 'Jl. Merdeka No. 10, Kec. Ciledug, Tangerang, Banten 54321',
     service: ['Poli Umum', 'Poli Gigi'],
@@ -95,7 +95,7 @@ export const dummyFaskes: Faskes[] = [
   {
     id: 4,
     name: 'RS Cemerlang',
-    type: 'RS Kelas A',
+    type: 'RS kelas A',
     phone: '(021) 1112222',
     address: 'Jl. Sinar Indah No. 5, Kec. Sawangan, Depok, Jawa Barat 67890',
     service: ['Poli Umum', 'Poli Bedah', 'Poli Mata'],
@@ -119,7 +119,7 @@ export const dummyFaskes: Faskes[] = [
   {
     id: 6,
     name: 'Klinik Bina Sehat',
-    type: 'Klinik Umum',
+    type: 'Klinik',
     phone: '(021) 5559876',
     address:
       'Jl. Aman Sentosa No. 8, Kec. Bandung Utara, Bandung, Jawa Barat 98765',
@@ -129,4 +129,14 @@ export const dummyFaskes: Faskes[] = [
     registrationLink: '',
     websiteLink: '',
   },
+];
+
+export const chipTypes = [
+  'Semua',
+  'Puskesmas',
+  'Klinik',
+  'RS kelas D',
+  'RS kelas C',
+  'RS kelas B',
+  'RS kelas A',
 ];

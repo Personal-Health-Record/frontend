@@ -13,11 +13,8 @@ const CardFaskesLocation = ({
   onCardClick,
 }: Props) => {
   return (
-    <div
-      className="flex flex-row gap-1 border-b-2 py-3 justify-between items-center"
-      onClick={onCardClick}
-    >
-      <div className="flex flex-col">
+    <div className="flex flex-row gap-1 border-b-2 py-3 justify-between items-center">
+      <div className="flex flex-col" onClick={onCardClick}>
         <p className="text-sm">{typeFaskes}</p>
         <p className="text-sm text-mainGrey">{nameFaskes}</p>
       </div>
