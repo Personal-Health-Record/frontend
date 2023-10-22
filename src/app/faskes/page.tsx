@@ -3,16 +3,11 @@
 import { useCallback, useState } from 'react';
 import Header from '../components/Header';
 import withAuth from '../components/PrivateRoute';
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 
 const containerStyle = {
   width: '100%',
-  height: '600px',
-};
-
-const center = {
-  lat: -3.745,
-  lng: -38.523,
+  height: '400px',
 };
 
 const FaskesPage = () => {
@@ -21,38 +16,68 @@ const FaskesPage = () => {
     googleMapsApiKey: 'AIzaSyDITiNAxw43DqK1QeYXeaoTfFFJS8C8Rkk',
   });
 
-  const [map, setMap] = useState(null);
+  const [map, setMap] = useState<google.maps.Map | null>(null);
+  const [markerPosition, setMarkerPosition] = useState({
+    lat: -6.218938755964828,
+    lng: 106.81725999301412,
+  });
 
-  const onLoad = useCallback((map) => {
-    // This is just an example of getting and using the map instance!!! don't just blindly copy!
-    const bounds = new window.google.maps.LatLngBounds(center);
-    console.log(typeof map);
-    map.fitBounds(bounds);
+  const onLoad = useCallback(
+    (map: google.maps.Map) => {
+      if (window.google) {
+        const bounds = new window.google.maps.LatLngBounds(markerPosition);
+        map.fitBounds(bounds);
 
-    setMap(map);
-  }, []);
+        setMap(map);
+      }
+    },
+    [markerPosition],
+  );
 
-  const onUnmount = useCallback((map) => {
+  const onUnmount = useCallback((map: google.maps.Map) => {
     setMap(null);
   }, []);
 
-  console.log({ isLoaded });
+  const handleChangeMap = (lat: number, lng: number) => {
+    setMarkerPosition({ lat: lat, lng: lng });
+  };
 
   return (
     <div className="flex flex-col">
       <Header title="Profil Fasilitas Kesehatan" />
 
-      <div className="flex flex-col w-full px-4 py-4 gap-3 justify-center items-center">
-        <GoogleMap
-          mapContainerStyle={containerStyle}
-          center={center}
-          zoom={10}
-          onLoad={onLoad}
-          onUnmount={onUnmount}
+      {!isLoaded ? (
+        <div className="flex justify-center items-center mt-20">
+          <p>Loading Maps</p>
+        </div>
+      ) : (
+        <div className="flex flex-col w-full gap-3 justify-center items-center">
+          <GoogleMap
+            mapContainerStyle={containerStyle}
+            center={markerPosition}
+            zoom={10}
+            onLoad={onLoad}
+            onUnmount={onUnmount}
+          >
+            {map && (
+              <Marker
+                position={markerPosition}
+                title="Klinik Terpilih"
+                label="Klikini"
+              />
+            )}
+          </GoogleMap>
+        </div>
+      )}
+
+      <div>
+        <button
+          onClick={() =>
+            handleChangeMap(-6.196020716164743, 106.84649681231201)
+          }
         >
-          {/* Child components, such as markers, info windows, etc. */}
-          <></>
-        </GoogleMap>
+          Pindah
+        </button>
       </div>
     </div>
   );
