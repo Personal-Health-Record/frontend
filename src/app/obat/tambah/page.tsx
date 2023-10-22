@@ -6,8 +6,8 @@ const TambahPengingat = () => {
     <div className="flex flex-col">
       <Header title="Pengingat Obat" />
 
-      <div className="flex flex-col w-full px-4 py-4 gap-3">
-        <h3 className="font-semibold text-mainGrey pl-2 mb-3">
+      <div className="flex flex-col w-full py-4 gap-3">
+        <h3 className="font-semibold text-mainGrey mb-3 px-4">
           Informasi Obat
         </h3>
 

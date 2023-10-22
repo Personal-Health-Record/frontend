@@ -108,6 +108,7 @@ const FormTambahPengingat = () => {
           })
         }
       />
+
       <RadioInput
         label="Waktu Konsumsi"
         options={[
@@ -145,7 +146,7 @@ const FormTambahPengingat = () => {
         value={formState.consumptionMandatory}
       />
 
-      <div className="flex gap-2 justify-center">
+      <div className="flex flex-col gap-4">
         <TextInput
           label="Tanggal Mulai"
           placeholder="Tanggal Mulai"
@@ -164,12 +165,12 @@ const FormTambahPengingat = () => {
         />
       </div>
 
-      <div className="mt-2">
+      <div className="mt-2 px-4">
         <Notifikasi formState={formState} setFormState={setFormState} />
       </div>
 
       <button
-        className="bg-mainBlue rounded-3xl text-white font-semibold py-3 mb-6 mt-2"
+        className="bg-mainBlue rounded-3xl text-white font-semibold py-3 mb-6 mt-2 mx-4"
         onClick={handleOnSubmit}
       >
         Simpan

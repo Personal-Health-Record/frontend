@@ -6,7 +6,7 @@ type CardObatProps = {
 
 const CardObat = ({ obat }: CardObatProps) => {
   return (
-    <div className="flex flex-col gap-1 border-b-2 pb-4">
+    <div className="flex flex-col gap-1 border-b-2 pb-4 px-3">
       <div className="flex justify-between items-center">
         <p className="text-sm">1-6 maret 2023</p>
         <p className="text-xs bg-superLightGrey px-2 py-1 rounded-xl">

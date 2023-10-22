@@ -17,7 +17,7 @@ const RadioInput = ({
   value,
 }: RadioInputProps) => {
   return (
-    <div className="flex flex-col gap-3 mt-4 px-8">
+    <div className="flex flex-col gap-3 mt-4 px-4">
       <p className="text-sm text-lightGrey">{label}</p>
       <div className="flex flex-wrap gap-3">
         {options.map((option, index) => (
