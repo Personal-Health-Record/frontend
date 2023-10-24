@@ -10,6 +10,7 @@ import Pengingat from './components/Pengingat';
 import withAuth from './components/PrivateRoute';
 import BottomNavbarDoctor from './components/BottomNavbarDoctor';
 import HomeListPatient from './components/HomeListPatient';
+import DoctorMenu from './components/DoctorMenu';
 
 const Home = () => {
   const { loggedInUser } = getLoggedInUser();
@@ -26,6 +27,7 @@ const Home = () => {
         <>
           <HeaderHome isDoctor />
           <HomeListPatient />
+          <DoctorMenu />
           <BottomNavbarDoctor />
         </>
       ) : (
