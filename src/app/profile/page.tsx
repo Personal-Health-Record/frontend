@@ -3,8 +3,8 @@
 import BottomNavbar from '../components/BottomNavbar';
 import { getLoggedInUser, logoutUser } from '../common/userDataHelper';
 import withAuth from '../components/PrivateRoute';
-import ProfileHeader from './components/profileHeader';
-import ProfileOptionCard from './components/profileOptionCard';
+import ProfileOptionCard from './components/ProfileOptionCard';
+import ProfileHeader from './components/ProfileHeader';
 
 const ProfilePage = () => {
   const { loggedInUser: user } = getLoggedInUser();
@@ -19,7 +19,10 @@ const ProfilePage = () => {
         <ProfileHeader user={user} />
         <div>
           <hr />
-          <ProfileOptionCard title="Profil Saya" path="/profile/detail" />
+          <ProfileOptionCard
+            title="Profil Saya"
+            path={'/profile/detail/' + user.id}
+          />
           <ProfileOptionCard title="Anggota Keluarga" path="/profile/family" />
           <ProfileOptionCard
             title="Asuransi Kesehatan"

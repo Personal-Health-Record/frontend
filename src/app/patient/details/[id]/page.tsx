@@ -36,8 +36,10 @@ const ProfilePatientPage = () => {
         </p>
 
         <ProfileHeader age={patient.age.toString()} gender={patient.gender} />
-        {/* TODO: */}
-        <CardOptionPatient path="/" title="Profil Saya" />
+        <CardOptionPatient
+          path={'/profile/detail/' + patient.id}
+          title="Profil Saya"
+        />
         <CardOptionPatient path="/" title="Resume Medis Pasien" />
         <CardOptionPatient path="/" title="Rujukan Pasien" />
         <CardOptionPatient path="/" title="Skrining Kesehatan Pasien" />
