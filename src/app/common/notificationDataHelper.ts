@@ -40,6 +40,7 @@ export const addNotificationData = (
   return updatedNotificationDataList;
 };
 
+// TODO: pake ini
 export const setReadNotification = (
   notificationId: string,
   existingNotificationDataList: Notification[],

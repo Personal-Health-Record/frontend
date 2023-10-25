@@ -7,6 +7,8 @@ interface Props {
   notification: Notification;
 }
 
+// TODO: kalo udah kebaca, jadi lebih gelap
+// TODO: set notification ke read
 const CardNotification = ({ notification }: Props) => {
   const router = useRouter();
   return (

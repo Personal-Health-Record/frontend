@@ -13,6 +13,8 @@ const ProfilePage = () => {
     return <div> Loading... </div>;
   }
 
+  // TODO: adjust kalo ini doctor, call component lain, terutama detailnya
+  // TODO: buat ubah password mechanism
   return (
     <div className="flex flex-col">
       <div className="flex flex-col py-3 px-4 gap-6 pt-6">
