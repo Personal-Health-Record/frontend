@@ -21,6 +21,7 @@ const HomeListPatient = () => {
           <CardPatient
             name={patient.name}
             profileIcon={patient.profilePicture}
+            id={patient.id}
             key={`patient-${idx}`}
           />
         ))}

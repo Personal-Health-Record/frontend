@@ -18,18 +18,22 @@ const Home = () => {
     return loggedInUser?.role === 'doctor';
   }, [loggedInUser?.role]);
 
+  if (!loggedInUser) {
+    return <div> Loading... </div>;
+  }
+
   return (
     <main className="flex flex-col min-h-screen ">
       {isDoctor ? (
         <>
-          <HeaderHome isDoctor />
+          <HeaderHome isDoctor name={loggedInUser.name} />
           <HomeListPatient />
           <DoctorMenu />
           <BottomNavbar />
         </>
       ) : (
         <>
-          <HeaderHome isDoctor />
+          <HeaderHome isDoctor name={loggedInUser.name} />
           <Dashboard />
           <Pengingat />
           <MainMenu />
