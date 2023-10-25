@@ -1,8 +1,15 @@
-import Image from 'next/image';
-import { dummyDataPatient } from './contants';
 import CardPatient from './CardPatient';
+import { getUserData } from '@/app/common/userDataHelper';
 
 const HomeListPatient = () => {
+  const { userData } = getUserData();
+
+  if (!userData) {
+    return <div> Loading... </div>;
+  }
+
+  const patientData = userData.filter((user) => user.role === 'patient');
+
   return (
     <div className="flex flex-col gap-3 p-4">
       <h3 className="font-semibold text-mainGrey">
@@ -10,10 +17,10 @@ const HomeListPatient = () => {
       </h3>
 
       <div className="flex overflow-x-auto gap-3  py-1">
-        {dummyDataPatient.map((patient, idx) => (
+        {patientData.map((patient, idx) => (
           <CardPatient
             name={patient.name}
-            profileIcon={patient.profileIcon}
+            profileIcon={patient.profilePicture}
             key={`patient-${idx}`}
           />
         ))}

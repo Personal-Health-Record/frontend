@@ -8,7 +8,6 @@ import HeaderHome from './components/HeaderHome';
 import MainMenu from './components/MainMenu';
 import Pengingat from './components/Pengingat';
 import withAuth from './components/PrivateRoute';
-import BottomNavbarDoctor from './components/BottomNavbarDoctor';
 import HomeListPatient from './components/HomeListPatient';
 import DoctorMenu from './components/DoctorMenu';
 
@@ -19,8 +18,6 @@ const Home = () => {
     return loggedInUser?.role === 'doctor';
   }, [loggedInUser?.role]);
 
-  console.log({ isDoctor });
-
   return (
     <main className="flex flex-col min-h-screen ">
       {isDoctor ? (
@@ -28,7 +25,7 @@ const Home = () => {
           <HeaderHome isDoctor />
           <HomeListPatient />
           <DoctorMenu />
-          <BottomNavbarDoctor />
+          <BottomNavbar />
         </>
       ) : (
         <>
