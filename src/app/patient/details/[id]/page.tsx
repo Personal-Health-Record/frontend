@@ -40,8 +40,8 @@ const ProfilePatientPage = () => {
           path={'/profile/detail/' + patient.id}
           title="Profil Saya"
         />
-        <CardOptionPatient path="/" title="Resume Medis Pasien" />
-        <CardOptionPatient path="/" title="Rujukan Pasien" />
+        <CardOptionPatient path="/resume" title="Resume Medis Pasien" />
+        <CardOptionPatient path="/rujukan" title="Rujukan Pasien" />
         <CardOptionPatient path="/" title="Skrining Kesehatan Pasien" />
         <CardOptionPatient path="/" title="Tracking Data Kesehatan" />
       </div>
