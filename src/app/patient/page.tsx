@@ -27,6 +27,7 @@ const PatientPage = () => {
             <CardPatient
               name={patient.name}
               profilePicture={patient.profilePicture}
+              id={patient.id}
               key={`patient-${idx}`}
             />
           ))}

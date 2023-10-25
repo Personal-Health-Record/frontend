@@ -4,14 +4,14 @@ import { useRouter } from 'next/navigation';
 interface Props {
   profilePicture: string;
   name: string;
+  id: string;
 }
 
-const CardPatient = ({ name, profilePicture }: Props) => {
+const CardPatient = ({ name, profilePicture, id }: Props) => {
   const router = useRouter();
 
-  // TODO: push with patient id
   const handleOnClick = () => {
-    router.push('/patient/details');
+    router.push('/patient/details/' + id);
   };
 
   return (
