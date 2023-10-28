@@ -23,7 +23,7 @@ const ProfilePage = () => {
         />
         <ProfileOptionCard
           title="Ubah Password"
-          path={'/profile/changepassword/'}
+          path={'/profile/changepassword'}
         />
         <ProfileOptionCard
           title="Logout"
@@ -51,7 +51,7 @@ const ProfilePage = () => {
         />
         <ProfileOptionCard
           title="Ubah Password"
-          path={'/profile/changepassword/'}
+          path={'/profile/changepassword'}
         />
         <ProfileOptionCard
           title="Logout"
