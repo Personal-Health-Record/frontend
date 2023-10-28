@@ -2,25 +2,38 @@ import Image from 'next/image';
 import { Notification } from '../../constants';
 import { useRouter } from 'next/navigation';
 import { formatDate } from '@/app/common/dateHelper';
+import { setReadNotification } from '@/app/common/notificationDataHelper';
 
 interface Props {
   notification: Notification;
+  notificationList: Notification[];
 }
 
-// TODO: kalo udah kebaca, jadi lebih gelap
-// TODO: set notification ke read
-const CardNotification = ({ notification }: Props) => {
+const CardNotification = ({ notification, notificationList }: Props) => {
   const router = useRouter();
+
   return (
     <div
       className="flex items-center gap-3"
+      style={{
+        backgroundColor: notification.isRead
+          ? 'rgba(245, 245, 245, 0.60)'
+          : '#FFFFFF',
+        padding: '10px 15px',
+        borderBottom: '1px solid #E5E5E5',
+      }}
       onClick={() => {
+        setReadNotification(notification.id, notificationList);
         router.push(notification.link);
       }}
     >
       <div>
         <Image
-          src="/images/notification.png"
+          src={
+            notification.isRead
+              ? '/images/notification-open.png'
+              : '/images/notification.png'
+          }
           alt="notification-icon"
           width={60}
           height={60}

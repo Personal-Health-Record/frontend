@@ -38,12 +38,13 @@ const NotificationPage = () => {
     <div className="flex flex-col px-4">
       <SearchBar onSearch={handleSearch} />
 
-      <div className="flex flex-col mt-10 gap-7">
+      <div className="flex flex-col mt-10">
         {notificationData &&
           notificationData.map((notification) => (
             <CardNotification
               key={notification.id}
               notification={notification}
+              notificationList={storageNotificationData!}
             />
           ))}
       </div>

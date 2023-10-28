@@ -37,4 +37,13 @@ export const dummyNotification: Notification[] = [
     isRead: false,
     link: '/vaksinasi/details/1',
   },
+  {
+    id: '4',
+    toUserId: '2',
+    title: 'Vaksinasi',
+    body: 'Vaksinasi COVID-19 di Rumah Sakit Hermina sudah dijadwalkan besok di Klinik Medi-Go.',
+    date: '2021-10-01',
+    isRead: false,
+    link: '/vaksinasi/details/1',
+  },
 ];
