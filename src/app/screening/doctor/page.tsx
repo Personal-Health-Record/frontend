@@ -1,8 +1,6 @@
 'use client';
 
 import Header from '@/app/components/Header';
-import ScreeningKesehatanMandiri from '../components/ScreeningKesehatanMandiri';
-import RiwayatScreening from '../components/RiwayatScreening';
 import withAuth from '@/app/components/PrivateRoute';
 import { getSkriningKesehatanList } from '@/app/common/skriningKesehatanHelper';
 import { useState } from 'react';

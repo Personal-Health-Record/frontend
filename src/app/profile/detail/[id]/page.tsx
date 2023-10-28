@@ -2,16 +2,16 @@
 
 import Header from '@/app/components/Header';
 import { formatDate } from '@/app/common/dateHelper';
-import { getUserData } from '@/app/common/userDataHelper';
+import { getLoggedInUser, getUserData } from '@/app/common/userDataHelper';
 import BottomNavbarOneButton from '@/app/components/BottomNavbarOneButton';
 import DetailInfoCard from '../../components/DetailInfoCard';
 import { useParams } from 'next/navigation';
 
 const ProfileDetail = () => {
-  const { userData } = getUserData();
+  const { userData, loggedInUser } = getLoggedInUser();
   const params = useParams();
 
-  if (!userData) {
+  if (!userData || !loggedInUser) {
     return <div> Loading... </div>;
   }
 
@@ -45,11 +45,13 @@ const ProfileDetail = () => {
         {user.email && <DetailInfoCard title={'Email'} data={user.email} />}
       </div>
 
-      <BottomNavbarOneButton
-        path="/profile/edit"
-        iconPath="/images/edit.png"
-        text="Edit profile"
-      />
+      {loggedInUser.id === user.id && (
+        <BottomNavbarOneButton
+          path="/profile/edit"
+          iconPath="/images/edit.png"
+          text="Edit profile"
+        />
+      )}
     </div>
   );
 };
