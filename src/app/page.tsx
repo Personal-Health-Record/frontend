@@ -26,14 +26,14 @@ const Home = () => {
     <main className="flex flex-col min-h-screen ">
       {isDoctor ? (
         <>
-          <HeaderHome isDoctor name={loggedInUser.name} />
+          <HeaderHome user={loggedInUser} />
           <HomeListPatient />
           <DoctorMenu />
           <BottomNavbar />
         </>
       ) : (
         <>
-          <HeaderHome isDoctor name={loggedInUser.name} />
+          <HeaderHome user={loggedInUser} />
           <Dashboard />
           <Pengingat />
           <MainMenu />

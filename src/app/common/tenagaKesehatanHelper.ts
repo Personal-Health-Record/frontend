@@ -95,3 +95,20 @@ export const getTenkesByUserId = (userId: string) => {
 
   return null;
 };
+
+export const updateTenkesData = (data: TenagaKesehatanUser) => {
+  const listTenkesStorage = localStorage.getItem('listTenkesStorage');
+  const listTenkes: TenagaKesehatanUser[] = JSON.parse(listTenkesStorage!);
+
+  const updatedDataList = listTenkes.map((existingData) => {
+    if (existingData.tenkesId === data.tenkesId) {
+      return data;
+    }
+
+    return existingData;
+  });
+
+  localStorage.setItem('listTenkesStorage', JSON.stringify(updatedDataList));
+
+  return updatedDataList;
+};

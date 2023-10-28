@@ -11,8 +11,11 @@ import {
   TenagaKesehatanUser,
   getTenkesBySIP,
 } from '@/app/common/tenagaKesehatanHelper';
+import { getLoggedInUser } from '@/app/common/userDataHelper';
+import BottomNavbarOneButton from '@/app/components/BottomNavbarOneButton';
 
 const ProfileTenagaMedis = () => {
+  const { userData, loggedInUser } = getLoggedInUser();
   const searchParams = useSearchParams();
   const [dataTenkes, setDataTenkes] = useState<TenagaKesehatanUser>();
 
@@ -23,6 +26,10 @@ const ProfileTenagaMedis = () => {
     setDataTenkes(data as TenagaKesehatanUser);
   }, [searchParams]);
 
+  if (!userData || !loggedInUser || !dataTenkes) {
+    return <div> Loading... </div>;
+  }
+
   return (
     <div className="flex flex-col">
       <Header title="Profil Tenaga Kesehatan" />
@@ -30,7 +37,7 @@ const ProfileTenagaMedis = () => {
       <div className="flex flex-col py-3 px-4 gap-3 pt-6 ">
         <div className="self-center">
           <Image
-            src={dataTenkes?.profilePicture || ''}
+            src={dataTenkes.profilePicture || ''}
             alt="doctor"
             width={80}
             height={80}
@@ -38,24 +45,31 @@ const ProfileTenagaMedis = () => {
         </div>
 
         <p className="font-semibold text-mainGrey self-center">
-          {dataTenkes?.name}
+          {dataTenkes.name}
         </p>
 
         <ProfileHeader
-          specialist={dataTenkes?.specialist || ''}
-          yoe={dataTenkes?.yoe || 0}
+          specialist={dataTenkes.specialist || ''}
+          yoe={dataTenkes.yoe || 0}
         />
         <CardTenkesDetail
-          data={dataTenkes?.sip.toString() || ''}
+          data={dataTenkes.sip.toString() || ''}
           title="Nomor SIP"
         />
-        <CardTenkesDetail data={dataTenkes?.almamater || ''} title="Alumnus" />
+        <CardTenkesDetail data={dataTenkes.almamater || ''} title="Alumnus" />
 
         <CardTempatPraktik
-          name={dataTenkes?.practiceLocation.name || ''}
-          id={dataTenkes?.practiceLocation.id || 0}
+          name={dataTenkes.practiceLocation.name || ''}
+          id={dataTenkes.practiceLocation.id || 0}
         />
       </div>
+      {loggedInUser.id === dataTenkes.userId && (
+        <BottomNavbarOneButton
+          path="/tenaga/edit"
+          iconPath="/images/edit.png"
+          text="Edit profile"
+        />
+      )}
     </div>
   );
 };
