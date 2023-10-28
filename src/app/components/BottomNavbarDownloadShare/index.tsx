@@ -1,5 +1,6 @@
 'use client';
 
+import { getLoggedInUser } from '@/app/common/userDataHelper';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
@@ -11,10 +12,13 @@ export type ShareProps = {
 
 const BottomNavbarDownloadShare = ({ title, body, link }: ShareProps) => {
   const router = useRouter();
+  const { loggedInUser } = getLoggedInUser();
 
   const handleClickBagikan = () => {
     router.push(`/share?title=${title}&body=${body}&link=${link}`);
   };
+
+  if (!loggedInUser || loggedInUser?.role === 'doctor') return <></>;
 
   return (
     <div

@@ -1,10 +1,55 @@
 import { useEffect, useState } from 'react';
 import { TenagaKesehatan, dummyTenagaKesehatan } from '../tenaga/constants';
+import { User } from './constants';
+import { getUserData } from './userDataHelper';
+
+export type TenagaKesehatanUser = {
+  tenkesId: string;
+  userId: string;
+  specialist: string;
+  yoe: number;
+  sip: number;
+  almamater: string;
+  practiceLocation: {
+    name: string;
+    id: number;
+  };
+  name: string;
+  profilePicture: string;
+};
+
+const combineTenkesWithUser = (
+  tenkesList: TenagaKesehatan[],
+  userList: User[],
+) => {
+  const combinedList: TenagaKesehatanUser[] = [];
+  for (let i = 0; i < tenkesList.length; i++) {
+    const tenkes = tenkesList[i];
+    const user = userList.find((user) => user.id === tenkes.userId);
+    combinedList.push({
+      tenkesId: tenkes.id,
+      userId: user!.id,
+      specialist: tenkes.specialist,
+      yoe: tenkes.yoe,
+      sip: tenkes.sip,
+      almamater: tenkes.almamater,
+      practiceLocation: tenkes.practiceLocation,
+      name: user!.name,
+      profilePicture: user!.profilePicture,
+    });
+  }
+  return combinedList;
+};
 
 export const getTenagaKesehatanList = () => {
-  const [listTenkes, setListTenkes] = useState<TenagaKesehatan[]>();
+  const [listTenkes, setListTenkes] = useState<TenagaKesehatanUser[]>();
+  const { userData } = getUserData();
 
   useEffect(() => {
+    if (!userData) {
+      return;
+    }
+
     if (!listTenkes && typeof window !== undefined) {
       const listTenkesStorage = localStorage.getItem('listTenkesStorage');
       if (listTenkesStorage) {
@@ -13,14 +58,16 @@ export const getTenagaKesehatanList = () => {
         return;
       }
 
-      localStorage.setItem(
-        'listTenkesStorage',
-        JSON.stringify(dummyTenagaKesehatan),
+      const tenkesUserList = combineTenkesWithUser(
+        dummyTenagaKesehatan,
+        userData,
       );
 
-      setListTenkes(dummyTenagaKesehatan);
+      localStorage.setItem('listTenkesStorage', JSON.stringify(tenkesUserList));
+
+      setListTenkes(tenkesUserList);
     }
-  }, [listTenkes]);
+  }, [listTenkes, userData]);
 
   return {
     listTenkes,
@@ -30,7 +77,7 @@ export const getTenagaKesehatanList = () => {
 export const getTenkesBySIP = (sip: number) => {
   const listTenkesStorage = localStorage.getItem('listTenkesStorage');
   if (listTenkesStorage) {
-    const listTenkes: TenagaKesehatan[] = JSON.parse(listTenkesStorage);
+    const listTenkes: TenagaKesehatanUser[] = JSON.parse(listTenkesStorage);
 
     return listTenkes.find((tenkes) => tenkes.sip === sip);
   }

@@ -18,10 +18,6 @@ export type User = {
   dateOfBirth?: string;
   bloodType?: string;
   maritalStatus?: string;
-
-  // doctor
-  specialist?: string;
-  practicePlace?: string;
 };
 
 export const dummyUserData: User[] = [
@@ -49,13 +45,11 @@ export const dummyUserData: User[] = [
     age: 35,
     name: 'dr. Ali Abdul',
     gender: 'laki-laki',
-    profilePicture: '/images/docter-2.png',
+    profilePicture: '/images/docter-1.png',
     nik: '3175121267251234',
     dateOfBirth: '1990-10-01',
     bloodType: 'O',
     maritalStatus: 'Sudah Menikah',
-    specialist: 'Obgyn',
-    practicePlace: 'Siloam Hospital',
   },
   {
     id: '3',
@@ -84,14 +78,12 @@ export const dummyUserData: User[] = [
     password: 'pass',
     role: 'doctor',
     age: 35,
-    name: 'dr. zainal',
+    name: 'dr. Budi Santoso',
     gender: 'laki-laki',
     profilePicture: '/images/docter-2.png',
     nik: '3175121267251234',
     dateOfBirth: '1990-10-01',
     bloodType: 'O',
     maritalStatus: 'Sudah Menikah',
-    specialist: 'Ortho',
-    practicePlace: 'Siloam Hospital',
   },
 ];

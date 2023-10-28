@@ -13,6 +13,7 @@ import {
 import { useRouter, useSearchParams } from 'next/navigation';
 import withAuth from '../components/PrivateRoute';
 import { Notification } from '../notifications/constants';
+import { getTenagaKesehatanList } from '../common/tenagaKesehatanHelper';
 
 const SharePage = () => {
   const router = useRouter();
@@ -25,7 +26,8 @@ const SharePage = () => {
   const [listSelectedDoctor, setListSelectedDoctor] = useState<string[]>([]);
   let { notificationData } = getNotificationData();
   let { loggedInUser, userData } = getLoggedInUser();
-  if (!loggedInUser || !userData || !notificationData) {
+  const { listTenkes } = getTenagaKesehatanList();
+  if (!loggedInUser || !userData || !notificationData || !listTenkes) {
     return <div> Loading... </div>;
   }
   // filter only doctor
@@ -115,13 +117,13 @@ const SharePage = () => {
         <SearchBar />
         <Title text="Tenaga Kesehatan Anda" />
 
-        {userData.map((tenkes, index) => (
+        {listTenkes.map((tenkes, index) => (
           <CardTenkes
             key={index}
             image={tenkes.profilePicture}
             name={tenkes.name}
             specialist={tenkes.specialist!}
-            handleSelectDoctor={() => handleSelectDoctor(tenkes.id)}
+            handleSelectDoctor={() => handleSelectDoctor(tenkes.userId)}
           />
         ))}
 

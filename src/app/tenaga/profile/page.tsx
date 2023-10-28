@@ -7,18 +7,20 @@ import CardTenkesDetail from '../components/CardTenkesDetail';
 import CardTempatPraktik from '../components/CardTempatPraktik';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { TenagaKesehatan } from '../constants';
-import { getTenkesBySIP } from '@/app/common/tenagaKesehatanHelper';
+import {
+  TenagaKesehatanUser,
+  getTenkesBySIP,
+} from '@/app/common/tenagaKesehatanHelper';
 
 const ProfileTenagaMedis = () => {
   const searchParams = useSearchParams();
-  const [dataTenkes, setDataTenkes] = useState<TenagaKesehatan>();
+  const [dataTenkes, setDataTenkes] = useState<TenagaKesehatanUser>();
 
   useEffect(() => {
     const sip = searchParams.get('sip');
     const data = getTenkesBySIP(parseInt(sip || ''));
 
-    setDataTenkes(data as TenagaKesehatan);
+    setDataTenkes(data as TenagaKesehatanUser);
   }, [searchParams]);
 
   return (
