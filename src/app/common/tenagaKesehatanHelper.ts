@@ -84,3 +84,14 @@ export const getTenkesBySIP = (sip: number) => {
 
   return null;
 };
+
+export const getTenkesByUserId = (userId: string) => {
+  const listTenkesStorage = localStorage.getItem('listTenkesStorage');
+  if (listTenkesStorage) {
+    const listTenkes: TenagaKesehatanUser[] = JSON.parse(listTenkesStorage);
+
+    return listTenkes.find((tenkes) => tenkes.userId === userId);
+  }
+
+  return null;
+};

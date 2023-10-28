@@ -5,6 +5,7 @@ import { getLoggedInUser, logoutUser } from '../common/userDataHelper';
 import withAuth from '../components/PrivateRoute';
 import ProfileOptionCard from './components/ProfileOptionCard';
 import ProfileHeader from './components/ProfileHeader';
+import { getTenkesByUserId } from '../common/tenagaKesehatanHelper';
 
 const ProfilePage = () => {
   const { loggedInUser: user } = getLoggedInUser();
@@ -14,12 +15,17 @@ const ProfilePage = () => {
   }
 
   const renderDoctorProfile = () => {
+    const tenkes = getTenkesByUserId(user.id);
+    if (!tenkes) {
+      return <div> Loading... </div>;
+    }
+
     return (
       <div>
         <hr />
         <ProfileOptionCard
           title="Profil Saya"
-          path={'/profile/detail/' + user.id}
+          path={`/tenaga/profile?sip=${tenkes?.sip}`}
         />
         <ProfileOptionCard
           title="Ubah Password"
