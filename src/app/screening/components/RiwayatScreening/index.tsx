@@ -1,9 +1,12 @@
 import { getSkriningKesehatanList } from '@/app/common/skriningKesehatanHelper';
 import RiwayatScreeningCard from '../RiwayatScreeningCard';
+import { Skrining } from '../../constants';
 
-const RiwayatScreening = () => {
-  const { listSkrining } = getSkriningKesehatanList();
+type Props = {
+  listSkrining: Skrining[] | undefined;
+};
 
+const RiwayatScreening = ({ listSkrining }: Props) => {
   return (
     <div className="flex flex-col gap-3">
       <h3 className="font-semibold text-mainGrey">

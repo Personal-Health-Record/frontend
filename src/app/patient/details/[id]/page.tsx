@@ -42,8 +42,11 @@ const ProfilePatientPage = () => {
         />
         <CardOptionPatient path="/resume" title="Resume Medis Pasien" />
         <CardOptionPatient path="/rujukan" title="Rujukan Pasien" />
-        {/* TODO lanjut */}
-        <CardOptionPatient path="/" title="Skrining Kesehatan Pasien" />
+        <CardOptionPatient
+          path="/screening/doctor"
+          title="Skrining Kesehatan Pasien"
+        />
+        {/* TODO: setelah tracking selesai */}
         <CardOptionPatient path="/" title="Tracking Data Kesehatan" />
       </div>
     </div>
