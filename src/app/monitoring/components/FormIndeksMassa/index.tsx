@@ -34,27 +34,20 @@ const FormIndeksMassa = ({
         onChange={(value: any) => setFormState({ ...formState, age: value })}
         value={formState.age}
       />
-
-      <div className="flex gap-4">
-        <TextInput
-          label="Berat Badan"
-          placeholder="Berat Badan"
-          type="number"
-          onChange={(value: any) =>
-            setFormState({ ...formState, weight: value })
-          }
-          value={formState.weight}
-        />
-        <TextInput
-          label="Tinggi Badan (cm)"
-          placeholder="Tinggi Badan (cm)"
-          type="number"
-          onChange={(value: any) =>
-            setFormState({ ...formState, height: value })
-          }
-          value={formState.height}
-        />
-      </div>
+      <TextInput
+        label="Berat Badan (Kg)"
+        placeholder="Berat Badan"
+        type="number"
+        onChange={(value: any) => setFormState({ ...formState, weight: value })}
+        value={formState.weight}
+      />
+      <TextInput
+        label="Tinggi Badan (cm)"
+        placeholder="Tinggi Badan (cm)"
+        type="number"
+        onChange={(value: any) => setFormState({ ...formState, height: value })}
+        value={formState.height}
+      />
 
       <button
         className="bg-mainBlue rounded-3xl text-white font-semibold py-3 mb-6"

@@ -79,9 +79,9 @@ const KalkulatorKalori = () => {
     <div className="flex flex-col">
       <Header title="Kalkulator Kesehatan" />
 
-      <div className="flex flex-col w-full px-4 py-4 gap-3">
-        <h3 className="font-semibold text-mainGrey pl-2 mb-3">
-          Indeks Massa Tubuh
+      <div className="flex flex-col w-full px-4 py-4">
+        <h3 className="font-semibold text-mainGrey pl-2">
+          Kalkulator Kalori (BMR)
         </h3>
 
         <FormKalori

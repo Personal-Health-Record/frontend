@@ -28,14 +28,19 @@ const PengingatCard = ({
   const renderConsumeButton = () => {
     if (pengigat.consumptionStatus === 'Sudah dikonsumsi') {
       return (
-        <div className="flex bg-lightGrey items-center gap-1 pl-1 pr-2 py-1 rounded-2xl">
+        <div
+          className="flex bg-lightGrey items-center gap-1 pl-1 pr-2 py-1 rounded-2xl"
+          style={{
+            width: 100,
+          }}
+        >
           <Image
             src="/images/pengingat/check_all.png"
             alt=""
             width={20}
             height={20}
           />
-          <p className="text-xs text-white">Dikonsumsi</p>
+          <p className="text-xs text-white pr-2">Dikonsumsi</p>
         </div>
       );
     }
