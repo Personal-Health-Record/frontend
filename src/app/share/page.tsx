@@ -105,6 +105,7 @@ const SharePage = () => {
     }
 
     addNotificationData(newNotificationDataList, notificationData!);
+    alert('Data berhasil dikirim');
     router.push('/');
   };
 
